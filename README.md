@@ -1,0 +1,2 @@
+# Plasmodium_Protein_Domain_Annotation
+Plasmodium Protein Domain Annotation Pipeline with Streamlit
