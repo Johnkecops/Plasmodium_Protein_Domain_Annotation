@@ -61,6 +61,43 @@ _DOMAIN_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Strip parenthetical/bracketed qualifiers from organism names (e.g. "(isolate 3D7)")
+_ORGANISM_QUALIFIER_RE = re.compile(r'\s*[\(\[].*', re.DOTALL)
+
+_MAX_RETRIES = 3
+_RETRY_BASE_DELAY = 2.0  # seconds; doubles each attempt
+
+
+def _request_with_retry(
+    url: str,
+    params=None,
+    timeout: int = 60,
+) -> requests.Response:
+    """GET with exponential backoff retry on transient failures."""
+    delay = _RETRY_BASE_DELAY
+    for attempt in range(_MAX_RETRIES):
+        try:
+            resp = requests.get(url, params=params, timeout=timeout)
+            resp.raise_for_status()
+            return resp
+        except requests.RequestException as exc:
+            if attempt == _MAX_RETRIES - 1:
+                raise RuntimeError(
+                    f"UniProt API request failed after {_MAX_RETRIES} attempts: {exc}"
+                ) from exc
+            time.sleep(delay)
+            delay *= 2
+    raise RuntimeError("Unreachable")  # pragma: no cover
+
+
+def _normalise_organism_name(name) -> str:
+    """Strip strain/isolate qualifiers; keep genus + species only."""
+    if not isinstance(name, str):
+        return str(name)
+    clean = _ORGANISM_QUALIFIER_RE.sub("", name).strip()
+    parts = clean.split()
+    return " ".join(parts[:2]) if len(parts) >= 2 else clean
+
 
 def fetch_plasmodium_proteins(
     taxon_id: str = PLASMODIUM_TAXON,
@@ -100,12 +137,7 @@ def fetch_plasmodium_proteins(
     total_fetched = 0
 
     while url and total_fetched < max_results:
-        try:
-            resp = requests.get(url, params=params, timeout=60)
-            resp.raise_for_status()
-        except requests.RequestException as exc:
-            raise RuntimeError(f"UniProt API request failed: {exc}") from exc
-
+        resp = _request_with_retry(url, params=params)
         text = resp.text.strip()
         if not text:
             break
@@ -176,6 +208,7 @@ def _normalise(raw: pd.DataFrame) -> pd.DataFrame:
 
     raw["length"] = pd.to_numeric(raw.get("length", 0), errors="coerce").fillna(0).astype(int)
     raw["taxon_id"] = raw.get("taxon_id", pd.Series("", index=raw.index)).astype(str).str.strip()
+    raw["organism"] = raw["organism"].apply(_normalise_organism_name)
 
     # Parse domain features
     raw["domains"] = raw.get("ft_domain_raw", pd.Series("", index=raw.index)).apply(parse_ft_domain)
@@ -346,12 +379,7 @@ def fetch_fasta_sequences(
     fetched = 0
 
     while url and fetched < max_results:
-        try:
-            resp = requests.get(url, params=params, timeout=60)
-            resp.raise_for_status()
-        except requests.RequestException as exc:
-            raise RuntimeError(f"FASTA fetch failed: {exc}") from exc
-
+        resp = _request_with_retry(url, params=params)
         text = resp.text.strip()
         if text:
             sequences.append(text)

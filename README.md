@@ -1,4 +1,4 @@
-# Plasmodium Protein Domain Annotator
+# Plasmodium Protein Domain Annotator (v1.1)
 
 A Streamlit application for HMM-based protein domain annotation across all reviewed *Plasmodium* species available in UniProt. The tool retrieves Swiss-Prot-curated protein entries, parses domain feature annotations, and provides interactive visualisations of domain occurrence and avoidance patterns at both the whole-genus and per-species level.
 
@@ -58,7 +58,7 @@ Open the URL printed to the terminal (typically `http://localhost:8501`).
 
 ```
 Plasmodium Protein Domain Annotation/
-├── app.py                     # Main Streamlit application
+├── app.py                     # Main Streamlit application (loads cached data via file I/O)
 ├── requirements.txt           # Python dependencies
 ├── README.md                  # This file
 ├── LICENSE.txt                # MIT licence
@@ -69,13 +69,19 @@ Plasmodium Protein Domain Annotation/
     └── visualize.py           # Plotly chart generators
 ```
 
+**Integration pattern:** `app.py` and `SCRIPT/` are decoupled by design. `SCRIPT/` functions generate analysis outputs; `app.py` loads them via `st.cache_data`-wrapped file I/O (JSON/FASTA). There are no import-level dependencies between `app.py` and `SCRIPT/`. The schema contract between what `SCRIPT/` writes and what `app.py` reads is enforced by column names documented in each function's docstring.
+
 ---
 
 ## Methodology
 
 ### Data retrieval
 
-Reviewed (*Swiss-Prot*) protein entries are fetched from the UniProt REST API v2 for the selected *Plasmodium* taxon (default: genus taxon 5820). Pagination is handled automatically, with a configurable result cap.
+Reviewed (*Swiss-Prot*) protein entries are fetched from the UniProt REST API v2 for the selected *Plasmodium* taxon (default: genus taxon 5820). Pagination is handled automatically with exponential backoff retry (3 attempts), with a configurable result cap.
+
+**Coverage caveat:** `reviewed:true` restricts retrieval to Swiss-Prot manually curated entries. For *Plasmodium* species other than *P. falciparum* and *P. vivax*, Swiss-Prot coverage is sparse. Species-level comparisons will be biased toward well-annotated species. Set `reviewed=False` to include TrEMBL entries for broader coverage (at reduced annotation quality).
+
+**Organism name normalization:** Strain and isolate qualifiers (e.g. "isolate 3D7", "Salvador I") are stripped from organism names during data ingestion. All entries are grouped at genus + species level to prevent phantom species from strain name variants in UniProt records.
 
 ### Domain annotation sources
 
@@ -115,6 +121,27 @@ This application was benchmarked against [github.com/Johnkecops/protein-domain](
 | No domain avoidance analysis | Full avoidance score computation and table |
 | No per-protein visualisation | Interactive linear domain map per selected protein |
 | Matrix memory issues at scale | Columns capped to top-N domains; `fill_value=0` sparse matrix |
+
+---
+
+## Version Comparison
+
+| Component                      | v1.0                                                                                                      | v1.1                                                                                          |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| **API resilience**             | Single-shot `requests.get`; one network error aborts entire fetch                                         | Exponential backoff retry (3 attempts: 2s, 4s, 8s) on all API calls                           |
+| **Organism normalization**     | Raw UniProt `organism` string used; strain/isolate variants create phantom species                        | Qualifiers stripped (e.g. "isolate 3D7"); all entries grouped at genus + species level        |
+| **BH-FDR correction**          | Hand-rolled `numpy` implementation in both avoidance and co-occurrence modules; untested on tied p-values | `statsmodels.multipletests(method="fdr_bh")` — reference implementation, correct monotonicity |
+| **Species input guard**        | Silent miscalibration if single-species `df` passed to `compute_domain_avoidance`                         | `UserWarning` emitted when `df` has < 2 species                                               |
+| **Matrix build performance**   | `iterrows()` loop in `compute_species_domain_matrix`                                                      | `DataFrame.explode()` + `groupby` (vectorized)                                                |
+| **Cooccurrence heatmap build** | `iterrows()` symmetric fill loop                                                                          | `pivot_table` + concat of both directions (vectorized)                                        |
+| **Cooccurrence heatmap NaN**   | Zero co-occurrence pairs rendered as blank/grey patches (ambiguous)                                       | Filled with `0.0` explicitly; visually unambiguous                                            |
+| **Metric validation**          | Unknown `metric` string raises `KeyError` inside loop with no useful message                              | `ValueError` raised before loop with clear message                                            |
+| **`sig_only` filter**          | Silently no-ops if `fisher_pvalue_adj` column absent                                                      | `UserWarning` emitted when filter is skipped                                                  |
+| **Heatmap height**             | `n_species * 55` unbounded; cramped at 20+ species                                                        | Capped at 1200px                                                                              |
+| **Rare-pair filtering**        | No minimum co-occurrence guard; lift inflates for low-count pairs                                         | `min_n_AB` parameter added to `plot_domain_cooccurrence_top_pairs`                            |
+| **Coverage documentation**     | `reviewed:true` default undocumented; sparse coverage for non-falciparum species implicit                 | Caveat documented in Methodology; `reviewed=False` option described                           |
+| **Integration pattern**        | `app.py` / `SCRIPT/` decoupling undocumented; schema contract implicit                                    | File I/O integration pattern documented; schema contract referenced to docstrings             |
+| **Dependencies**               | `scipy` missing from `requirements.txt` despite active import                                             | `scipy>=1.10.0` and `statsmodels>=0.14.0` added                                               |
 
 ---
 

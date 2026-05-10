@@ -11,11 +11,13 @@ References:
     Parikesit et al. (2018) JBI 14(2):185-190.
 """
 
+import warnings
 import pandas as pd
 import numpy as np
 from typing import List, Dict, Optional, Tuple
 from scipy.stats import fisher_exact, binomtest
 from itertools import combinations
+from statsmodels.stats.multitest import multipletests
 
 
 def get_species_summary(df: pd.DataFrame) -> pd.DataFrame:
@@ -98,17 +100,18 @@ def compute_species_domain_matrix(df: pd.DataFrame) -> pd.DataFrame:
     pd.DataFrame
         Rows = species, columns = domain names.
     """
-    records = []
-    for _, row in df.iterrows():
-        for d in row["domain_names"]:
-            records.append({"organism": row["organism"], "domain_name": d})
-
-    if not records:
+    expanded = (
+        df[["organism", "domain_names"]]
+        .explode("domain_names")
+        .dropna(subset=["domain_names"])
+        .rename(columns={"domain_names": "domain_name"})
+    )
+    expanded = expanded[expanded["domain_name"].str.strip().ne("")]
+    if expanded.empty:
         return pd.DataFrame()
 
-    exp = pd.DataFrame(records)
     matrix = (
-        exp.groupby(["organism", "domain_name"])
+        expanded.groupby(["organism", "domain_name"])
         .size()
         .unstack(fill_value=0)
     )
@@ -137,6 +140,14 @@ def compute_domain_avoidance(
                  species_with, species_without.
         Sorted by avoidance_score descending.
     """
+    if df["organism"].nunique() < 2:
+        warnings.warn(
+            "compute_domain_avoidance: df contains only one species; "
+            "p_global is calibrated on a single-species subset and avoidance p-values will be unreliable.",
+            UserWarning,
+            stacklevel=2,
+        )
+
     matrix = compute_species_domain_matrix(df)
     if matrix.empty:
         return pd.DataFrame()
@@ -201,18 +212,9 @@ def compute_domain_avoidance(
         .reset_index(drop=True)
     )
 
-    # BH-FDR correction on the per-domain minimum p-values
-    pvals = result["min_binom_pvalue"].values
-    n = len(pvals)
-    order = np.argsort(pvals)
-    ranks = np.empty(n, dtype=int)
-    ranks[order] = np.arange(1, n + 1)
-    bh_thresholds = pvals[order] * n / ranks[order]
-    # Cumulative min from right to keep monotonicity
-    bh_adj = np.minimum.accumulate(bh_thresholds[::-1])[::-1]
-    bh_adj_sorted = np.empty(n)
-    bh_adj_sorted[order] = bh_adj
-    result["avoidance_pvalue_adj"] = np.minimum(bh_adj_sorted, 1.0).round(6)
+    # BH-FDR correction via statsmodels.multipletests
+    _, pvals_adj, _, _ = multipletests(result["min_binom_pvalue"].values, method="fdr_bh")
+    result["avoidance_pvalue_adj"] = np.minimum(pvals_adj, 1.0).round(6)
     result = result.drop(columns=["_absent_pvalues"])
 
     return result
@@ -361,17 +363,9 @@ def compute_domain_cooccurrence_stats(
 
     result = pd.DataFrame(rows).sort_values("lift", ascending=False).reset_index(drop=True)
 
-    # BH-FDR on Fisher p-values
-    pvals = result["fisher_pvalue"].values
-    n = len(pvals)
-    order = np.argsort(pvals)
-    ranks = np.empty(n, dtype=int)
-    ranks[order] = np.arange(1, n + 1)
-    bh = pvals[order] * n / ranks[order]
-    bh_adj = np.minimum.accumulate(bh[::-1])[::-1]
-    bh_adj_final = np.empty(n)
-    bh_adj_final[order] = bh_adj
-    result["fisher_pvalue_adj"] = np.minimum(bh_adj_final, 1.0).round(6)
+    # BH-FDR on Fisher p-values via statsmodels.multipletests
+    _, pvals_adj, _, _ = multipletests(result["fisher_pvalue"].values, method="fdr_bh")
+    result["fisher_pvalue_adj"] = np.minimum(pvals_adj, 1.0).round(6)
 
     return result
 

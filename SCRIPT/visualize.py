@@ -7,11 +7,14 @@ Author: Dr. Arli Aditya Parikesit
 Date: 2026
 """
 
+import warnings
 import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from typing import Optional
+
+_VALID_METRICS = frozenset(("jaccard", "lift", "pmi"))
 
 
 # ─── Colour constants ─────────────────────────────────────────────────────────
@@ -165,7 +168,7 @@ def plot_species_domain_heatmap(matrix: pd.DataFrame, max_domains: int = 50) -> 
         aspect="auto",
     )
     fig.update_layout(
-        height=max(350, len(m.index) * 55),
+        height=min(max(350, len(m.index) * 55), 1200),
         xaxis=dict(tickangle=45, tickfont=dict(size=10)),
         coloraxis_colorbar=dict(title="Proteins"),
         plot_bgcolor="white",
@@ -256,6 +259,9 @@ def plot_domain_cooccurrence_heatmap(
     if cooc_stats.empty:
         return _empty_figure("No domain co-occurrence data available.")
 
+    if metric not in _VALID_METRICS:
+        raise ValueError(f"metric must be one of {sorted(_VALID_METRICS)!r}, got {metric!r}")
+
     # Find most represented domains in pairs
     freq = (
         pd.concat([
@@ -267,20 +273,21 @@ def plot_domain_cooccurrence_heatmap(
     )
     top_domains = freq.index.tolist()
 
-    # Build symmetric matrix for the chosen metric
     sub = cooc_stats[
         cooc_stats["domain_A"].isin(top_domains) & cooc_stats["domain_B"].isin(top_domains)
-    ].copy()
+    ][["domain_A", "domain_B", metric]].copy()
 
-    mat = pd.DataFrame(
-        np.nan, index=top_domains, columns=top_domains, dtype=float
+    # Build symmetric matrix via pivot (stack both directions, no iterrows)
+    both = pd.concat([
+        sub,
+        sub.rename(columns={"domain_A": "domain_B", "domain_B": "domain_A"}),
+    ], ignore_index=True)
+    mat = (
+        both.pivot_table(index="domain_A", columns="domain_B", values=metric, aggfunc="first")
+        .reindex(index=top_domains, columns=top_domains)
     )
     np.fill_diagonal(mat.values, 0.0 if metric in ("jaccard", "pmi") else 1.0)
-
-    for _, row in sub.iterrows():
-        val = row[metric]
-        mat.loc[row["domain_A"], row["domain_B"]] = val
-        mat.loc[row["domain_B"], row["domain_A"]] = val
+    mat = mat.fillna(0.0)  # zero co-occurrence, not missing data
 
     metric_labels = {
         "jaccard": "Jaccard similarity",
@@ -310,6 +317,7 @@ def plot_domain_cooccurrence_top_pairs(
     metric: str = "lift",
     top_n: int = 25,
     sig_only: bool = False,
+    min_n_AB: int = 0,
 ) -> go.Figure:
     """
     Horizontal bar chart of top domain pairs ranked by chosen metric.
@@ -320,13 +328,25 @@ def plot_domain_cooccurrence_top_pairs(
     metric     : column to rank by ('lift', 'jaccard', 'pmi')
     top_n      : number of pairs to show
     sig_only   : if True, restrict to pairs with fisher_pvalue_adj < 0.05
+    min_n_AB   : minimum co-occurrence count; filters rare pairs before ranking
     """
     if cooc_stats.empty:
         return _empty_figure("No domain co-occurrence pairs found.")
 
     df = cooc_stats.copy()
-    if sig_only and "fisher_pvalue_adj" in df.columns:
-        df = df[df["fisher_pvalue_adj"] < 0.05]
+    if sig_only:
+        if "fisher_pvalue_adj" not in df.columns:
+            warnings.warn(
+                "sig_only=True requested but 'fisher_pvalue_adj' column absent; "
+                "significance filter skipped.",
+                UserWarning,
+                stacklevel=2,
+            )
+        else:
+            df = df[df["fisher_pvalue_adj"] < 0.05]
+
+    if min_n_AB > 0 and "n_AB" in df.columns:
+        df = df[df["n_AB"] >= min_n_AB]
 
     if df.empty:
         return _empty_figure("No statistically significant co-occurrence pairs (adj p < 0.05).")
