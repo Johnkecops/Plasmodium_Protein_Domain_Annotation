@@ -24,6 +24,7 @@ import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "SCRIPT"))
 
+import io
 import json
 import time
 import streamlit as st
@@ -108,7 +109,7 @@ def _json_to_df(json_str: str) -> pd.DataFrame:
     """Restore DataFrame from JSON, fixing list columns."""
     if not json_str:
         return pd.DataFrame()
-    df = pd.read_json(json_str, orient="records")
+    df = pd.read_json(io.StringIO(json_str), orient="records")
     for col in ["domains", "domain_names", "interpro_ids", "pfam_ids", "go_functions", "keywords"]:
         if col in df.columns:
             df[col] = df[col].apply(lambda x: x if isinstance(x, list) else [])
