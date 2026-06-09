@@ -286,7 +286,9 @@ def plot_domain_cooccurrence_heatmap(
         both.pivot_table(index="domain_A", columns="domain_B", values=metric, aggfunc="first")
         .reindex(index=top_domains, columns=top_domains)
     )
-    np.fill_diagonal(mat.values, 0.0 if metric in ("jaccard", "pmi") else 1.0)
+    arr = mat.to_numpy(dtype=float, copy=True)
+    np.fill_diagonal(arr, 0.0 if metric in ("jaccard", "pmi") else 1.0)
+    mat = pd.DataFrame(arr, index=mat.index, columns=mat.columns)
     mat = mat.fillna(0.0)  # zero co-occurrence, not missing data
 
     metric_labels = {
