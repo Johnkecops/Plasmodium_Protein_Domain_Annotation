@@ -19,14 +19,16 @@ References:
 import sys
 import os
 import datetime
+import logging
 
-SCRIPT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "SCRIPT")
-sys.path.insert(0, SCRIPT_DIR)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from fetch_proteins import fetch_plasmodium_proteins
 from network_builder import build_domain_network, graph_summary
 from degree_analysis import fit_degree_distribution, compare_distributions, interpret_results
 from network_metrics import compute_clustering, compute_path_length, compute_hub_analysis, compute_core_pan
+
+logger = logging.getLogger(__name__)
 
 
 def run(
@@ -37,66 +39,74 @@ def run(
 ) -> str:
     """Run full analysis pipeline; return report as Markdown string."""
 
-    print(f"[1/6] Fetching Plasmodium proteins (taxon={taxon_id}, reviewed=True)...")
+    logger.info("[1/6] Fetching Plasmodium proteins (taxon=%s, reviewed=True)...", taxon_id)
     df = fetch_plasmodium_proteins(taxon_id=taxon_id, reviewed=True, max_results=max_proteins)
     n_proteins = len(df)
     n_species = df["organism"].nunique() if n_proteins > 0 else 0
-    print(f"      Fetched {n_proteins} proteins across {n_species} species.")
+    logger.info("      Fetched %d proteins across %d species.", n_proteins, n_species)
 
     if n_proteins == 0:
+        logger.error("No proteins retrieved. Check network access.")
         return "ERROR: No proteins retrieved. Check network access."
 
     domain_col = "pfam_ids" if use_pfam and "pfam_ids" in df.columns else "domain_names"
     n_with_domains = df[domain_col].apply(
         lambda x: bool(x) if isinstance(x, list) else False
     ).sum()
-    print(f"      Domain column: {domain_col} | {n_with_domains}/{n_proteins} proteins with annotations.")
+    logger.info(
+        "      Domain column: %s | %d/%d proteins with annotations.",
+        domain_col, n_with_domains, n_proteins,
+    )
 
     # Fall back if Pfam coverage is < 5%
     if use_pfam and n_with_domains < 0.05 * n_proteins:
-        print("      WARNING: Pfam coverage <5%. Falling back to ft_domain names.")
+        logger.warning("Pfam coverage <5%%. Falling back to ft_domain names.")
         use_pfam = False
         domain_col = "domain_names"
         n_with_domains = df[domain_col].apply(
             lambda x: bool(x) if isinstance(x, list) else False
         ).sum()
 
-    print(f"[2/6] Building domain co-occurrence network (domain_col={domain_col})...")
+    logger.info("[2/6] Building domain co-occurrence network (domain_col=%s)...", domain_col)
     G = build_domain_network(df, use_pfam=use_pfam, min_edge_proteins=1)
     summary = graph_summary(G)
-    print(
-        f"      Nodes={summary['n_nodes']}, Edges={summary['n_edges']}, "
-        f"Components={summary['n_components']}"
+    logger.info(
+        "      Nodes=%d, Edges=%d, Components=%d",
+        summary["n_nodes"], summary["n_edges"], summary["n_components"],
     )
 
     if summary["n_nodes"] < 5:
+        logger.error("Network too small (<5 nodes). Insufficient domain annotations in dataset.")
         return "ERROR: Network too small (<5 nodes). Insufficient domain annotations in dataset."
 
-    print("[3/6] Fitting degree distribution (MLE, Clauset-Shalizi-Newman)...")
+    logger.info("[3/6] Fitting degree distribution (MLE, Clauset-Shalizi-Newman)...")
     degrees = [d for _, d in G.degree() if d > 0]
     try:
         fit, fit_stats = fit_degree_distribution(degrees, discrete=True)
     except ValueError as e:
+        logger.error("Degree fitting failed: %s", e)
         return f"ERROR in degree fitting: {e}"
-    print(
-        f"      alpha={fit_stats['alpha']}, xmin={fit_stats['xmin']}, "
-        f"KS={fit_stats['KS_distance']}, n_tail={fit_stats['n_tail']}"
+    logger.info(
+        "      alpha=%s, xmin=%s, KS=%s, n_tail=%s",
+        fit_stats["alpha"], fit_stats["xmin"], fit_stats["KS_distance"], fit_stats["n_tail"],
     )
 
-    print("[4/6] Vuong likelihood ratio tests (power law vs alternatives)...")
+    logger.info("[4/6] Vuong likelihood ratio tests (power law vs alternatives)...")
     comparisons = compare_distributions(fit)
     for alt, res in comparisons.items():
-        print(f"      vs {alt}: R={res['R']}, p={res['p']}")
+        logger.info("      vs %s: R=%s, p=%s", alt, res["R"], res["p"])
 
-    print("[5/6] Computing structural network metrics...")
+    logger.info("[5/6] Computing structural network metrics...")
     clustering = compute_clustering(G)
     path_metrics = compute_path_length(G)
     hubs = compute_hub_analysis(G, top_n=10)
     core_pan = compute_core_pan(df, use_pfam=use_pfam)
-    print(f"      avg_clustering={clustering['avg_clustering']}, "
-          f"avg_path={path_metrics.get('avg_path_length')}")
+    logger.info(
+        "      avg_clustering=%s, avg_path=%s",
+        clustering["avg_clustering"], path_metrics.get("avg_path_length"),
+    )
 
-    print("[6/6] Writing REPORT.md...")
+    logger.info("[6/6] Writing REPORT.md...")
     interpretation = interpret_results(fit_stats, comparisons)
     report = _format_report(
         df, summary, fit_stats, comparisons, interpretation,
@@ -108,7 +118,7 @@ def run(
     )
     with open(abs_report, "w", encoding="utf-8") as fh:
         fh.write(report)
-    print(f"      Written: {abs_report}")
+    logger.info("      Written: %s", abs_report)
     return report
 
 
@@ -314,6 +324,12 @@ A large cloud fraction indicates lineage-specific domain acquisition consistent 
 
 if __name__ == "__main__":
     import argparse
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)-8s %(name)s: %(message)s",
+        datefmt="%H:%M:%S",
+    )
 
     parser = argparse.ArgumentParser(
         description="Plasmodium domain network non-scale-free analysis"

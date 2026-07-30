@@ -15,9 +15,12 @@ import io
 import re
 import time
 import json
+import logging
 import requests
 import pandas as pd
 from typing import Optional, List, Dict
+
+logger = logging.getLogger(__name__)
 
 UNIPROT_SEARCH = "https://rest.uniprot.org/uniprotkb/search"
 INTERPRO_ENTRY = "https://www.ebi.ac.uk/interpro/api/entry/interpro/{ipr_id}/?format=json"
@@ -82,9 +85,16 @@ def _request_with_retry(
             return resp
         except requests.RequestException as exc:
             if attempt == _MAX_RETRIES - 1:
+                logger.error(
+                    "UniProt API request failed after %d attempts: %s", _MAX_RETRIES, exc
+                )
                 raise RuntimeError(
                     f"UniProt API request failed after {_MAX_RETRIES} attempts: {exc}"
                 ) from exc
+            logger.warning(
+                "UniProt API request failed (attempt %d/%d): %s; retrying in %.0fs",
+                attempt + 1, _MAX_RETRIES, exc, delay,
+            )
             time.sleep(delay)
             delay *= 2
     raise RuntimeError("Unreachable")  # pragma: no cover
@@ -135,11 +145,17 @@ def fetch_plasmodium_proteins(
     all_frames: List[pd.DataFrame] = []
     url: Optional[str] = UNIPROT_SEARCH
     total_fetched = 0
+    page = 0
+
+    logger.info("Fetching Plasmodium proteins: taxon=%s reviewed=%s max_results=%d",
+                taxon_id, reviewed, max_results)
 
     while url and total_fetched < max_results:
+        page += 1
         resp = _request_with_retry(url, params=params)
         text = resp.text.strip()
         if not text:
+            logger.debug("Page %d: empty response body, stopping pagination.", page)
             break
 
         try:
@@ -148,6 +164,7 @@ def fetch_plasmodium_proteins(
             raise RuntimeError(f"Failed to parse UniProt TSV: {exc}") from exc
 
         if chunk.empty:
+            logger.debug("Page %d: no rows, stopping pagination.", page)
             break
 
         # Trim to stay within max_results
@@ -156,6 +173,7 @@ def fetch_plasmodium_proteins(
 
         all_frames.append(chunk)
         total_fetched += len(chunk)
+        logger.debug("Page %d: %d rows fetched (%d total so far).", page, len(chunk), total_fetched)
 
         # Follow pagination
         link_header = resp.headers.get("Link", "")
@@ -164,9 +182,11 @@ def fetch_plasmodium_proteins(
         time.sleep(0.4)
 
     if not all_frames:
+        logger.info("No proteins retrieved for taxon=%s.", taxon_id)
         return pd.DataFrame()
 
     raw = pd.concat(all_frames, ignore_index=True)
+    logger.info("Fetched %d proteins across %d page(s).", total_fetched, page)
     return _normalise(raw)
 
 

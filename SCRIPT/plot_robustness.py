@@ -33,39 +33,14 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-SCRIPT2_DIR = os.path.dirname(os.path.abspath(__file__))
-SCRIPT_DIR = os.path.normpath(os.path.join(SCRIPT2_DIR, "..", "SCRIPT"))
-sys.path.insert(0, SCRIPT_DIR)
-sys.path.insert(0, SCRIPT2_DIR)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from plot_utils import synthetic_domain_network, scilab_vector, resolve_plot_dir, fetch_network_or_synthetic
 
-# ---------------------------------------------------------------------------
-# Synthetic fallback
-# ---------------------------------------------------------------------------
 
 def _synthetic_network():
     """Stochastic block model Plasmodium-like domain network (4 modules)."""
-    import networkx as nx
-    rng = np.random.default_rng(42)
-    module_sizes = [38, 35, 32, 30]
-    n = sum(module_sizes)
-    G = nx.Graph()
-    G.add_nodes_from(range(n))
-    offsets = [0] + list(np.cumsum(module_sizes))
-    for m_i in range(len(module_sizes)):
-        si, ei = offsets[m_i], offsets[m_i + 1]
-        for u in range(si, ei):
-            for v in range(u + 1, ei):
-                if rng.random() < 0.25:
-                    G.add_edge(u, v, weight=int(rng.integers(1, 8)))
-        for m_j in range(m_i + 1, len(module_sizes)):
-            sj, ej = offsets[m_j], offsets[m_j + 1]
-            for u in range(si, ei):
-                for v in range(sj, ej):
-                    if rng.random() < 0.015:
-                        G.add_edge(u, v, weight=int(rng.integers(1, 3)))
-    mapping = {i: f"PF{14000 + i:05d}" for i in range(n)}
-    return nx.relabel_nodes(G, mapping)
+    return synthetic_domain_network()
 
 
 # ---------------------------------------------------------------------------
@@ -151,32 +126,9 @@ def simulate_targeted_dynamic(G_orig, n_steps: int = 50):
 def prepare_robustness_data(taxon_id: str = "5820", n_trials: int = 30, n_steps: int = 50):
     import networkx as nx
 
-    G = None
-    data_source = "UniProt Swiss-Prot"
-
-    try:
-        from fetch_proteins import fetch_plasmodium_proteins
-        from network_builder import build_domain_network
-        print("[1/3] Fetching Plasmodium proteins (UniProt)...")
-        df = fetch_plasmodium_proteins(taxon_id=taxon_id, reviewed=True, max_results=5000)
-        n_proteins = len(df)
-        print(f"      {n_proteins} proteins fetched.")
-        if n_proteins > 0:
-            print("[2/3] Building co-occurrence network...")
-            G = build_domain_network(df, use_pfam=True)
-            if G.number_of_nodes() < 10:
-                G = None
-            else:
-                n_species = df["organism"].nunique()
-                print(f"      {G.number_of_nodes()} nodes, {G.number_of_edges()} edges, "
-                      f"{n_species} species.")
-    except Exception as e:
-        print(f"      Fetch failed ({e}); using synthetic data.")
-
-    if G is None:
-        print("[2/3] Generating synthetic representative network...")
-        G = _synthetic_network()
-        data_source = "Synthetic (representative Plasmodium-like, stochastic block model)"
+    G, data_source = fetch_network_or_synthetic(
+        taxon_id, _synthetic_network, min_nodes=10, label="robustness curve"
+    )
 
     n = G.number_of_nodes()
     print(f"[3/3] Simulating node removal ({n} nodes, {n_steps} steps, {n_trials} random trials)...")
@@ -298,11 +250,6 @@ def write_png(path: str, d: dict) -> None:
 # Scilab .sce writer
 # ---------------------------------------------------------------------------
 
-def _vec(name, arr):
-    vals = "; ".join(f"{v:.8g}" for v in arr)
-    return f"{name} = [{vals}];"
-
-
 def write_scilab(path: str, d: dict) -> None:
     today = datetime.date.today().isoformat()
 
@@ -333,17 +280,17 @@ def write_scilab(path: str, d: dict) -> None:
         f"// ============================================================",
         f"",
         f"// Random removal: fraction removed (x) and LCC fraction (y, mean ±1 SD)",
-        _vec("x_rand", d["x_rand"]),
-        _vec("rand_mean", d["rand_mean"]),
-        _vec("rand_std", d["rand_std"]),
+        scilab_vector("x_rand", d["x_rand"]),
+        scilab_vector("rand_mean", d["rand_mean"]),
+        scilab_vector("rand_std", d["rand_std"]),
         f"",
         f"// Targeted removal: highest-degree-first",
-        _vec("x_targ", d["x_targ"]),
-        _vec("targ_lcc", d["targ"]),
+        scilab_vector("x_targ", d["x_targ"]),
+        scilab_vector("targ_lcc", d["targ"]),
         f"",
         f"// Scale-free reference (Barabasi-Albert model, targeted removal)",
-        _vec("x_ba", d["x_ba"]),
-        _vec("ba_targ", d["ba_targ"]),
+        scilab_vector("x_ba", d["x_ba"]),
+        scilab_vector("ba_targ", d["ba_targ"]),
         f"",
         f"// ============================================================",
         f"// Section 2 — Plot",
@@ -422,9 +369,7 @@ def write_scilab(path: str, d: dict) -> None:
 # ---------------------------------------------------------------------------
 
 def main(taxon_id: str = "5820", n_trials: int = 30, plot_dir: str = None):
-    if plot_dir is None:
-        plot_dir = os.path.normpath(os.path.join(SCRIPT2_DIR, "..", "PLOT"))
-    os.makedirs(plot_dir, exist_ok=True)
+    plot_dir = resolve_plot_dir(__file__, plot_dir)
 
     d = prepare_robustness_data(taxon_id=taxon_id, n_trials=n_trials)
 

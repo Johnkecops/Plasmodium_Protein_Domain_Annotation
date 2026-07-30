@@ -29,41 +29,13 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-SCRIPT2_DIR = os.path.dirname(os.path.abspath(__file__))
-SCRIPT_DIR = os.path.normpath(os.path.join(SCRIPT2_DIR, "..", "SCRIPT"))
-sys.path.insert(0, SCRIPT_DIR)
-sys.path.insert(0, SCRIPT2_DIR)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from plot_utils import synthetic_domain_network, scilab_vector, resolve_plot_dir, fetch_network_or_synthetic
 
-# ---------------------------------------------------------------------------
-# Synthetic fallback
-# ---------------------------------------------------------------------------
 
 def _synthetic_network():
-    """Stochastic block model Plasmodium-like domain network (4 modules)."""
-    import networkx as nx
-    rng = np.random.default_rng(42)
-    module_sizes = [38, 35, 32, 30]
-    n = sum(module_sizes)
-    G = nx.Graph()
-    G.add_nodes_from(range(n))
-    offsets = [0] + list(np.cumsum(module_sizes))
-    for m_i in range(len(module_sizes)):
-        si, ei = offsets[m_i], offsets[m_i + 1]
-        for u in range(si, ei):
-            for v in range(u + 1, ei):
-                if rng.random() < 0.25:
-                    # Within-module pairs co-occur in more proteins
-                    G.add_edge(u, v, weight=int(rng.integers(2, 15)))
-        for m_j in range(m_i + 1, len(module_sizes)):
-            sj, ej = offsets[m_j], offsets[m_j + 1]
-            for u in range(si, ei):
-                for v in range(sj, ej):
-                    if rng.random() < 0.015:
-                        # Cross-module pairs co-occur in fewer proteins
-                        G.add_edge(u, v, weight=int(rng.integers(1, 4)))
-    mapping = {i: f"PF{14000 + i:05d}" for i in range(n)}
-    return nx.relabel_nodes(G, mapping)
+    return synthetic_domain_network(within_weight_range=(2, 15), cross_weight_range=(1, 4))
 
 
 # ---------------------------------------------------------------------------
@@ -71,34 +43,9 @@ def _synthetic_network():
 # ---------------------------------------------------------------------------
 
 def prepare_edge_weight_data(taxon_id: str = "5820"):
-    import networkx as nx
-
-    G = None
-    data_source = "UniProt Swiss-Prot"
-
-    try:
-        from fetch_proteins import fetch_plasmodium_proteins
-        from network_builder import build_domain_network
-        print("[1/3] Fetching Plasmodium proteins (UniProt)...")
-        df = fetch_plasmodium_proteins(taxon_id=taxon_id, reviewed=True, max_results=5000)
-        n_proteins = len(df)
-        print(f"      {n_proteins} proteins fetched.")
-        if n_proteins > 0:
-            print("[2/3] Building co-occurrence network...")
-            G = build_domain_network(df, use_pfam=True)
-            if G.number_of_nodes() < 10 or G.number_of_edges() < 5:
-                G = None
-            else:
-                n_species = df["organism"].nunique()
-                print(f"      {G.number_of_nodes()} nodes, {G.number_of_edges()} edges, "
-                      f"{n_species} species.")
-    except Exception as e:
-        print(f"      Fetch failed ({e}); using synthetic data.")
-
-    if G is None:
-        print("[2/3] Generating synthetic representative network...")
-        G = _synthetic_network()
-        data_source = "Synthetic (representative Plasmodium-like, stochastic block model)"
+    G, data_source = fetch_network_or_synthetic(
+        taxon_id, _synthetic_network, min_nodes=10, min_edges=5, label="edge weight distribution"
+    )
 
     print("[3/3] Extracting edge weights...")
     weights = np.array([d["weight"] for u, v, d in G.edges(data=True) if "weight" in d], dtype=float)
@@ -223,11 +170,6 @@ def write_png(path: str, d: dict) -> None:
 # Scilab .sce writer
 # ---------------------------------------------------------------------------
 
-def _vec(name, arr, fmt=".8g"):
-    vals = "; ".join(f"{v:{fmt}}" for v in arr)
-    return f"{name} = [{vals}];"
-
-
 def write_scilab(path: str, d: dict) -> None:
     today = datetime.date.today().isoformat()
 
@@ -267,15 +209,15 @@ def write_scilab(path: str, d: dict) -> None:
 // ============================================================
 
 // Log-binned empirical histogram (bin centers and probability density)
-{_vec('bin_centers', d['bin_centers'])}
-{_vec('prob_density', d['prob'])}
+{scilab_vector('bin_centers', d['bin_centers'])}
+{scilab_vector('prob_density', d['prob'])}
 
 // Log-normal fit curve
-{_vec('x_fit', x_fit_sub)}
-{_vec('ln_pdf', ln_pdf_sub)}
+{scilab_vector('x_fit', x_fit_sub)}
+{scilab_vector('ln_pdf', ln_pdf_sub)}
 
 // Power-law reference
-{_vec('pl_ref', pl_ref_sub)}
+{scilab_vector('pl_ref', pl_ref_sub)}
 
 // ============================================================
 // Section 2 — Plot (log-log)
@@ -350,9 +292,7 @@ printf("Saved: edge_weight_distribution_scilab.eps / .png\\n");
 # ---------------------------------------------------------------------------
 
 def main(taxon_id: str = "5820", plot_dir: str = None):
-    if plot_dir is None:
-        plot_dir = os.path.normpath(os.path.join(SCRIPT2_DIR, "..", "PLOT"))
-    os.makedirs(plot_dir, exist_ok=True)
+    plot_dir = resolve_plot_dir(__file__, plot_dir)
 
     d = prepare_edge_weight_data(taxon_id=taxon_id)
 

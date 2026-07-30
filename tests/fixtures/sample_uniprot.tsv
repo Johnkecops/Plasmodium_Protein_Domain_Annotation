@@ -1,0 +1,3 @@
+Entry	Reviewed	Protein names	Organism	Organism ID	Length	Domain [FT]	Signal peptide	Propeptide	InterPro	Pfam	Gene Ontology (molecular function)	Keywords
+Q8I1R6	reviewed	Circumsporozoite protein (CSP)	Plasmodium falciparum (isolate 3D7) (Malaria parasite)	5833	397	"DOMAIN 309..375; /note=""Thrombospondin type-1""; /evidence=""ECO:0000255"""	SIGNAL 1..19		IPR000884;IPR036465	PF00090	carbohydrate binding [GO:0030246]	Cell membrane;GPI-anchor;Signal
+Q8IB24	reviewed	Merozoite surface protein 1 (MSP1)	Plasmodium vivax	5855	1704				IPR002520	PF12621		

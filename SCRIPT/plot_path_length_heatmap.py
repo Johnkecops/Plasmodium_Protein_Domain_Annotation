@@ -28,10 +28,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 
-SCRIPT2_DIR = os.path.dirname(os.path.abspath(__file__))
-SCRIPT_DIR = os.path.normpath(os.path.join(SCRIPT2_DIR, "..", "SCRIPT"))
-sys.path.insert(0, SCRIPT_DIR)
-sys.path.insert(0, SCRIPT2_DIR)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from plot_utils import scilab_matrix, resolve_plot_dir
 
 KNOWN_SPECIES = [
     "Plasmodium falciparum",
@@ -360,23 +359,14 @@ def write_png(path: str, d: dict) -> None:
 # Scilab .sce writer
 # ---------------------------------------------------------------------------
 
-def _vec(name, arr, fmt=".6g"):
-    flat = np.array(arr).flatten()
-    vals = "; ".join(
-        "Nan" if np.isnan(v) else f"{v:{fmt}}" for v in flat
-    )
-    rows, cols = np.array(arr).shape if np.array(arr).ndim == 2 else (1, len(flat))
-    return f"{name} = matrix([{vals}], {rows}, {cols});"
-
-
 def write_scilab(path: str, d: dict) -> None:
     today = datetime.date.today().isoformat()
     mat = d["metrics_matrix"]
     pwise = d["pairwise_apl"].copy()
     np.fill_diagonal(pwise, 0.0)
 
-    mat_str = _vec("metrics_mat", mat)
-    pwise_str = _vec("pairwise_apl", pwise)
+    mat_str = scilab_matrix("metrics_mat", mat)
+    pwise_str = scilab_matrix("pairwise_apl", pwise)
 
     subnet_str = '", "'.join(d["subnet_labels"])
     metric_str = '", "'.join(d["metrics_labels"])
@@ -523,9 +513,7 @@ printf("Saved: path_length_heatmap_scilab.eps / .png\\n");
 # ---------------------------------------------------------------------------
 
 def main(taxon_id: str = "5820", plot_dir: str = None):
-    if plot_dir is None:
-        plot_dir = os.path.normpath(os.path.join(SCRIPT2_DIR, "..", "PLOT"))
-    os.makedirs(plot_dir, exist_ok=True)
+    plot_dir = resolve_plot_dir(__file__, plot_dir)
 
     d = prepare_heatmap_data(taxon_id=taxon_id)
 
