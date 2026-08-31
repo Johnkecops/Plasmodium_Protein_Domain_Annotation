@@ -61,14 +61,13 @@ def render_species_overview_tab(tab, summary_df, df, exclusive_map):
 
 def render_domain_occurrence_tab(tab, occurrence_df, matrix_df, taxon_id):
     with tab:
-        st.subheader("Domain occurrence — manually curated UniProt annotations")
+        st.subheader("Domain occurrence — Pfam accession-keyed")
 
         if occurrence_df.empty:
             st.info(
-                "No manually annotated domain features found for this taxon.\n\n"
-                "UniProt Swiss-Prot domain annotations (Feature type: Domain) are the "
-                "gold-standard source. If none appear here, check the InterPro Cross-refs "
-                "tab for computationally predicted entries."
+                "No Pfam domain annotations found for this data source and filter.\n\n"
+                "Check the InterPro Cross-refs tab for the broader, computationally "
+                "integrated set of member-database matches."
             )
             return
 
@@ -95,16 +94,22 @@ def render_domain_occurrence_tab(tab, occurrence_df, matrix_df, taxon_id):
             )
 
         st.subheader("Full occurrence table")
-        disp_occ = occurrence_df.copy()
-        disp_occ["species"] = disp_occ["species"].apply("; ".join)
+        # species, unlike the app's older ft_domain-based tables, already arrives as a
+        # joined "; "-separated string from the domain_analysis facade — joining it again
+        # here would iterate its characters rather than its species names.
+        disp_occ = occurrence_df.rename(columns={
+            "domain_accession":       "Accession",
+            "domain_name":            "Domain",
+            "count":                  "Proteins",
+            "species_count":          "Species",
+            "pct_proteins":           "% of proteome",
+            "species":                "Species list",
+            "n_reviewed_carriers":    "Reviewed carriers",
+            "n_unreviewed_carriers":  "Unreviewed carriers",
+            "reviewed_fraction":      "Reviewed fraction",
+        })
         st.dataframe(
-            disp_occ.rename(columns={
-                "domain_name":  "Domain",
-                "count":        "Proteins",
-                "species_count":"Species",
-                "pct_proteins": "% of proteome",
-                "species":      "Species list",
-            }),
+            disp_occ,
             use_container_width=True,
             hide_index=True,
         )
@@ -121,11 +126,19 @@ def render_domain_avoidance_tab(tab, avoidance_df, taxon_id):
         st.subheader("Domain avoidance analysis")
         st.markdown(
             '<div class="info-box">'
-            "<b>Domain avoidance</b> identifies domains present in some "
-            "<i>Plasmodium</i> species but systematically absent in others. "
-            "A high avoidance score means the domain is widespread across the genus "
-            "but lost (or never acquired) in a specific lineage — a potential "
-            "signature of functional divergence or evolutionary selection."
+            "<b>Domain avoidance</b> identifies Pfam families present in some "
+            "<i>Plasmodium</i> species but systematically absent in others, tested "
+            "against a null conditioned on each species' <b>annotation depth</b> "
+            "(number of annotated proteins), not a uniform genus-wide rate: absence in "
+            "a shallowly annotated species is weak evidence, absence in a deeply "
+            "annotated one is strong evidence. Domains present in every species are "
+            "still listed, at avoidance score 0 — several families once reported as "
+            "avoided in this dataset (LCCL, CLAG, EBA-175, RAP) turn out to be present "
+            "in every species once annotation depth is accounted for, and hiding "
+            "score-0 rows would hide that correction. The <b>clade-collapsed score</b> "
+            "additionally reports absence by host-defined clade (Laverania, primate, "
+            "rodent, avian) rather than by species, since closely related species are "
+            "not independent evidence of one lineage-level loss."
             "</div>",
             unsafe_allow_html=True,
         )
@@ -166,30 +179,39 @@ def render_domain_avoidance_tab(tab, avoidance_df, taxon_id):
             st.markdown(
                 '<div class="info-box">'
                 "<b>Statistical significance:</b> Colour intensity reflects "
-                "-log<sub>10</sub>(BH-adjusted p-value) from a one-sided binomial test. "
-                "Under H<sub>0</sub>, domain absence is modelled as a random draw given "
-                "each species' proteome size and the genus-wide domain prevalence. "
-                "Higher -log<sub>10</sub>(adj p) = stronger statistical evidence of avoidance."
+                "-log<sub>10</sub>(BH-adjusted q-value) from a one-sided, exact "
+                "Poisson-binomial test. Under H<sub>0</sub>, the null probability that "
+                "species s lacks the domain is (1 - p)<sup>n_s</sup>, where p is the "
+                "domain's per-protein frequency across every <i>other</i> species and "
+                "n_s is species s's own annotated-protein count, so the null itself "
+                "accounts for how much data each species contributes. Higher "
+                "-log<sub>10</sub>(q) = stronger evidence the observed absences exceed "
+                "what annotation depth alone would predict."
                 "</div>",
                 unsafe_allow_html=True,
             )
             st.markdown("")
 
         st.subheader("Avoidance detail table")
-        disp_av = disp_av_src.copy()
-        disp_av["species_with"]    = disp_av["species_with"].apply("; ".join)
-        disp_av["species_without"] = disp_av["species_without"].apply("; ".join)
-
+        # species_with / species_without arrive pre-joined ("; "-separated strings) from
+        # the facade; joining them again would iterate characters, not species names.
         rename_map = {
-            "domain_name":          "Domain",
-            "n_species_present":    "# species with",
-            "n_species_absent":     "# species without",
-            "avoidance_score":      "Avoidance score",
-            "min_binom_pvalue":     "Min binomial p",
-            "avoidance_pvalue_adj": "Adj p-value (BH-FDR)",
-            "species_with":         "Species with domain",
-            "species_without":      "Species without domain",
+            "domain_accession":        "Accession",
+            "domain_name":             "Domain",
+            "n_species_present":       "# species with",
+            "n_species_absent":        "# species without",
+            "avoidance_score":         "Avoidance score",
+            "expected_species_absent": "Expected # absent (null)",
+            "excess_absence":          "Excess absence (observed - expected)",
+            "min_binom_pvalue":        "Poisson-binomial p",
+            "avoidance_pvalue_adj":    "Adj p-value (BH-FDR, q)",
+            "n_clades_present":        "# clades with",
+            "n_clades_absent":         "# clades without",
+            "clade_avoidance_score":   "Clade-collapsed avoidance score",
+            "species_with":            "Species with domain",
+            "species_without":         "Species without domain",
         }
+        disp_av = disp_av_src.copy()
         st.dataframe(
             disp_av.rename(columns=rename_map),
             use_container_width=True,
@@ -208,15 +230,23 @@ def render_domain_cooccurrence_tab(tab, cooc_stats_df, taxon_id):
         st.subheader("Domain co-occurrence analysis")
         st.markdown(
             '<div class="info-box">'
-            "<b>Domain co-occurrence</b> measures the statistical tendency of two domains "
-            "to appear together within the same protein. Three metrics are provided:<br>"
+            "<b>Domain co-occurrence</b> measures the statistical tendency of two Pfam "
+            "families to appear within the same protein. The support count N is every "
+            "protein carrying at least one Pfam family in the current data source. Three "
+            "metrics are provided:<br>"
             "<b>Jaccard similarity</b> = n<sub>AB</sub> / (n<sub>A</sub> + n<sub>B</sub> - n<sub>AB</sub>) "
-            "— proportion of proteins that share both domains out of those that carry either.<br>"
-            "<b>Lift</b> = P(A ∩ B) / (P(A) × P(B)) — ratio of observed to expected co-occurrence "
+            "— proportion of proteins that share both domains out of those that carry either. "
+            "Ranking defaults to Jaccard rather than lift: for a pair that co-occurs obligately, "
+            "lift reduces to N / n<sub>AB</sub>, so a lift ranking is a ranking of rarity.<br>"
+            "<b>Lift</b> = P(A &cap; B) / (P(A) &times; P(B)) — ratio of observed to expected co-occurrence "
             "under independence; lift &gt; 1 indicates positive association.<br>"
-            "<b>PMI</b> = log<sub>2</sub>[ P(A,B) / (P(A)×P(B)) ] — pointwise mutual information; "
+            "<b>PMI</b> = log<sub>2</sub>[ P(A,B) / (P(A)&times;P(B)) ] — pointwise mutual information; "
             "positive PMI = co-enriched beyond chance.<br>"
-            "Fisher's exact test (one-sided) and BH-FDR correction assess statistical significance."
+            "Fisher's exact test (one-sided) and BH-FDR correction assess statistical significance. "
+            "Pairs are flagged <b>obligate</b> (n<sub>AB</sub> = n<sub>A</sub> = n<sub>B</sub>) or "
+            "<b>same-clan</b> (both families in one Pfam clan) when they are the defining "
+            "architecture of a single protein family rather than evidence of domain combination; "
+            "the headline-pairs filter below excludes both."
             "</div>",
             unsafe_allow_html=True,
         )
@@ -225,15 +255,15 @@ def render_domain_cooccurrence_tab(tab, cooc_stats_df, taxon_id):
         if cooc_stats_df.empty:
             st.info(
                 "No co-occurrence pairs found. This occurs when proteins have fewer than "
-                "2 annotated domains or too few proteins share domain combinations. "
-                "Try fetching a broader taxon or unchecking 'reviewed only'."
+                "2 annotated domains, or when too few proteins share a domain pair to clear "
+                "the minimum support threshold. Try a broader data source or species filter."
             )
             return
 
         cooc_c1, cooc_c2, cooc_c3 = st.columns(3)
         cooc_metric = cooc_c1.selectbox(
             "Metric",
-            options=["lift", "jaccard", "pmi"],
+            options=["jaccard", "lift", "pmi"],
             format_func=lambda x: {"lift": "Lift", "jaccard": "Jaccard similarity", "pmi": "PMI log2"}[x],
             key="cooc_metric",
         )
@@ -244,6 +274,19 @@ def render_domain_cooccurrence_tab(tab, cooc_stats_df, taxon_id):
             key="cooc_sig",
             help="Fisher's exact test, BH-FDR corrected.",
         )
+        cooc_headline_only = st.checkbox(
+            "Headline pairs only (exclude obligate and same-clan pairs)",
+            value=True,
+            key="cooc_headline",
+            help="Obligate and same-clan pairs are the architecture of one protein family, "
+                 "not evidence of two families combining; on by default per the manuscript's "
+                 "corrected ranking.",
+        )
+        if cooc_headline_only and "headline_eligible" in cooc_stats_df.columns:
+            cooc_stats_df = cooc_stats_df[cooc_stats_df["headline_eligible"]]
+            if cooc_stats_df.empty:
+                st.info("No headline-eligible pairs remain after excluding obligate and same-clan pairs.")
+                return
 
         st.subheader("Top co-occurring domain pairs")
         st.plotly_chart(
@@ -283,6 +326,8 @@ def render_domain_cooccurrence_tab(tab, cooc_stats_df, taxon_id):
             disp_cooc.rename(columns={
                 "domain_A":          "Domain A",
                 "domain_B":          "Domain B",
+                "name_A":            "Name A",
+                "name_B":            "Name B",
                 "n_AB":              "Co-occurring proteins",
                 "n_A":               "Proteins with A",
                 "n_B":               "Proteins with B",
@@ -293,6 +338,9 @@ def render_domain_cooccurrence_tab(tab, cooc_stats_df, taxon_id):
                 "pmi":               "PMI log2",
                 "fisher_pvalue":     "Fisher p-value",
                 "fisher_pvalue_adj": "Adj p-value (BH-FDR)",
+                "obligate_pair":     "Obligate pair",
+                "same_clan":         "Same Pfam clan",
+                "headline_eligible": "Headline-eligible",
             }),
             use_container_width=True,
             hide_index=True,
@@ -443,7 +491,7 @@ def render_protein_browser_tab(tab, df, ipr_name_map):
                 st.markdown("**Keywords:** " + "; ".join(prow["keywords"][:10]))
 
 
-def render_raw_data_tab(tab, df, taxon_id, reviewed_only):
+def render_raw_data_tab(tab, df, taxon_id, reviewed_only, live_taxon_id=None):
     with tab:
         st.subheader("Raw protein data")
 
@@ -476,10 +524,16 @@ def render_raw_data_tab(tab, df, taxon_id, reviewed_only):
         )
 
         st.subheader("Download FASTA sequences")
-        if st.button("Fetch FASTA (up to 500 sequences)"):
+        if live_taxon_id is None:
+            st.caption(
+                "FASTA download queries UniProt live by taxon ID and is only available in "
+                "Live UniProt query mode, since a frozen source can span many species with "
+                "no single taxon ID attached."
+            )
+        elif st.button("Fetch FASTA (up to 500 sequences)"):
             with st.spinner("Fetching FASTA from UniProt..."):
                 try:
-                    fasta = load_fasta(taxon_id=taxon_id, reviewed=reviewed_only, max_fasta=500)
+                    fasta = load_fasta(taxon_id=live_taxon_id, reviewed=reviewed_only, max_fasta=500)
                     st.download_button(
                         "Download FASTA",
                         fasta,
