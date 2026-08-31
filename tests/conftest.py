@@ -20,35 +20,38 @@ import pytest
 def sample_protein_df() -> pd.DataFrame:
     """
     Small synthetic Plasmodium-like protein table matching the schema produced
-    by fetch_plasmodium_proteins(): accession, organism, length, n_domains,
+    by fetch_plasmodium_proteins(): accession, organism, length, reviewed, n_domains,
     domain_names (list[str]), pfam_ids (list[str]), interpro_ids (list[str]).
 
-    Layout (3 species):
-      - PF00001 ("core"): present in all 3 species.
-      - PF00002 ("shell"): present in falciparum + vivax only.
-      - PF00003 ("cloud_falciparum"): falciparum only.
-      - PF00004 ("cloud_vivax"): vivax only.
+    Layout (3 species), by Pfam accession (the canonical key since the domain_analysis
+    facade delegates to genus_analysis, which is accession-keyed throughout):
+      - PF00001 ("Core domain"): present in all 3 species.
+      - PF00002 ("Shell domain"): present in falciparum + vivax only.
+      - PF00003 ("Cloud falciparum domain"): falciparum only.
+      - PF00004 ("Cloud vivax domain"): vivax only.
+    domain_names and pfam_ids correspond 1:1 by position so both identifier systems
+    can be exercised against the same fixture.
     """
     rows = [
         # Plasmodium falciparum: 3 proteins
-        dict(accession="P1", organism="Plasmodium falciparum", length=250,
+        dict(accession="P1", organism="Plasmodium falciparum", length=250, reviewed=True,
              n_domains=2, domain_names=["Core domain", "Shell domain"],
              pfam_ids=["PF00001", "PF00002"], interpro_ids=["IPR00001"]),
-        dict(accession="P2", organism="Plasmodium falciparum", length=180,
+        dict(accession="P2", organism="Plasmodium falciparum", length=180, reviewed=True,
              n_domains=1, domain_names=["Cloud falciparum domain"],
              pfam_ids=["PF00003"], interpro_ids=["IPR00003"]),
-        dict(accession="P3", organism="Plasmodium falciparum", length=300,
+        dict(accession="P3", organism="Plasmodium falciparum", length=300, reviewed=True,
              n_domains=1, domain_names=["Core domain"],
              pfam_ids=["PF00001"], interpro_ids=["IPR00001"]),
         # Plasmodium vivax: 2 proteins
-        dict(accession="P4", organism="Plasmodium vivax", length=220,
+        dict(accession="P4", organism="Plasmodium vivax", length=220, reviewed=True,
              n_domains=2, domain_names=["Core domain", "Shell domain"],
              pfam_ids=["PF00001", "PF00002"], interpro_ids=["IPR00001"]),
-        dict(accession="P5", organism="Plasmodium vivax", length=150,
+        dict(accession="P5", organism="Plasmodium vivax", length=150, reviewed=True,
              n_domains=1, domain_names=["Cloud vivax domain"],
              pfam_ids=["PF00004"], interpro_ids=["IPR00004"]),
         # Plasmodium malariae: 1 protein
-        dict(accession="P6", organism="Plasmodium malariae", length=210,
+        dict(accession="P6", organism="Plasmodium malariae", length=210, reviewed=True,
              n_domains=1, domain_names=["Core domain"],
              pfam_ids=["PF00001"], interpro_ids=["IPR00001"]),
     ]

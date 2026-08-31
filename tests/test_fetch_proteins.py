@@ -17,6 +17,7 @@ import fetch_proteins
 from fetch_proteins import (
     parse_ft_domain,
     parse_semicolon_ids,
+    domain_names_from_positions,
     _normalise_organism_name,
     _normalise,
     _extract_next_url,
@@ -53,6 +54,32 @@ def test_parse_ft_domain_multiple_domains():
 @pytest.mark.parametrize("value", [None, "", "nan", "NaN"])
 def test_parse_ft_domain_empty_inputs(value):
     assert parse_ft_domain(value) == []
+
+
+def test_parse_ft_domain_skips_features_without_a_note():
+    """
+    Reviewer 4: assigning the literal "Unknown domain" to every note-less DOMAIN feature
+    merged unrelated domains from different proteins into a single node wherever the app
+    grouped by name. Such features must be dropped, not relabelled.
+    """
+    ft = 'DOMAIN 1..50; /note="Named"; DOMAIN 60..120'
+    result = parse_ft_domain(ft)
+    assert result == [{"name": "Named", "start": 1, "end": 50}]
+    assert "Unknown domain" not in [d["name"] for d in result]
+
+
+def test_domain_names_from_positions_dedupes_and_strips_instance_suffix():
+    """
+    UniProt enumerates repeated DOMAIN features by appending an integer to the note
+    ("6-Cys 4", "6-Cys 7"); domain_names_from_positions must collapse these into one
+    family name per protein rather than counting each numbered instance separately.
+    """
+    domains = [
+        {"name": "6-Cys 4", "start": 1, "end": 50},
+        {"name": "6-Cys 7", "start": 60, "end": 110},
+        {"name": "EF-hand", "start": 120, "end": 150},
+    ]
+    assert domain_names_from_positions(domains) == ["6-Cys", "EF-hand"]
 
 
 def test_parse_semicolon_ids():
@@ -102,6 +129,7 @@ def test_normalise_parses_fixture_correctly():
     assert row0["interpro_ids"] == ["IPR000884", "IPR036465"]
     assert row0["has_signal_peptide"] is True or bool(row0["has_signal_peptide"]) is True
     assert row0["has_gpi_anchor"] is True or bool(row0["has_gpi_anchor"]) is True
+    assert bool(row0["reviewed"]) is True
 
     row1 = df.iloc[1]
     assert row1["organism"] == "Plasmodium vivax"
