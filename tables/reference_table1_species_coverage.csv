@@ -1,0 +1,21 @@
+species,n_proteins,n_reviewed,mean_length,n_annotated_proteins,n_domain_instances,n_unique_families,annotation_coverage,unannotated_fraction,domains_per_protein,domains_per_annotated_protein,clade
+Plasmodium yoelii,14573,34,526.0,8032,10512,2212,0.5512,0.4488,0.721,1.309,rodent
+Plasmodium falciparum,11281,332,705.8,6598,9612,2167,0.5849,0.4151,0.852,1.457,Laverania (human)
+Plasmodium ovale wallikeri,8410,0,521.1,4254,5421,2012,0.5058,0.4942,0.645,1.274,primate (human)
+Plasmodium ovale,6625,2,637.2,4169,5390,2141,0.6293,0.3707,0.814,1.293,primate (human)
+Plasmodium gonderi,5915,0,684.5,3447,4703,2162,0.5828,0.4172,0.795,1.364,primate (simian)
+Plasmodium malariae,5915,1,699.2,3845,5071,2159,0.65,0.35,0.857,1.319,primate (human)
+Plasmodium inui,5828,0,645.4,3043,4295,2146,0.5221,0.4779,0.737,1.411,primate (simian)
+Plasmodium cynomolgi,5713,1,575.0,3264,4367,2033,0.5713,0.4287,0.764,1.338,primate (simian)
+Plasmodium fragile,5638,0,693.9,3384,4744,2166,0.6002,0.3998,0.841,1.402,primate (simian)
+Plasmodium reichenowi,5630,0,744.8,3647,5223,2138,0.6478,0.3522,0.928,1.432,Laverania (ape)
+Plasmodium coatneyi,5514,0,699.6,3616,5090,2173,0.6558,0.3442,0.923,1.408,primate (simian)
+Plasmodium brasilianum,5416,0,711.3,3297,4502,2036,0.6088,0.3912,0.831,1.365,primate (simian)
+Plasmodium vivax,5389,34,695.6,3399,4664,2142,0.6307,0.3693,0.865,1.372,primate (human)
+Plasmodium knowlesi,5339,20,728.7,3408,4912,2199,0.6383,0.3617,0.92,1.441,"primate (simian, zoonotic)"
+Plasmodium gallinaceum,5276,1,703.2,3025,4257,2152,0.5734,0.4266,0.807,1.407,avian
+Plasmodium vinckei petteri,5276,0,659.6,3277,4491,2123,0.6211,0.3789,0.851,1.37,rodent
+Plasmodium chabaudi,5197,14,671.3,3246,4475,2140,0.6246,0.3754,0.861,1.379,rodent
+Plasmodium relictum,5136,0,705.7,3010,4238,2151,0.5861,0.4139,0.825,1.408,avian
+Plasmodium gaboni,5123,0,763.5,3167,4462,2125,0.6182,0.3818,0.871,1.409,Laverania (ape)
+Plasmodium berghei,4927,87,691.2,3087,4294,2136,0.6265,0.3735,0.872,1.391,rodent

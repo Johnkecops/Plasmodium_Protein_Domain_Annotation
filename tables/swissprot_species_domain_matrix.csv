@@ -1,0 +1,26 @@
+domain_accession,domain_name,Plasmodium berghei,Plasmodium brasilianum,Plasmodium chabaudi,Plasmodium cynomolgi,Plasmodium falciparum,Plasmodium fragile,Plasmodium gallinaceum,Plasmodium knowlesi,Plasmodium lophurae,Plasmodium malariae,Plasmodium ovale,Plasmodium reichenowi,Plasmodium simium,Plasmodium vinckei,Plasmodium vivax,Plasmodium yoelii
+PF00069,Pkinase,10,0,1,0,19,0,0,1,0,0,0,0,0,0,2,5
+PF00090,TSP_1,3,1,0,5,6,0,0,2,0,1,0,1,1,0,2,2
+PF07422,s48_45,5,0,0,0,14,0,0,0,0,0,0,0,0,0,0,2
+PF00026,Asp,3,0,0,0,16,0,0,0,0,0,0,0,0,0,1,0
+PF13499,EF-hand_7,5,0,0,0,11,0,0,0,0,0,0,0,0,0,0,3
+PF00985,MSA_2,0,0,0,0,14,0,0,0,0,0,0,0,0,0,0,0
+PF00112,Peptidase_C1,2,0,0,0,10,0,0,0,0,0,0,0,0,1,1,0
+PF00022,Actin,2,0,0,0,6,0,0,0,0,0,0,0,0,0,0,2
+PF12946,EGF_MSP1_1,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,1
+PF07462,MSP1_C,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,1
+PF00082,Peptidase_S8,1,0,0,0,7,0,0,0,0,0,0,0,0,0,1,0
+PF08627,CRT-like,1,0,1,0,3,0,0,1,0,0,0,0,0,0,1,1
+PF02430,AMA-1,0,0,1,0,5,1,0,1,0,0,0,0,0,0,0,0
+PF08246,Inhibitor_I29,1,0,0,0,4,0,0,0,0,0,0,0,0,1,1,0
+PF00709,Adenylsucc_synt,1,0,1,0,2,0,0,1,0,0,0,0,0,0,1,1
+PF00752,XPG_N,1,0,1,0,2,0,0,1,0,0,0,0,0,0,1,1
+PF00867,XPG_I,1,0,1,0,2,0,0,1,0,0,0,0,0,0,1,1
+PF00091,Tubulin,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,1
+PF00012,HSP70,1,0,0,1,4,0,0,0,0,0,0,0,0,0,0,0
+PF00113,Enolase_C,1,0,0,0,4,0,0,0,0,0,0,0,0,0,0,1
+PF00009,GTP_EFTU,0,0,0,0,3,0,0,1,0,0,0,0,0,0,1,1
+PF02374,ArsA_ATPase,1,0,1,0,1,0,0,1,0,0,0,0,0,0,1,1
+PF00318,Ribosomal_S2,1,0,1,0,1,0,0,1,0,0,0,0,0,0,1,1
+PF03952,Enolase_N,1,0,0,0,4,0,0,0,0,0,0,0,0,0,0,1
+PF03953,Tubulin_C,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,1

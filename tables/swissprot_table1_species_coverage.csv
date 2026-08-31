@@ -1,0 +1,17 @@
+species,n_proteins,n_reviewed,mean_length,n_annotated_proteins,n_domain_instances,n_unique_families,annotation_coverage,unannotated_fraction,domains_per_protein,domains_per_annotated_protein,clade
+Plasmodium falciparum,509,509,760.4,430,644,357,0.8448,0.1552,1.265,1.498,Laverania (human)
+Plasmodium berghei,98,98,598.4,83,109,82,0.8469,0.1531,1.112,1.313,rodent
+Plasmodium vivax,50,50,589.6,46,66,63,0.92,0.08,1.32,1.435,primate (human)
+Plasmodium yoelii,38,38,489.2,37,53,44,0.9737,0.0263,1.395,1.432,rodent
+Plasmodium knowlesi,32,32,465.9,29,45,37,0.9062,0.0938,1.406,1.552,"primate (simian, zoonotic)"
+Plasmodium chabaudi,22,22,460.4,19,23,23,0.8636,0.1364,1.045,1.211,rodent
+Plasmodium cynomolgi,7,7,431.9,7,7,3,1.0,0.0,1.0,1.0,primate (simian)
+Plasmodium gallinaceum,4,4,274.8,3,4,4,0.75,0.25,1.0,1.333,avian
+Plasmodium malariae,3,3,313.7,3,4,4,1.0,0.0,1.333,1.333,primate (human)
+Plasmodium ovale,2,2,606.5,2,3,3,1.0,0.0,1.5,1.5,primate (human)
+Plasmodium reichenowi,2,2,302.5,2,2,2,1.0,0.0,1.0,1.0,Laverania (ape)
+Plasmodium vinckei,2,2,344.0,2,3,3,1.0,0.0,1.5,1.5,rodent
+Plasmodium brasilianum,1,1,485.0,1,1,1,1.0,0.0,1.0,1.0,primate (simian)
+Plasmodium fragile,1,1,562.0,1,1,1,1.0,0.0,1.0,1.0,primate (simian)
+Plasmodium lophurae,1,1,351.0,0,0,0,0.0,1.0,0.0,,avian
+Plasmodium simium,1,1,386.0,1,1,1,1.0,0.0,1.0,1.0,primate (simian)

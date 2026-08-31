@@ -1,0 +1,374 @@
+domain_accession,n_species,species_fraction,category,domain_name,description,clan_accession,clan_id
+PF00090,10,0.625,shell,TSP_1,Thrombospondin type 1 domain,CL0692,TSP1
+PF00962,6,0.375,shell,A_deaminase,Adenosine deaminase,CL0036,TIM_barrel
+PF00069,6,0.375,shell,Pkinase,Protein kinase domain,CL0016,PKinase
+PF00709,6,0.375,shell,Adenylsucc_synt,Adenylosuccinate synthetase,CL0023,P-loop_NTPase
+PF00867,6,0.375,shell,XPG_I,XPG I-region,CL0464,5_3_exonuc_C
+PF00318,6,0.375,shell,Ribosomal_S2,Ribosomal protein S2,CL0067,SIS
+PF02374,6,0.375,shell,ArsA_ATPase,Anion-transporting ATPase,CL0023,P-loop_NTPase
+PF08627,6,0.375,shell,CRT-like,"CRT-like, chloroquine-resistance transporter-like",CL0184,DMT
+PF06220,6,0.375,shell,zf-U1,U1 zinc finger,CL0361,C2H2-zf
+PF00752,6,0.375,shell,XPG_N,XPG N-terminal domain,CL0280,PIN
+PF00032,5,0.3125,shell,Cytochrom_B_C,Cytochrome b(C-terminal)/b6/petD,,
+PF05093,5,0.3125,shell,CIAPIN1,"Cytokine-induced anti-apoptosis inhibitor 1, Fe-S biogenesis",,
+PF00186,5,0.3125,shell,DHFR_1,Dihydrofolate reductase,CL0387,DHFred
+PF00838,5,0.3125,shell,TCTP,Translationally controlled tumour protein,CL0080,Beta-tent
+PF00033,5,0.3125,shell,Cytochrome_B,Cytochrome b/b6/petB,CL0328,2heme_cytochrom
+PF05879,5,0.3125,shell,RHD3_GTPase,Root hair defective 3 GTP-binding protein (RHD3) GTPase domain,CL0023,P-loop_NTPase
+PF05019,5,0.3125,shell,Coq4,Coenzyme Q (ubiquinone) biosynthesis protein Coq4,,
+PF01226,5,0.3125,shell,Form_Nir_trans,Formate/nitrite transporter,CL0716,Aquaporin-like
+PF00112,4,0.25,shell,Peptidase_C1,Papain family cysteine protease,CL0125,Peptidase_CA
+PF02430,4,0.25,shell,AMA-1,Apical membrane antigen 1,CL0168,PAN
+PF00303,4,0.25,shell,Thymidylat_synt,Thymidylate synthase,,
+PF11556,4,0.25,shell,EBA-175_VI,Erythrocyte binding antigen 175,,
+PF06421,4,0.25,shell,LepA_C,GTP-binding protein LepA C-terminus,,
+PF06247,4,0.25,shell,Plasmod_Pvs28,Pvs28 EGF domain,CL0001,EGF
+PF01139,4,0.25,shell,RtcB,tRNA-splicing ligase RtcB,,
+PF08246,4,0.25,shell,Inhibitor_I29,Cathepsin propeptide inhibitor domain (I29),,
+PF16881,4,0.25,shell,LIAS_N,N-terminal domain of lipoyl synthase of Radical_SAM family,,
+PF05424,4,0.25,shell,Duffy_binding,Duffy binding domain,CL0195,DBL
+PF00679,4,0.25,shell,EFG_C,Elongation factor G C-terminus,CL0437,EF-G_C
+PF04055,4,0.25,shell,Radical_SAM,Radical SAM superfamily,CL0036,TIM_barrel
+PF00009,4,0.25,shell,GTP_EFTU,Elongation factor Tu GTP binding domain,CL0023,P-loop_NTPase
+PF01015,4,0.25,shell,Ribosomal_S3Ae,Ribosomal S3Ae family,,
+PF00083,4,0.25,shell,Sugar_tr,Sugar (and other) transporter,CL0015,MFS
+PF00022,3,0.1875,shell,Actin,Actin,CL0108,Actin_ATPase
+PF02657,3,0.1875,shell,SufE,Fe-S metabolism associated domain,CL0233,SufE_NifU
+PF14497,3,0.1875,shell,GST_C_3,"Glutathione S-transferase, C-terminal domain",CL0497,GST_C
+PF02475,3,0.1875,shell,TRM5-TYW2_MTfase,TRM5/TYW2 methyltransferase domain,CL0063,NADP_Rossmann
+PF10250,3,0.1875,shell,O-FucT,GDP-fucose protein O-fucosyltransferase,CL0113,GT-B
+PF00889,3,0.1875,shell,EF_TS,Elongation factor TS,,
+PF00012,3,0.1875,shell,HSP70,Hsp70 protein,CL0108,Actin_ATPase
+PF18213,3,0.1875,shell,SUB1_ProdP9,SUB1 protease Prodomain ProdP9,CL0570,PPP-I
+PF13202,3,0.1875,shell,EF-hand_5,EF hand,CL0220,EF_hand
+PF13656,3,0.1875,shell,RNA_pol_L_2,RNA polymerase Rpb3/Rpb11 dimerisation domain,CL0509,RBP11-like
+PF01521,3,0.1875,shell,Fe-S_biosyn,Iron-sulphur cluster biosynthesis,CL0980,HesB-like
+PF00670,3,0.1875,shell,AdoHcyase_NAD,"S-adenosyl-L-homocysteine hydrolase, NAD binding domain",CL0063,NADP_Rossmann
+PF02777,3,0.1875,shell,Sod_Fe_C,"Iron/manganese superoxide dismutases, C-terminal domain",,
+PF13499,3,0.1875,shell,EF-hand_7,EF-hand domain pair,CL0220,EF_hand
+PF00266,3,0.1875,shell,Aminotran_5,Aminotransferase class-V,CL0061,PLP_aminotran
+PF02798,3,0.1875,shell,GST_N,"Glutathione S-transferase, N-terminal domain",CL0172,Thioredoxin
+PF00026,3,0.1875,shell,Asp,Eukaryotic aspartyl protease,CL0129,Peptidase_AA
+PF25133,3,0.1875,shell,TYW2_N_2,TYW2 N-terminal domain,,
+PF00115,3,0.1875,shell,COX1,Cytochrome C and Quinol oxidase polypeptide I,CL0714,COX1-like
+PF00113,3,0.1875,shell,Enolase_C,"Enolase, C-terminal TIM barrel domain",CL0036,TIM_barrel
+PF05221,3,0.1875,shell,AdoHcyase,S-adenosyl-L-homocysteine hydrolase,CL0063,NADP_Rossmann
+PF03853,3,0.1875,shell,YjeF_N,YjeF-related protein N-terminus,CL0063,NADP_Rossmann
+PF00092,3,0.1875,shell,VWA,von Willebrand factor type A domain,CL0128,vWA-like
+PF03952,3,0.1875,shell,Enolase_N,"Enolase, N-terminal domain",CL0227,Enolase_N
+PF07422,3,0.1875,shell,s48_45,Sexual stage antigen s48/45 domain,,
+PF00027,3,0.1875,shell,cNMP_binding,Cyclic nucleotide-binding domain,CL0029,Cupin
+PF00082,3,0.1875,shell,Peptidase_S8,Subtilase family,,
+PF05301,3,0.1875,shell,Acetyltransf_16,"GNAT acetyltransferase, Mec-17",CL0257,Acetyltrans
+PF00202,3,0.1875,shell,Aminotran_3,Aminotransferase class-III,CL0061,PLP_aminotran
+PF00081,3,0.1875,shell,Sod_Fe_N,"Iron/manganese superoxide dismutases, alpha-hairpin domain",,
+PF03953,2,0.125,cloud,Tubulin_C,Tubulin C-terminal domain,CL0442,Tubulin_C
+PF01367,2,0.125,cloud,5_3_exonuc,"5'-3' exonuclease, C-terminal SAM fold",CL0464,5_3_exonuc_C
+PF01264,2,0.125,cloud,Chorismate_synt,Chorismate synthase,,
+PF01261,2,0.125,cloud,AP_endonuc_2,Xylose isomerase-like TIM barrel,CL0036,TIM_barrel
+PF01174,2,0.125,cloud,SNO,SNO glutamine amidotransferase family,CL0014,Glutaminase_I
+PF01106,2,0.125,cloud,NifU,NifU-like domain,CL0232,NifU
+PF00883,2,0.125,cloud,Peptidase_M17,"Cytosol aminopeptidase family, catalytic domain",CL0865,ZnExoPePases
+PF13517,2,0.125,cloud,FG-GAP_3,FG-GAP-like repeat,CL0186,Beta_propeller
+PF01048,2,0.125,cloud,PNP_UDP_1,Phosphorylase superfamily,CL0408,PUP
+PF14492,2,0.125,cloud,EFG_III,"Elongation Factor G, domain III",CL0437,EF-G_C
+PF01458,2,0.125,cloud,SUFBD_core,"SUF system FeS cluster assembly, SufBD core domain",,
+PF13344,2,0.125,cloud,Hydrolase_6,Haloacid dehalogenase-like hydrolase,CL0137,HAD
+PF01490,2,0.125,cloud,Aa_trans,Transmembrane amino acid transporter protein,CL0062,APC
+PF13242,2,0.125,cloud,Hydrolase_like,HAD-hyrolase-like,CL0137,HAD
+PF06732,2,0.125,cloud,Pescadillo_N,Pescadillo N-terminus,,
+PF14543,2,0.125,cloud,TAXi_N,Xylanase inhibitor N-terminal,CL0129,Peptidase_AA
+PF07885,2,0.125,cloud,Ion_trans_2,Ion channel,CL0030,Ion_channel
+PF02535,2,0.125,cloud,Zip,ZIP Zinc transporter,CL0184,DMT
+PF00005,2,0.125,cloud,ABC_tran,ABC transporter,CL0023,P-loop_NTPase
+PF02991,2,0.125,cloud,ATG8,Autophagy protein Atg8 ubiquitin like,CL0072,Ubiquitin
+PF07714,2,0.125,cloud,PK_Tyr_Ser-Thr,Protein tyrosine and serine/threonine kinase,CL0016,PKinase
+PF10417,2,0.125,cloud,1-cysPrx_C,C-terminal domain of 1-Cys peroxiredoxin,,
+PF03092,2,0.125,cloud,BT1,BT1 family,CL0015,MFS
+PF07541,2,0.125,cloud,EIF_2_alpha,Eukaryotic translation initiation factor 2 alpha subunit,,
+PF07462,2,0.125,cloud,MSP1_C,Merozoite surface protein 1 (MSP1) C-terminus,,
+PF12361,2,0.125,cloud,DBP,Duffy-antigen binding protein ,,
+PF02739,2,0.125,cloud,5_3_exonuc_N,"5'-3' exonuclease, N-terminal resolvase-like domain",CL0280,PIN
+PF01988,2,0.125,cloud,VIT1,VIT family,,
+PF12377,2,0.125,cloud,DuffyBP_N,Duffy binding protein N terminal ,,
+PF12628,2,0.125,cloud,Inhibitor_I71,"Falstatin, cysteine peptidase inhibitor",CL0159,E-set
+PF01680,2,0.125,cloud,SOR_SNZ,SOR/SNZ family,CL0036,TIM_barrel
+PF03372,2,0.125,cloud,Exo_endo_phos,Endonuclease/Exonuclease/phosphatase family,CL0530,DNase_I-like
+PF12946,2,0.125,cloud,EGF_MSP1_1,MSP1 EGF domain 1,CL0001,EGF
+PF01588,2,0.125,cloud,tRNA_bind,Putative tRNA binding domain,CL0021,OB
+PF01566,2,0.125,cloud,Nramp,Natural resistance-associated macrophage protein-like,CL0062,APC
+PF03493,2,0.125,cloud,BK_channel_a,Calcium-activated BK potassium channel alpha subunit,CL0582,TrkA_C
+PF03803,2,0.125,cloud,Scramblase,Scramblase ,CL0395,Tubby_C
+PF02666,2,0.125,cloud,PS_Dcarbxylase,Phosphatidylserine decarboxylase,CL0105,Hybrid
+PF02866,2,0.125,cloud,Ldh_1_C,"lactate/malate dehydrogenase, alpha/beta C-terminal domain",CL0341,LDH_C
+PF21550,2,0.125,cloud,MTIP_N,"Myosin A tail domain interacting protein, N-terminal",CL0220,EF_hand
+PF18515,2,0.125,cloud,Rh5,Rh5 coiled-coil domain,,
+PF00575,2,0.125,cloud,S1,S1 RNA binding domain,CL0021,OB
+PF17830,2,0.125,cloud,STI1-HOP_DP,"STI1/HOP, DP domain",,
+PF00491,2,0.125,cloud,Arginase,Arginase family,CL0302,Arginase
+PF23122,2,0.125,cloud,C2_ITFG1,"ITFG1, C2 domain",CL0154,C2
+PF22614,2,0.125,cloud,Slo-like_RCK,Calcium-activated potassium channel slowpoke-like RCK domain,CL0063,NADP_Rossmann
+PF00211,2,0.125,cloud,Guanylate_cyc,Adenylate and Guanylate cyclase catalytic domain,CL0276,Nucleot_cyclase
+PF00230,2,0.125,cloud,MIP,Major intrinsic protein,CL0716,Aquaporin-like
+PF00091,2,0.125,cloud,Tubulin,"Tubulin/FtsZ family, GTPase domain",CL0063,NADP_Rossmann
+PF20428,2,0.125,cloud,Sey1_3HB,Sey1 three-helix bundle domain,,
+PF00233,2,0.125,cloud,PDEase_I,3'5'-cyclic nucleotide phosphodiesterase,CL0237,HD_PDEase
+PF00274,2,0.125,cloud,Glycolytic,Fructose-bisphosphate aldolase class-I,CL0036,TIM_barrel
+PF00235,2,0.125,cloud,Profilin,Profilin,CL0431,PF
+PF22099,2,0.125,cloud,MRS2-like,Magnesium transporter MRS2-like,CL0788,CorA-like
+PF21972,2,0.125,cloud,Arc1p_N_like,Nuclear-export cofactor Arc1p ,CL0497,GST_C
+PF00578,2,0.125,cloud,AhpC-TSA,AhpC/TSA family,CL0172,Thioredoxin
+PF00149,2,0.125,cloud,Metallophos,Calcineurin-like phosphoesterase,CL0163,Calcineurin
+PF00085,2,0.125,cloud,Thioredoxin,Thioredoxin,CL0172,Thioredoxin
+PF00056,2,0.125,cloud,Ldh_1_N,"lactate/malate dehydrogenase, NAD binding domain",CL0063,NADP_Rossmann
+PF16212,2,0.125,cloud,PhoLip_ATPase_C,Phospholipid-translocating P-type ATPase C-terminal,CL0137,HAD
+PF16589,2,0.125,cloud,BRCT_2,BRCT domain,CL0459,BRCT-like
+PF00063,2,0.125,cloud,Myosin_head,Myosin head (motor domain),CL0023,P-loop_NTPase
+PF00076,2,0.125,cloud,RRM_1,RNA recognition motif,CL0221,RRM
+PF00656,2,0.125,cloud,Peptidase_C14,Caspase domain,CL0093,Peptidase_CD
+PF08393,1,0.0625,cloud,DHC_N2,"Dynein heavy chain, N-terminal region 2",,
+PF22594,1,0.0625,cloud,GTP-eEF1A_C,GTP-eEF1A C-terminal domain-like,CL0740,GCV_T_C
+PF07728,1,0.0625,cloud,AAA_5,AAA domain (dynein-related subfamily),CL0023,P-loop_NTPase
+PF22606,1,0.0625,cloud,Cdc6-ORC-like_ATPase_lid,"Cdc6/ORC-like, ATPase lid domain",CL0671,AAA_lid
+PF22597,1,0.0625,cloud,DYN_lid,"Dynein heavy chain, ATPase lid domain",CL0671,AAA_lid
+PF07992,1,0.0625,cloud,Pyr_redox_2,Pyridine nucleotide-disulphide oxidoreductase,CL0063,NADP_Rossmann
+PF27589,1,0.0625,cloud,PF3D7_0210200_C,PF3D7_0210200 C-terminal domain,,
+PF07994,1,0.0625,cloud,NAD_binding_5,Myo-inositol-1-phosphate synthase,CL0063,NADP_Rossmann
+PF27588,1,0.0625,cloud,PF3D7_0210200_6th,PF3D7_0210200 sixth domain,,
+PF22516,1,0.0625,cloud,PreP_C,PreP C-terminal domain,CL0094,Peptidase_ME
+PF08385,1,0.0625,cloud,DHC_N1,"Dynein heavy chain, N-terminal region 1",,
+PF08436,1,0.0625,cloud,DXP_redisom_C,1-deoxy-D-xylulose 5-phosphate reductoisomerase C-terminal domain,CL0139,GADPH_aa-bio_dh
+PF05403,1,0.0625,cloud,Plasmodium_HRP,Plasmodium histidine-rich protein (HRPII/III),,
+PF27586,1,0.0625,cloud,PF3D7_0210200_N,PF3D7_0210200 N-terminal domain,,
+PF08367,1,0.0625,cloud,M16C_assoc,Peptidase M16C associated,CL0094,Peptidase_ME
+PF27587,1,0.0625,cloud,PF3D7_0210200_HH,PF3D7_0210200 helix hairpin domain,,
+PF05193,1,0.0625,cloud,Peptidase_M16_C,Peptidase M16 inactive domain,CL0094,Peptidase_ME
+PF05191,1,0.0625,cloud,ADK_lid,"Adenylate kinase, active site lid",CL0167,Zn_Beta_Ribbon
+PF07719,1,0.0625,cloud,TPR_2,Tetratricopeptide repeat,CL0020,TPR
+PF07647,1,0.0625,cloud,SAM_2,SAM domain (Sterile alpha motif),CL0003,SAM
+PF22808,1,0.0625,cloud,RhopH3_C,RhopH3 C-terminal domain,,
+PF27571,1,0.0625,cloud,PF3D7_0210200_7th,PF3D7_0210200 7th domain,,
+PF06026,1,0.0625,cloud,Rib_5-P_isom_A,Ribose 5-phosphate isomerase A (phosphoriboisomerase A),CL0063,NADP_Rossmann
+PF27570,1,0.0625,cloud,TOF-1-like_helical,"TOF1-like, helical domain",,
+PF24681,1,0.0625,cloud,Kelch_KLHDC2_KLHL20_DRC7,KLHDC2/KLHL20/DRC7 Kelch-repeats domain,CL0186,Beta_propeller
+PF24656,1,0.0625,cloud,CEPT76_peptidase,CEP76 peptidase-like domain,CL0125,Peptidase_CA
+PF24652,1,0.0625,cloud,CEP76_C,Centrosomal protein of 76 kDa C-terminal domain,CL0659,CAP
+PF06437,1,0.0625,cloud,ISN1,IMP-specific 5'-nucleotidase,CL0137,HAD
+PF24161,1,0.0625,cloud,CCDC39,Coiled-coil domain-containing protein 39,,
+PF06470,1,0.0625,cloud,SMC_hinge,SMC proteins Flexible Hinge Domain,,
+PF06589,1,0.0625,cloud,CRA,Circumsporozoite-related antigen (CRA),,
+PF06703,1,0.0625,cloud,SPC25,Microsomal signal peptidase 25 kDa subunit (SPC25),,
+PF24055,1,0.0625,cloud,POL3_N,"DNA polymerase delta catalytic subunit-like, N-terminal domain",,
+PF09180,1,0.0625,cloud,ProRS-C_1,"Prolyl-tRNA synthetase, C-terminal",,
+PF07016,1,0.0625,cloud,CRAM_rpt,Cysteine-rich acidic integral membrane protein precursor,,
+PF07418,1,0.0625,cloud,PCEMA1,Acidic phosphoprotein precursor PCEMA1,,
+PF23634,1,0.0625,cloud,PH_CERLI1,CERLI1-like PH domain,CL0266,PH
+PF23511,1,0.0625,cloud,ISD11,ISD11 family,CL0491,LYR-like
+PF07529,1,0.0625,cloud,HSA,HSA domain,,
+PF05756,1,0.0625,cloud,S-antigen,S-antigen protein,,
+PF22919,1,0.0625,cloud,ATP-synt_VA_C,C-terminal domain of V and A type ATP synthase,,
+PF08773,1,0.0625,cloud,CathepsinC_exc,Cathepsin C exclusion domain,CL0116,Calycin
+PF14580,1,0.0625,cloud,LRR_9,Leucine-rich repeat,CL0022,LRR
+PF21948,1,0.0625,cloud,LplA-B_cat,Lipoyl protein ligase A/B catalytic domain,CL0040,tRNA_synt_II
+PF09687,1,0.0625,cloud,PRESAN,Plasmodium RESA N-terminal,,
+PF13288,1,0.0625,cloud,DXPR_C,DXP reductoisomerase C-terminal domain,CL0063,NADP_Rossmann
+PF13365,1,0.0625,cloud,Trypsin_2,Trypsin-like peptidase domain,CL0124,Peptidase_PA
+PF17815,1,0.0625,cloud,PDZ_3,PDZ domain,CL0466,PDZ-like
+PF13405,1,0.0625,cloud,EF-hand_6,EF-hand domain,CL0220,EF_hand
+PF17777,1,0.0625,cloud,RL10P_insert,Insertion domain in 60S ribosomal protein L10P,,
+PF17759,1,0.0625,cloud,tRNA_synthFbeta,Phenylalanyl tRNA synthetase beta chain CLM domain,CL0040,tRNA_synt_II
+PF13414,1,0.0625,cloud,TPR_11,TPR repeat,CL0020,TPR
+PF13432,1,0.0625,cloud,TPR_16,Tetratricopeptide repeat,CL0020,TPR
+PF13476,1,0.0625,cloud,AAA_23,AAA domain,CL0023,P-loop_NTPase
+PF13481,1,0.0625,cloud,AAA_25,AAA domain,CL0023,P-loop_NTPase
+PF17432,1,0.0625,cloud,DUF3458_C,Domain of unknown function (DUF3458_C) ARM repeats,CL0020,TPR
+PF16898,1,0.0625,cloud,TOPRIM_C,C-terminal associated domain of TOPRIM,,
+PF16886,1,0.0625,cloud,ATP-synt_ab_Xtn,ATPsynthase alpha/beta subunit barrel-sandwich domain,CL0105,Hybrid
+PF16830,1,0.0625,cloud,NBD94,Nucleotide-Binding Domain 94 of RH,,
+PF13646,1,0.0625,cloud,HEAT_2,HEAT repeats,CL0020,TPR
+PF13649,1,0.0625,cloud,Methyltransf_25,Methyltransferase domain,CL0063,NADP_Rossmann
+PF04998,1,0.0625,cloud,RNA_pol_Rpb1_5,"RNA polymerase Rpb1, domain 5",,
+PF13921,1,0.0625,cloud,Myb_DNA-bind_6,Myb-like DNA-binding domain,CL0123,HTH
+PF13959,1,0.0625,cloud,CTE_SPB4,"ATP-dependent rRNA helicase SPB4-like, C-terminal extension",,
+PF16211,1,0.0625,cloud,Histone_H2A_C,C-terminus of histone H2A,,
+PF16189,1,0.0625,cloud,Creatinase_N_2,Creatinase/Prolidase N-terminal domain,CL0356,AMP_N-like
+PF16188,1,0.0625,cloud,Peptidase_M24_C,C-terminal region of peptidase_M24,,
+PF14260,1,0.0625,cloud,zf-C4pol,C4-type zinc-finger of DNA polymerase delta,,
+PF14308,1,0.0625,cloud,DnaJ-X,X-domain of DnaJ-containing,,
+PF15801,1,0.0625,cloud,zf-C6H2,"zf-MYND-like zinc finger, mRNA-binding",CL0175,TRASH
+PF13246,1,0.0625,cloud,Cation_ATPase,"P-type ATPase, cytoplasmic domain N",CL0137,HAD
+PF17852,1,0.0625,cloud,Dynein_AAA_lid,Dynein heavy chain AAA lid domain,,
+PF17857,1,0.0625,cloud,AAA_lid_1,AAA+ lid domain,CL0671,AAA_lid
+PF12774,1,0.0625,cloud,AAA_6,Hydrolytic ATP binding site of dynein motor region,CL0023,P-loop_NTPase
+PF09716,1,0.0625,cloud,ETRAMP,Malarial early transcribed membrane protein (ETRAMP),,
+PF21639,1,0.0625,cloud,ORC5_lid,"ORC5, lid domain",CL0671,AAA_lid
+PF14630,1,0.0625,cloud,ORC5_C,Origin recognition complex (ORC) subunit 5 C-terminus,CL0123,HTH
+PF21369,1,0.0625,cloud,STL11_N,"STL11, N-terminal",CL0229,RING
+PF10437,1,0.0625,cloud,Lip_prot_lig_C,Bacterial lipoate protein ligase C-terminus,CL0233,SufE_NifU
+PF10511,1,0.0625,cloud,Cementoin,Trappin protein transglutaminase binding domain,,
+PF11940,1,0.0625,cloud,DUF3458,Domain of unknown function (DUF3458) Ig-like fold,CL0159,E-set
+PF18638,1,0.0625,cloud,CyRPA,Cysteine-Rich Protective Antigen 6 bladed domain,CL0186,Beta_propeller
+PF18513,1,0.0625,cloud,Pro_sub2,Prodomain subtilisin 2,CL0570,PPP-I
+PF12451,1,0.0625,cloud,VPS11_C,Vacuolar protein sorting protein 11 C terminal,,
+PF18262,1,0.0625,cloud,PhetRS_B1,Phe-tRNA synthetase beta subunit B1 domain,CL0123,HTH
+PF12775,1,0.0625,cloud,AAA_7,P-loop containing dynein motor region,CL0023,P-loop_NTPase
+PF13238,1,0.0625,cloud,AAA_18,AAA domain,CL0023,P-loop_NTPase
+PF12777,1,0.0625,cloud,MT,Microtubule-binding stalk of dynein motor,,
+PF12780,1,0.0625,cloud,AAA_8,P-loop containing dynein motor region D4,CL0023,P-loop_NTPase
+PF12781,1,0.0625,cloud,AAA_9,ATP-binding dynein motor region,CL0023,P-loop_NTPase
+PF18253,1,0.0625,cloud,HipN,Hsp70-interacting protein N N-terminal domain,,
+PF18199,1,0.0625,cloud,Dynein_C,Dynein heavy chain C-terminal domain,,
+PF13041,1,0.0625,cloud,PPR_2,PPR repeat family ,CL0020,TPR
+PF13181,1,0.0625,cloud,TPR_8,Tetratricopeptide repeat,CL0020,TPR
+PF18198,1,0.0625,cloud,AAA_lid_11,Dynein heavy chain AAA lid domain,CL0671,AAA_lid
+PF17986,1,0.0625,cloud,EKAL,EMP3-KAHRP-like N-terminal domain,,
+PF17900,1,0.0625,cloud,Peptidase_M1_N,Peptidase M1 N-terminal domain,CL0672,p35
+PF17862,1,0.0625,cloud,AAA_lid_3,AAA+ lid domain,CL0671,AAA_lid
+PF05000,1,0.0625,cloud,RNA_pol_Rpb1_4,"RNA polymerase Rpb1, domain 4",,
+PF00004,1,0.0625,cloud,AAA,ATPase family associated with various cellular activities (AAA),CL0023,P-loop_NTPase
+PF04997,1,0.0625,cloud,RNA_pol_Rpb1_1,"RNA polymerase Rpb1, domain 1",,
+PF00436,1,0.0625,cloud,SSB,Single-strand binding protein family,CL0021,OB
+PF00664,1,0.0625,cloud,ABC_membrane,ABC transporter transmembrane region,CL0241,ABC_membrane
+PF00650,1,0.0625,cloud,CRAL_TRIO,CRAL/TRIO domain,CL0512,CRAL_TRIO
+PF00642,1,0.0625,cloud,zf-CCCH,Zinc finger C-x8-C-x5-C-x3-H type (and similar),CL0537,CCCH_zf
+PF00623,1,0.0625,cloud,RNA_pol_Rpb1_2,"RNA polymerase Rpb1, domain 2",,
+PF00589,1,0.0625,cloud,Phage_integrase,Phage integrase family,CL0382,DNA-mend
+PF00587,1,0.0625,cloud,tRNA-synt_2b,"tRNA synthetase class II core domain (G, H, P, S and T)",CL0040,tRNA_synt_II
+PF00562,1,0.0625,cloud,RNA_pol_Rpb2_6,"RNA polymerase Rpb2, domain 6",CL0410,LEF-8-like
+PF00557,1,0.0625,cloud,Peptidase_M24,Metallopeptidase family M24,,
+PF00521,1,0.0625,cloud,DNA_topoisoIV,"DNA gyrase/topoisomerase IV, subunit A",,
+PF00515,1,0.0625,cloud,TPR_1,Tetratricopeptide repeat,CL0020,TPR
+PF00510,1,0.0625,cloud,COX3,Cytochrome c oxidase subunit III,,
+PF00501,1,0.0625,cloud,AMP-binding,AMP-binding enzyme,CL0378,ANL
+PF00479,1,0.0625,cloud,G6PD_N,"Glucose-6-phosphate dehydrogenase, NAD binding domain",CL0063,NADP_Rossmann
+PF00476,1,0.0625,cloud,DNA_pol_A,DNA polymerase family A,,
+PF00466,1,0.0625,cloud,Ribosomal_L10,Ribosomal protein L10,,
+PF00675,1,0.0625,cloud,Peptidase_M16,Insulinase (Peptidase family M16),CL0094,Peptidase_ME
+PF00689,1,0.0625,cloud,Cation_ATPase_C,"Cation transporting ATPase, C-terminus",,
+PF00690,1,0.0625,cloud,Cation_ATPase_N,"Cation transporter/ATPase, N-terminus",,
+PF00861,1,0.0625,cloud,Ribosomal_L18p,"Ribosomal L18 of archaea, bacteria, mitoch. and chloroplast",CL0267,S11_L18p
+PF01088,1,0.0625,cloud,Peptidase_C12,"Ubiquitin carboxyl-terminal hydrolase, family 1",CL0125,Peptidase_CA
+PF01031,1,0.0625,cloud,Dynamin_M,Dynamin central region,,
+PF00985,1,0.0625,cloud,MSA_2,Merozoite Surface Antigen 2 (MSA-2) family,,
+PF00958,1,0.0625,cloud,GMP_synt_C,GMP synthase C terminal domain,,
+PF00956,1,0.0625,cloud,NAP,Nucleosome assembly protein (NAP),,
+PF00935,1,0.0625,cloud,Ribosomal_L44,Ribosomal protein L44,CL0167,Zn_Beta_Ribbon
+PF00856,1,0.0625,cloud,SET,SET domain,CL0489,SAF
+PF00704,1,0.0625,cloud,Glyco_hydro_18,Glycosyl hydrolases family 18,CL0036,TIM_barrel
+PF00847,1,0.0625,cloud,AP2,AP2 domain,CL0081,MBD-like
+PF00810,1,0.0625,cloud,ER_lumen_recept,ER lumen protein retaining receptor,CL0141,MtN3-like
+PF00782,1,0.0625,cloud,DSPc,"Dual specificity phosphatase, catalytic domain",CL0031,Phosphatase
+PF00719,1,0.0625,cloud,Pyrophosphatase,Inorganic pyrophosphatase,,
+PF00717,1,0.0625,cloud,Peptidase_S24,Peptidase S24-like,CL0299,Peptidase_SF
+PF00705,1,0.0625,cloud,PCNA_N,"Proliferating cell nuclear antigen, N-terminal domain",CL0060,DNA_clamp
+PF00464,1,0.0625,cloud,SHMT,Serine hydroxymethyltransferase,CL0061,PLP_aminotran
+PF00428,1,0.0625,cloud,Ribosomal_60s,60s Acidic ribosomal protein,,
+PF04992,1,0.0625,cloud,RNA_pol_Rpb1_6,"RNA polymerase Rpb1, domain 6",,
+PF00406,1,0.0625,cloud,ADK,Adenylate kinase,CL0023,P-loop_NTPase
+PF00162,1,0.0625,cloud,PGK,Phosphoglycerate kinase,,
+PF00156,1,0.0625,cloud,Pribosyltran,Phosphoribosyl transferase domain,CL0533,PRTase-like
+PF00153,1,0.0625,cloud,Mito_carr,Mitochondrial carrier protein,,
+PF00136,1,0.0625,cloud,DNA_pol_B,DNA polymerase family B,CL0194,DNA_pol_B-like
+PF00125,1,0.0625,cloud,Histone,Core histone H2A/H2B/H3/H4 domain,CL0012,Histone
+PF00122,1,0.0625,cloud,E1-E2_ATPase,P-type ATPase actuator domain,,
+PF00121,1,0.0625,cloud,TIM,Triosephosphate isomerase,CL0036,TIM_barrel
+PF00118,1,0.0625,cloud,Cpn60_TCP1,TCP-1/cpn60 chaperonin family,,
+PF00117,1,0.0625,cloud,GATase,Glutamine amidotransferase class-I,CL0014,Glutaminase_I
+PF00111,1,0.0625,cloud,Fer2,2Fe-2S iron-sulfur cluster binding domain,CL0486,Fer2
+PF00097,1,0.0625,cloud,zf-C3HC4,"Zinc finger, C3HC4 type (RING finger)",CL0229,RING
+PF00071,1,0.0625,cloud,Ras,Ras family,CL0023,P-loop_NTPase
+PF00025,1,0.0625,cloud,Arf,ADP-ribosylation factor family,CL0023,P-loop_NTPase
+PF00023,1,0.0625,cloud,Ank,Ankyrin repeat,CL0465,Ank
+PF00006,1,0.0625,cloud,ATP-synt_ab,"ATP synthase alpha/beta family, nucleotide-binding domain",CL0023,P-loop_NTPase
+PF00168,1,0.0625,cloud,C2,C2 domain,CL0154,C2
+PF00175,1,0.0625,cloud,NAD_binding_1,Oxidoreductase NAD-binding domain ,CL0091,NAD_Ferredoxin
+PF00176,1,0.0625,cloud,SNF2-rel_dom,SNF2-related domain,CL0023,P-loop_NTPase
+PF00270,1,0.0625,cloud,DEAD,DEAD/DEAH box helicase,CL0023,P-loop_NTPase
+PF00352,1,0.0625,cloud,TBP,"Transcription factor TFIID (or TATA-binding protein, TBP)",CL0407,TBP-like
+PF00350,1,0.0625,cloud,Dynamin_N,Dynamin family,CL0023,P-loop_NTPase
+PF00349,1,0.0625,cloud,Hexokinase_1,Hexokinase,CL0108,Actin_ATPase
+PF00342,1,0.0625,cloud,PGI,Phosphoglucose isomerase,CL0067,SIS
+PF00317,1,0.0625,cloud,Ribonuc_red_lgN,"Ribonucleotide reductase, all-alpha domain",,
+PF00271,1,0.0625,cloud,Helicase_C,Helicase conserved C-terminal domain,CL0023,P-loop_NTPase
+PF00268,1,0.0625,cloud,Ribonuc_red_sm,"Ribonucleotide reductase, small chain",CL0044,Ferritin
+PF00183,1,0.0625,cloud,HSP90,Hsp90 protein,,
+PF00254,1,0.0625,cloud,FKBP_C,FKBP-type peptidyl-prolyl cis-trans isomerase,CL0487,FKBP
+PF00244,1,0.0625,cloud,14-3-3,14-3-3 protein,CL0020,TPR
+PF00241,1,0.0625,cloud,Cofilin_ADF,Cofilin/tropomyosin-type actin-binding protein,CL0092,ADF
+PF00226,1,0.0625,cloud,DnaJ,DnaJ domain,CL0392,Chaperone-J
+PF00216,1,0.0625,cloud,Bac_DNA_binding,Bacterial DNA-binding protein,CL0548,IHF-likeDNA-bdg
+PF00204,1,0.0625,cloud,DNA_gyraseB,DNA gyrase B,CL0329,S5
+PF01161,1,0.0625,cloud,PBP,Phosphatidylethanolamine-binding protein,,
+PF01180,1,0.0625,cloud,DHO_dh,Dihydroorotate dehydrogenase,CL0036,TIM_barrel
+PF01182,1,0.0625,cloud,Glucosamine_iso,Glucosamine-6-phosphate isomerases/6-phosphogluconolactonase,CL0063,NADP_Rossmann
+PF01233,1,0.0625,cloud,NMT,"Myristoyl-CoA:protein N-myristoyltransferase, N-terminal domain",CL0257,Acetyltrans
+PF03357,1,0.0625,cloud,Snf7,Snf7,CL0235,PspA
+PF03332,1,0.0625,cloud,PMM,Eukaryotic phosphomannomutase,CL0137,HAD
+PF03144,1,0.0625,cloud,GTP_EFTU_D2,Elongation factor Tu domain 2,CL0866,ALR_C-like
+PF03143,1,0.0625,cloud,GTP_EFTU_D3,Elongation factor Tu C-terminal domain,CL0740,GCV_T_C
+PF03134,1,0.0625,cloud,TB2_DP1_HVA22,"TB2/DP1, HVA22 family",,
+PF03129,1,0.0625,cloud,HGTP_anticodon,Anticodon binding domain,CL0458,IIaaRS-ABD
+PF03104,1,0.0625,cloud,DNA_pol_B_exo1,"DNA polymerase family B, exonuclease domain",CL0219,RNase_H
+PF03054,1,0.0625,cloud,tRNA_Me_trans,tRNA methyl transferase HUP domain,CL0039,HUP
+PF03028,1,0.0625,cloud,Dynein_heavy,Dynein heavy chain region D6 P-loop domain ,CL0023,P-loop_NTPase
+PF02874,1,0.0625,cloud,ATP-synt_ab_N,"ATP synthase alpha/beta family, beta-barrel domain",CL0866,ALR_C-like
+PF02867,1,0.0625,cloud,Ribonuc_red_lgC,"Ribonucleotide reductase, barrel domain",CL0339,PFL-like
+PF02852,1,0.0625,cloud,Pyr_redox_dim,"Pyridine nucleotide-disulphide oxidoreductase, dimerisation domain",CL0608,Reductase_C
+PF02799,1,0.0625,cloud,NMT_C,"Myristoyl-CoA:protein N-myristoyltransferase, C-terminal domain",CL0257,Acetyltrans
+PF02781,1,0.0625,cloud,G6PD_C,"Glucose-6-phosphate dehydrogenase, C-terminal domain",CL0139,GADPH_aa-bio_dh
+PF02747,1,0.0625,cloud,PCNA_C,"Proliferating cell nuclear antigen, C-terminal domain",CL0060,DNA_clamp
+PF03477,1,0.0625,cloud,ATP-cone,ATP cone domain,,
+PF03483,1,0.0625,cloud,B3_4,B3/4 domain,CL0383,PheT-TilS
+PF03484,1,0.0625,cloud,B5,tRNA synthetase B5 domain,CL0123,HTH
+PF04118,1,0.0625,cloud,Dopey_N,"Dopey, N-terminal",CL0020,TPR
+PF04990,1,0.0625,cloud,RNA_pol_Rpb1_7,"RNA polymerase Rpb1, domain 7",,
+PF04983,1,0.0625,cloud,RNA_pol_Rpb1_3,"RNA polymerase Rpb1, domain 3",,
+PF04758,1,0.0625,cloud,Ribosomal_S30,Ribosomal protein S30,,
+PF04565,1,0.0625,cloud,RNA_pol_Rpb2_3,"RNA polymerase Rpb2, domain 3",,
+PF04560,1,0.0625,cloud,RNA_pol_Rpb2_7,"RNA polymerase Rpb2, domain 7",,
+PF04442,1,0.0625,cloud,CtaG_Cox11,Cytochrome c oxidase assembly protein CtaG/Cox11,,
+PF04073,1,0.0625,cloud,tRNA_edit,Aminoacyl-tRNA editing domain,,
+PF03607,1,0.0625,cloud,DCX,Doublecortin,CL0072,Ubiquitin
+PF04051,1,0.0625,cloud,TRAPP,Transport protein particle (TRAPP) component,CL0210,HNOX-like
+PF03998,1,0.0625,cloud,Utp11,Utp11 protein,,
+PF03987,1,0.0625,cloud,Autophagy_act_C,"Autophagocytosis associated protein, active-site domain ",CL0097,TypeIII_Chap
+PF03805,1,0.0625,cloud,CLAG,Cytoadherence-linked asexual protein,,
+PF03727,1,0.0625,cloud,Hexokinase_2,Hexokinase,CL0108,Actin_ATPase
+PF03643,1,0.0625,cloud,Vps26,Vacuolar protein sorting-associated protein 26 ,CL0135,Arrestin_N-like
+PF02670,1,0.0625,cloud,DXP_reductoisom,1-deoxy-D-xylulose 5-phosphate reductoisomerase,CL0063,NADP_Rossmann
+PF02580,1,0.0625,cloud,Tyr_Deacylase,D-Tyr-tRNA(Tyr) deacylase,,
+PF02542,1,0.0625,cloud,YgbB,YgbB family,,
+PF01504,1,0.0625,cloud,PIP5K,Phosphatidylinositol-4-phosphate 5-Kinase,CL0016,PKinase
+PF01725,1,0.0625,cloud,Ham1p_like,Ham1 family,CL0269,Maf
+PF01702,1,0.0625,cloud,TGT,Queuine tRNA-ribosyltransferase,CL0036,TIM_barrel
+PF01658,1,0.0625,cloud,Inos-1-P_synth,Myo-inositol-1-phosphate synthase,CL0139,GADPH_aa-bio_dh
+PF01612,1,0.0625,cloud,DNA_pol_A_exo1,3'-5' exonuclease,CL0219,RNase_H
+PF01592,1,0.0625,cloud,NifU_N,NifU-like N terminal domain,CL0233,SufE_NifU
+PF01535,1,0.0625,cloud,PPR,PPR repeat,CL0020,TPR
+PF01467,1,0.0625,cloud,CTP_transf_like,Cytidylyltransferase-like,CL0039,HUP
+PF01751,1,0.0625,cloud,Toprim,Toprim domain,CL0413,Toprim-like
+PF01433,1,0.0625,cloud,Peptidase_M1,Peptidase family M1 domain,CL0126,Peptidase_MA
+PF01409,1,0.0625,cloud,tRNA-synt_2d,tRNA synthetases class II core domain (F),CL0040,tRNA_synt_II
+PF01388,1,0.0625,cloud,ARID,ARID/BRIGHT DNA binding domain,CL0123,HTH
+PF01384,1,0.0625,cloud,PHO4,Phosphate transporter family,,
+PF01321,1,0.0625,cloud,Creatinase_N,Creatinase/Prolidase N-terminal domain,CL0356,AMP_N-like
+PF01248,1,0.0625,cloud,Ribosomal_L7Ae,Ribosomal protein L7Ae/L30e/S12e/Gadd45 family,CL0101,PELOTA
+PF01734,1,0.0625,cloud,Patatin,Patatin-like phospholipase,CL0323,Patatin
+PF01780,1,0.0625,cloud,Ribosomal_L37ae,Ribosomal L37ae protein family,CL0167,Zn_Beta_Ribbon
+PF02540,1,0.0625,cloud,NAD_synthase,NAD synthase,CL0039,HUP
+PF02450,1,0.0625,cloud,LCAT,Lecithin:cholesterol acyltransferase,CL0028,AB_hydrolase
+PF02526,1,0.0625,cloud,GBP_repeat,Glycophorin-binding protein,,
+PF02518,1,0.0625,cloud,HATPase_c,"Histidine kinase-, DNA gyrase B-, and HSP90-like ATPase",CL0025,His_Kinase_A
+PF02493,1,0.0625,cloud,MORN,MORN repeat,CL0251,MORN
+PF02469,1,0.0625,cloud,Fasciclin,Fasciclin domain,,
+PF02463,1,0.0625,cloud,SMC_N,RecF/RecN/SMC N terminal domain,CL0023,P-loop_NTPase
+PF02460,1,0.0625,cloud,Patched,Patched SSD,CL0322,RND_permease
+PF02401,1,0.0625,cloud,LYTB,LytB protein,,
+PF01896,1,0.0625,cloud,DNA_primase_S,DNA primase small subunit,CL0243,AEP
+PF02223,1,0.0625,cloud,Thymidylate_kin,Thymidylate kinase,CL0023,P-loop_NTPase
+PF02212,1,0.0625,cloud,GED,Dynamin GTPase effector domain,,
+PF02146,1,0.0625,cloud,SIR2,Sir2 family,CL0063,NADP_Rossmann
+PF02127,1,0.0625,cloud,Peptidase_M18,Aminopeptidase I zinc metalloprotease (M18),CL0865,ZnExoPePases
+PF01920,1,0.0625,cloud,Prefoldin_2,Prefoldin subunit,CL0200,Prefoldin
+PF01918,1,0.0625,cloud,Alba,Alba,CL0441,AlbA
+PF27846,1,0.0625,cloud,tSAM_targ_Cxxx_rpt,Modification target Cys-rich repeat,,

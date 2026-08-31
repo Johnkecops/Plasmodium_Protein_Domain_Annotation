@@ -1,0 +1,374 @@
+domain_accession,n_proteins,n_instances,n_species,n_clades,n_reviewed_carriers,species_list,n_unreviewed_carriers,reviewed_fraction,pct_of_proteome,instances_per_carrier,domain_name,description,clan_accession,clan_id
+PF00069,38,38,6,4,38,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,4.916,1.0,Pkinase,Protein kinase domain,CL0016,PKinase
+PF00090,24,24,10,6,24,Plasmodium berghei; Plasmodium brasilianum; Plasmodium cynomolgi; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium malariae; Plasmodium reichenowi; Plasmodium simium; Plasmodium vivax; Plasmodium yoelii,0,1.0,3.105,1.0,TSP_1,Thrombospondin type 1 domain,CL0692,TSP1
+PF07422,21,21,3,2,21,Plasmodium berghei; Plasmodium falciparum; Plasmodium yoelii,0,1.0,2.717,1.0,s48_45,Sexual stage antigen s48/45 domain,,
+PF00026,20,20,3,3,20,Plasmodium berghei; Plasmodium falciparum; Plasmodium vivax,0,1.0,2.587,1.0,Asp,Eukaryotic aspartyl protease,CL0129,Peptidase_AA
+PF13499,19,19,3,2,19,Plasmodium berghei; Plasmodium falciparum; Plasmodium yoelii,0,1.0,2.458,1.0,EF-hand_7,EF-hand domain pair,CL0220,EF_hand
+PF00985,14,14,1,1,14,Plasmodium falciparum,0,1.0,1.811,1.0,MSA_2,Merozoite Surface Antigen 2 (MSA-2) family,,
+PF00112,14,14,4,3,14,Plasmodium berghei; Plasmodium falciparum; Plasmodium vinckei; Plasmodium vivax,0,1.0,1.811,1.0,Peptidase_C1,Papain family cysteine protease,CL0125,Peptidase_CA
+PF00022,10,10,3,2,10,Plasmodium berghei; Plasmodium falciparum; Plasmodium yoelii,0,1.0,1.294,1.0,Actin,Actin,CL0108,Actin_ATPase
+PF12946,9,9,2,2,9,Plasmodium falciparum; Plasmodium yoelii,0,1.0,1.164,1.0,EGF_MSP1_1,MSP1 EGF domain 1,CL0001,EGF
+PF07462,9,9,2,2,9,Plasmodium falciparum; Plasmodium yoelii,0,1.0,1.164,1.0,MSP1_C,Merozoite surface protein 1 (MSP1) C-terminus,,
+PF00082,9,9,3,3,9,Plasmodium berghei; Plasmodium falciparum; Plasmodium vivax,0,1.0,1.164,1.0,Peptidase_S8,Subtilase family,,
+PF08627,8,8,6,4,8,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,1.035,1.0,CRT-like,"CRT-like, chloroquine-resistance transporter-like",CL0184,DMT
+PF02430,8,8,4,4,8,Plasmodium chabaudi; Plasmodium falciparum; Plasmodium fragile; Plasmodium knowlesi,0,1.0,1.035,1.0,AMA-1,Apical membrane antigen 1,CL0168,PAN
+PF08246,7,7,4,3,7,Plasmodium berghei; Plasmodium falciparum; Plasmodium vinckei; Plasmodium vivax,0,1.0,0.906,1.0,Inhibitor_I29,Cathepsin propeptide inhibitor domain (I29),,
+PF00709,7,7,6,4,7,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.906,1.0,Adenylsucc_synt,Adenylosuccinate synthetase,CL0023,P-loop_NTPase
+PF00752,7,7,6,4,7,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.906,1.0,XPG_N,XPG N-terminal domain,CL0280,PIN
+PF00867,7,7,6,4,7,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.906,1.0,XPG_I,XPG I-region,CL0464,5_3_exonuc_C
+PF00091,6,6,2,2,6,Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.776,1.0,Tubulin,"Tubulin/FtsZ family, GTPase domain",CL0063,NADP_Rossmann
+PF00012,6,6,3,3,6,Plasmodium berghei; Plasmodium cynomolgi; Plasmodium falciparum,0,1.0,0.776,1.0,HSP70,Hsp70 protein,CL0108,Actin_ATPase
+PF00113,6,6,3,2,6,Plasmodium berghei; Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.776,1.0,Enolase_C,"Enolase, C-terminal TIM barrel domain",CL0036,TIM_barrel
+PF00009,6,6,4,4,6,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.776,1.0,GTP_EFTU,Elongation factor Tu GTP binding domain,CL0023,P-loop_NTPase
+PF02374,6,6,6,4,6,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.776,1.0,ArsA_ATPase,Anion-transporting ATPase,CL0023,P-loop_NTPase
+PF00318,6,6,6,4,6,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.776,1.0,Ribosomal_S2,Ribosomal protein S2,CL0067,SIS
+PF03952,6,6,3,2,6,Plasmodium berghei; Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.776,1.0,Enolase_N,"Enolase, N-terminal domain",CL0227,Enolase_N
+PF03953,6,6,2,2,6,Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.776,1.0,Tubulin_C,Tubulin C-terminal domain,CL0442,Tubulin_C
+PF06220,6,6,6,4,6,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.776,1.0,zf-U1,U1 zinc finger,CL0361,C2H2-zf
+PF05424,6,6,4,3,6,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium ovale; Plasmodium vivax,0,1.0,0.776,1.0,Duffy_binding,Duffy binding domain,CL0195,DBL
+PF11556,6,6,4,3,6,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium ovale; Plasmodium vivax,0,1.0,0.776,1.0,EBA-175_VI,Erythrocyte binding antigen 175,,
+PF00962,6,6,6,6,6,Plasmodium berghei; Plasmodium cynomolgi; Plasmodium falciparum; Plasmodium gallinaceum; Plasmodium knowlesi; Plasmodium vivax,0,1.0,0.776,1.0,A_deaminase,Adenosine deaminase,CL0036,TIM_barrel
+PF18213,5,5,3,3,5,Plasmodium berghei; Plasmodium falciparum; Plasmodium vivax,0,1.0,0.647,1.0,SUB1_ProdP9,SUB1 protease Prodomain ProdP9,CL0570,PPP-I
+PF05093,5,5,5,4,5,Plasmodium berghei; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.647,1.0,CIAPIN1,"Cytokine-induced anti-apoptosis inhibitor 1, Fe-S biogenesis",,
+PF05756,5,5,1,1,5,Plasmodium falciparum,0,1.0,0.647,1.0,S-antigen,S-antigen protein,,
+PF05019,5,5,5,4,5,Plasmodium chabaudi; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.647,1.0,Coq4,Coenzyme Q (ubiquinone) biosynthesis protein Coq4,,
+PF00186,5,5,5,3,5,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium vinckei; Plasmodium vivax,0,1.0,0.647,1.0,DHFR_1,Dihydrofolate reductase,CL0387,DHFred
+PF01226,5,5,5,3,5,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium malariae; Plasmodium ovale; Plasmodium vivax,0,1.0,0.647,1.0,Form_Nir_trans,Formate/nitrite transporter,CL0716,Aquaporin-like
+PF00005,5,5,2,2,5,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.647,1.0,ABC_tran,ABC transporter,CL0023,P-loop_NTPase
+PF05879,5,5,5,4,5,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax,0,1.0,0.647,1.0,RHD3_GTPase,Root hair defective 3 GTP-binding protein (RHD3) GTPase domain,CL0023,P-loop_NTPase
+PF00081,5,5,3,2,5,Plasmodium falciparum; Plasmodium malariae; Plasmodium vivax,0,1.0,0.647,1.0,Sod_Fe_N,"Iron/manganese superoxide dismutases, alpha-hairpin domain",,
+PF00032,5,5,5,4,5,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium gallinaceum; Plasmodium vivax,0,1.0,0.647,1.0,Cytochrom_B_C,Cytochrome b(C-terminal)/b6/petD,,
+PF00083,5,5,4,4,5,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.647,1.0,Sugar_tr,Sugar (and other) transporter,CL0015,MFS
+PF00033,5,5,5,4,5,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium gallinaceum; Plasmodium vivax,0,1.0,0.647,1.0,Cytochrome_B,Cytochrome b/b6/petB,CL0328,2heme_cytochrom
+PF00838,5,5,5,3,5,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium yoelii,0,1.0,0.647,1.0,TCTP,Translationally controlled tumour protein,CL0080,Beta-tent
+PF02777,5,5,3,2,5,Plasmodium falciparum; Plasmodium malariae; Plasmodium vivax,0,1.0,0.647,1.0,Sod_Fe_C,"Iron/manganese superoxide dismutases, C-terminal domain",,
+PF00578,4,4,2,2,4,Plasmodium falciparum; Plasmodium knowlesi,0,1.0,0.517,1.0,AhpC-TSA,AhpC/TSA family,CL0172,Thioredoxin
+PF00679,4,4,4,4,4,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.517,1.0,EFG_C,Elongation factor G C-terminus,CL0437,EF-G_C
+PF00274,4,4,2,2,4,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.517,1.0,Glycolytic,Fructose-bisphosphate aldolase class-I,CL0036,TIM_barrel
+PF00303,4,4,4,3,4,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum; Plasmodium vivax,0,1.0,0.517,1.0,Thymidylat_synt,Thymidylate synthase,,
+PF14308,4,4,1,1,4,Plasmodium falciparum,0,1.0,0.517,1.0,DnaJ-X,X-domain of DnaJ-containing,,
+PF06421,4,4,4,4,4,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.517,1.0,LepA_C,GTP-binding protein LepA C-terminus,,
+PF06247,4,4,4,4,4,Plasmodium berghei; Plasmodium falciparum; Plasmodium gallinaceum; Plasmodium reichenowi,0,1.0,0.517,1.0,Plasmod_Pvs28,Pvs28 EGF domain,CL0001,EGF
+PF01015,4,4,4,4,4,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.517,1.0,Ribosomal_S3Ae,Ribosomal S3Ae family,,
+PF12377,4,4,2,2,4,Plasmodium knowlesi; Plasmodium vivax,0,1.0,0.517,1.0,DuffyBP_N,Duffy binding protein N terminal ,,
+PF07992,4,4,1,1,4,Plasmodium falciparum,0,1.0,0.517,1.0,Pyr_redox_2,Pyridine nucleotide-disulphide oxidoreductase,CL0063,NADP_Rossmann
+PF01139,4,4,4,3,4,Plasmodium berghei; Plasmodium falciparum; Plasmodium knowlesi; Plasmodium yoelii,0,1.0,0.517,1.0,RtcB,tRNA-splicing ligase RtcB,,
+PF07885,4,4,2,2,4,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.517,1.0,Ion_trans_2,Ion channel,CL0030,Ion_channel
+PF10417,4,4,2,2,4,Plasmodium falciparum; Plasmodium knowlesi,0,1.0,0.517,1.0,1-cysPrx_C,C-terminal domain of 1-Cys peroxiredoxin,,
+PF00202,4,4,3,2,4,Plasmodium chabaudi; Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.517,1.0,Aminotran_3,Aminotransferase class-III,CL0061,PLP_aminotran
+PF14543,4,4,2,2,4,Plasmodium falciparum; Plasmodium vivax,0,1.0,0.517,1.0,TAXi_N,Xylanase inhibitor N-terminal,CL0129,Peptidase_AA
+PF00027,4,4,3,3,4,Plasmodium berghei; Plasmodium falciparum; Plasmodium vivax,0,1.0,0.517,1.0,cNMP_binding,Cyclic nucleotide-binding domain,CL0029,Cupin
+PF01521,4,4,3,3,4,Plasmodium berghei; Plasmodium falciparum; Plasmodium vivax,0,1.0,0.517,1.0,Fe-S_biosyn,Iron-sulphur cluster biosynthesis,CL0980,HesB-like
+PF00266,4,4,3,3,4,Plasmodium berghei; Plasmodium falciparum; Plasmodium vivax,0,1.0,0.517,1.0,Aminotran_5,Aminotransferase class-V,CL0061,PLP_aminotran
+PF18515,4,4,2,2,4,Plasmodium falciparum; Plasmodium vivax,0,1.0,0.517,1.0,Rh5,Rh5 coiled-coil domain,,
+PF04055,4,4,4,4,4,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.517,1.0,Radical_SAM,Radical SAM superfamily,CL0036,TIM_barrel
+PF00085,4,4,2,2,4,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.517,1.0,Thioredoxin,Thioredoxin,CL0172,Thioredoxin
+PF02852,4,4,1,1,4,Plasmodium falciparum,0,1.0,0.517,1.0,Pyr_redox_dim,"Pyridine nucleotide-disulphide oxidoreductase, dimerisation domain",CL0608,Reductase_C
+PF00063,4,4,2,2,4,Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.517,1.0,Myosin_head,Myosin head (motor domain),CL0023,P-loop_NTPase
+PF16881,4,4,4,4,4,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.517,1.0,LIAS_N,N-terminal domain of lipoyl synthase of Radical_SAM family,,
+PF00230,4,4,2,2,4,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.517,1.0,MIP,Major intrinsic protein,CL0716,Aquaporin-like
+PF00233,4,4,2,2,4,Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.517,1.0,PDEase_I,3'5'-cyclic nucleotide phosphodiesterase,CL0237,HD_PDEase
+PF00241,4,4,1,1,4,Plasmodium falciparum,0,1.0,0.517,1.0,Cofilin_ADF,Cofilin/tropomyosin-type actin-binding protein,CL0092,ADF
+PF03805,4,4,1,1,4,Plasmodium falciparum,0,1.0,0.517,1.0,CLAG,Cytoadherence-linked asexual protein,,
+PF00705,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,PCNA_N,"Proliferating cell nuclear antigen, N-terminal domain",CL0060,DNA_clamp
+PF02747,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,PCNA_C,"Proliferating cell nuclear antigen, C-terminal domain",CL0060,DNA_clamp
+PF02657,3,3,3,3,3,Plasmodium berghei; Plasmodium falciparum; Plasmodium vivax,0,1.0,0.388,1.0,SufE,Fe-S metabolism associated domain,CL0233,SufE_NifU
+PF02798,3,3,3,3,3,Plasmodium falciparum; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.388,1.0,GST_N,"Glutathione S-transferase, N-terminal domain",CL0172,Thioredoxin
+PF02535,3,3,2,2,3,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.388,1.0,Zip,ZIP Zinc transporter,CL0184,DMT
+PF01918,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,Alba,Alba,CL0441,AlbA
+PF01458,3,3,2,2,3,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.388,1.0,SUFBD_core,"SUF system FeS cluster assembly, SufBD core domain",,
+PF03092,3,3,2,2,3,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.388,1.0,BT1,BT1 family,CL0015,MFS
+PF03853,3,3,3,3,3,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax,0,1.0,0.388,1.0,YjeF_N,YjeF-related protein N-terminus,CL0063,NADP_Rossmann
+PF00889,3,3,3,3,3,Plasmodium chabaudi; Plasmodium falciparum; Plasmodium vivax,0,1.0,0.388,1.0,EF_TS,Elongation factor TS,,
+PF04997,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,RNA_pol_Rpb1_1,"RNA polymerase Rpb1, domain 1",,
+PF04998,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,RNA_pol_Rpb1_5,"RNA polymerase Rpb1, domain 5",,
+PF00664,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,ABC_membrane,ABC transporter transmembrane region,CL0241,ABC_membrane
+PF05221,3,3,3,2,3,Plasmodium chabaudi; Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.388,1.0,AdoHcyase,S-adenosyl-L-homocysteine hydrolase,CL0063,NADP_Rossmann
+PF01048,3,3,2,2,3,Plasmodium falciparum; Plasmodium vivax,0,1.0,0.388,1.0,PNP_UDP_1,Phosphorylase superfamily,CL0408,PUP
+PF05301,3,3,3,3,3,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax,0,1.0,0.388,1.0,Acetyltransf_16,"GNAT acetyltransferase, Mec-17",CL0257,Acetyltrans
+PF05403,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,Plasmodium_HRP,Plasmodium histidine-rich protein (HRPII/III),,
+PF00670,3,3,3,2,3,Plasmodium chabaudi; Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.388,1.0,AdoHcyase_NAD,"S-adenosyl-L-homocysteine hydrolase, NAD binding domain",CL0063,NADP_Rossmann
+PF02866,3,3,2,2,3,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.388,1.0,Ldh_1_C,"lactate/malate dehydrogenase, alpha/beta C-terminal domain",CL0341,LDH_C
+PF17986,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,EKAL,EMP3-KAHRP-like N-terminal domain,,
+PF00122,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,E1-E2_ATPase,P-type ATPase actuator domain,,
+PF14497,3,3,3,3,3,Plasmodium falciparum; Plasmodium vivax; Plasmodium yoelii,0,1.0,0.388,1.0,GST_C_3,"Glutathione S-transferase, C-terminal domain",CL0497,GST_C
+PF16212,3,3,2,2,3,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.388,1.0,PhoLip_ATPase_C,Phospholipid-translocating P-type ATPase C-terminal,CL0137,HAD
+PF00235,3,3,2,2,3,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.388,1.0,Profilin,Profilin,CL0431,PF
+PF00226,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,DnaJ,DnaJ domain,CL0392,Chaperone-J
+PF00211,3,3,2,2,3,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.388,1.0,Guanylate_cyc,Adenylate and Guanylate cyclase catalytic domain,CL0276,Nucleot_cyclase
+PF18513,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,Pro_sub2,Prodomain subtilisin 2,CL0570,PPP-I
+PF00115,3,3,3,2,3,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum,0,1.0,0.388,1.0,COX1,Cytochrome C and Quinol oxidase polypeptide I,CL0714,COX1-like
+PF00406,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,ADK,Adenylate kinase,CL0023,P-loop_NTPase
+PF22808,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,RhopH3_C,RhopH3 C-terminal domain,,
+PF00092,3,3,3,2,3,Plasmodium berghei; Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.388,1.0,VWA,von Willebrand factor type A domain,CL0128,vWA-like
+PF00076,3,3,2,2,3,Plasmodium falciparum; Plasmodium vivax,0,1.0,0.388,1.0,RRM_1,RNA recognition motif,CL0221,RRM
+PF00056,3,3,2,2,3,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.388,1.0,Ldh_1_N,"lactate/malate dehydrogenase, NAD binding domain",CL0063,NADP_Rossmann
+PF00025,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,Arf,ADP-ribosylation factor family,CL0023,P-loop_NTPase
+PF25133,3,3,3,3,3,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax,0,1.0,0.388,1.0,TYW2_N_2,TYW2 N-terminal domain,,
+PF13656,3,3,3,2,3,Plasmodium berghei; Plasmodium chabaudi; Plasmodium falciparum,0,1.0,0.388,1.0,RNA_pol_L_2,RNA polymerase Rpb3/Rpb11 dimerisation domain,CL0509,RBP11-like
+PF02526,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,GBP_repeat,Glycophorin-binding protein,,
+PF02475,3,3,3,3,3,Plasmodium falciparum; Plasmodium knowlesi; Plasmodium vivax,0,1.0,0.388,1.0,TRM5-TYW2_MTfase,TRM5/TYW2 methyltransferase domain,CL0063,NADP_Rossmann
+PF12361,3,3,2,2,3,Plasmodium knowlesi; Plasmodium vivax,0,1.0,0.388,1.0,DBP,Duffy-antigen binding protein ,,
+PF10250,3,3,3,3,3,Plasmodium berghei; Plasmodium falciparum; Plasmodium vivax,0,1.0,0.388,1.0,O-FucT,GDP-fucose protein O-fucosyltransferase,CL0113,GT-B
+PF13202,3,3,3,2,3,Plasmodium berghei; Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.388,1.0,EF-hand_5,EF hand,CL0220,EF_hand
+PF00623,3,3,1,1,3,Plasmodium falciparum,0,1.0,0.388,1.0,RNA_pol_Rpb1_2,"RNA polymerase Rpb1, domain 2",,
+PF22099,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,MRS2-like,Magnesium transporter MRS2-like,CL0788,CorA-like
+PF03803,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,Scramblase,Scramblase ,CL0395,Tubby_C
+PF03493,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,BK_channel_a,Calcium-activated BK potassium channel alpha subunit,CL0582,TrkA_C
+PF03477,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,ATP-cone,ATP cone domain,,
+PF03372,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,Exo_endo_phos,Endonuclease/Exonuclease/phosphatase family,CL0530,DNase_I-like
+PF03144,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,GTP_EFTU_D2,Elongation factor Tu domain 2,CL0866,ALR_C-like
+PF22516,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,PreP_C,PreP C-terminal domain,CL0094,Peptidase_ME
+PF03028,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Dynein_heavy,Dynein heavy chain region D6 P-loop domain ,CL0023,P-loop_NTPase
+PF02991,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,ATG8,Autophagy protein Atg8 ubiquitin like,CL0072,Ubiquitin
+PF02874,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,ATP-synt_ab_N,"ATP synthase alpha/beta family, beta-barrel domain",CL0866,ALR_C-like
+PF02867,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Ribonuc_red_lgC,"Ribonucleotide reductase, barrel domain",CL0339,PFL-like
+PF06732,2,2,2,2,2,Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.259,1.0,Pescadillo_N,Pescadillo N-terminus,,
+PF22614,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,Slo-like_RCK,Calcium-activated potassium channel slowpoke-like RCK domain,CL0063,NADP_Rossmann
+PF12628,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,Inhibitor_I71,"Falstatin, cysteine peptidase inhibitor",CL0159,E-set
+PF02799,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,NMT_C,"Myristoyl-CoA:protein N-myristoyltransferase, C-terminal domain",CL0257,Acetyltrans
+PF08367,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,M16C_assoc,Peptidase M16C associated,CL0094,Peptidase_ME
+PF22919,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,ATP-synt_VA_C,C-terminal domain of V and A type ATP synthase,,
+PF02739,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,5_3_exonuc_N,"5'-3' exonuclease, N-terminal resolvase-like domain",CL0280,PIN
+PF02670,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,DXP_reductoisom,1-deoxy-D-xylulose 5-phosphate reductoisomerase,CL0063,NADP_Rossmann
+PF08393,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,DHC_N2,"Dynein heavy chain, N-terminal region 2",,
+PF02666,2,2,2,2,2,Plasmodium falciparum; Plasmodium knowlesi,0,1.0,0.259,1.0,PS_Dcarbxylase,Phosphatidylserine decarboxylase,CL0105,Hybrid
+PF08436,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,DXP_redisom_C,1-deoxy-D-xylulose 5-phosphate reductoisomerase C-terminal domain,CL0139,GADPH_aa-bio_dh
+PF23122,2,2,2,2,2,Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.259,1.0,C2_ITFG1,"ITFG1, C2 domain",CL0154,C2
+PF02542,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,YgbB,YgbB family,,
+PF21972,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,Arc1p_N_like,Nuclear-export cofactor Arc1p ,CL0497,GST_C
+PF21948,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,LplA-B_cat,Lipoyl protein ligase A/B catalytic domain,CL0040,tRNA_synt_II
+PF13242,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,Hydrolase_like,HAD-hyrolase-like,CL0137,HAD
+PF12777,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,MT,Microtubule-binding stalk of dynein motor,,
+PF06589,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,CRA,Circumsporozoite-related antigen (CRA),,
+PF06470,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,SMC_hinge,SMC proteins Flexible Hinge Domain,,
+PF13246,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Cation_ATPase,"P-type ATPase, cytoplasmic domain N",CL0137,HAD
+PF13288,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,DXPR_C,DXP reductoisomerase C-terminal domain,CL0063,NADP_Rossmann
+PF13344,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,Hydrolase_6,Haloacid dehalogenase-like hydrolase,CL0137,HAD
+PF13476,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,AAA_23,AAA domain,CL0023,P-loop_NTPase
+PF13517,2,2,2,2,2,Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.259,1.0,FG-GAP_3,FG-GAP-like repeat,CL0186,Beta_propeller
+PF13181,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,TPR_8,Tetratricopeptide repeat,CL0020,TPR
+PF14492,2,2,2,2,2,Plasmodium knowlesi; Plasmodium vivax,0,1.0,0.259,1.0,EFG_III,"Elongation Factor G, domain III",CL0437,EF-G_C
+PF12780,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,AAA_8,P-loop containing dynein motor region D4,CL0023,P-loop_NTPase
+PF07541,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,EIF_2_alpha,Eukaryotic translation initiation factor 2 alpha subunit,,
+PF16589,2,2,2,2,2,Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.259,1.0,BRCT_2,BRCT domain,CL0459,BRCT-like
+PF07714,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,PK_Tyr_Ser-Thr,Protein tyrosine and serine/threonine kinase,CL0016,PKinase
+PF21550,2,2,2,2,2,Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.259,1.0,MTIP_N,"Myosin A tail domain interacting protein, N-terminal",CL0220,EF_hand
+PF12775,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,AAA_7,P-loop containing dynein motor region,CL0023,P-loop_NTPase
+PF17830,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,STI1-HOP_DP,"STI1/HOP, DP domain",,
+PF05193,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Peptidase_M16_C,Peptidase M16 inactive domain,CL0094,Peptidase_ME
+PF17852,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Dynein_AAA_lid,Dynein heavy chain AAA lid domain,,
+PF09716,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,ETRAMP,Malarial early transcribed membrane protein (ETRAMP),,
+PF05000,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,RNA_pol_Rpb1_4,"RNA polymerase Rpb1, domain 4",,
+PF18198,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,AAA_lid_11,Dynein heavy chain AAA lid domain,CL0671,AAA_lid
+PF18199,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Dynein_C,Dynein heavy chain C-terminal domain,,
+PF04983,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,RNA_pol_Rpb1_3,"RNA polymerase Rpb1, domain 3",,
+PF12774,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,AAA_6,Hydrolytic ATP binding site of dynein motor region,CL0023,P-loop_NTPase
+PF04051,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,TRAPP,Transport protein particle (TRAPP) component,CL0210,HNOX-like
+PF20428,2,2,2,2,2,Plasmodium falciparum; Plasmodium knowlesi,0,1.0,0.259,1.0,Sey1_3HB,Sey1 three-helix bundle domain,,
+PF09687,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,PRESAN,Plasmodium RESA N-terminal,,
+PF00004,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,AAA,ATPase family associated with various cellular activities (AAA),CL0023,P-loop_NTPase
+PF00491,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,Arginase,Arginase family,CL0302,Arginase
+PF00675,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Peptidase_M16,Insulinase (Peptidase family M16),CL0094,Peptidase_ME
+PF00690,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Cation_ATPase_N,"Cation transporter/ATPase, N-terminus",,
+PF00118,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Cpn60_TCP1,TCP-1/cpn60 chaperonin family,,
+PF00121,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,TIM,Triosephosphate isomerase,CL0036,TIM_barrel
+PF01588,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,tRNA_bind,Putative tRNA binding domain,CL0021,OB
+PF00149,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,Metallophos,Calcineurin-like phosphoesterase,CL0163,Calcineurin
+PF01566,2,2,2,2,2,Plasmodium falciparum; Plasmodium yoelii,0,1.0,0.259,1.0,Nramp,Natural resistance-associated macrophage protein-like,CL0062,APC
+PF00156,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Pribosyltran,Phosphoribosyl transferase domain,CL0533,PRTase-like
+PF01490,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,Aa_trans,Transmembrane amino acid transporter protein,CL0062,APC
+PF00810,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,ER_lumen_recept,ER lumen protein retaining receptor,CL0141,MtN3-like
+PF00168,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,C2,C2 domain,CL0154,C2
+PF00856,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,SET,SET domain,CL0489,SAF
+PF00317,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Ribonuc_red_lgN,"Ribonucleotide reductase, all-alpha domain",,
+PF00271,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Helicase_C,Helicase conserved C-terminal domain,CL0023,P-loop_NTPase
+PF00883,2,2,2,2,2,Plasmodium falciparum; Plasmodium vivax,0,1.0,0.259,1.0,Peptidase_M17,"Cytosol aminopeptidase family, catalytic domain",CL0865,ZnExoPePases
+PF00268,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Ribonuc_red_sm,"Ribonucleotide reductase, small chain",CL0044,Ferritin
+PF01367,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,5_3_exonuc,"5'-3' exonuclease, C-terminal SAM fold",CL0464,5_3_exonuc_C
+PF01264,2,2,2,2,2,Plasmodium falciparum; Plasmodium vivax,0,1.0,0.259,1.0,Chorismate_synt,Chorismate synthase,,
+PF01261,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,AP_endonuc_2,Xylose isomerase-like TIM barrel,CL0036,TIM_barrel
+PF01088,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Peptidase_C12,"Ubiquitin carboxyl-terminal hydrolase, family 1",CL0125,Peptidase_CA
+PF01233,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,NMT,"Myristoyl-CoA:protein N-myristoyltransferase, N-terminal domain",CL0257,Acetyltrans
+PF01106,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,NifU,NifU-like domain,CL0232,NifU
+PF00689,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Cation_ATPase_C,"Cation transporting ATPase, C-terminus",,
+PF01174,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,SNO,SNO glutamine amidotransferase family,CL0014,Glutaminase_I
+PF02146,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,SIR2,Sir2 family,CL0063,NADP_Rossmann
+PF00006,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,ATP-synt_ab,"ATP synthase alpha/beta family, nucleotide-binding domain",CL0023,P-loop_NTPase
+PF01988,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,VIT1,VIT family,,
+PF00428,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Ribosomal_60s,60s Acidic ribosomal protein,,
+PF00557,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Peptidase_M24,Metallopeptidase family M24,,
+PF00650,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,CRAL_TRIO,CRAL/TRIO domain,CL0512,CRAL_TRIO
+PF00575,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,S1,S1 RNA binding domain,CL0021,OB
+PF02463,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,SMC_N,RecF/RecN/SMC N terminal domain,CL0023,P-loop_NTPase
+PF00656,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,Peptidase_C14,Caspase domain,CL0093,Peptidase_CD
+PF01702,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,TGT,Queuine tRNA-ribosyltransferase,CL0036,TIM_barrel
+PF00587,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,tRNA-synt_2b,"tRNA synthetase class II core domain (G, H, P, S and T)",CL0040,tRNA_synt_II
+PF00071,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,Ras,Ras family,CL0023,P-loop_NTPase
+PF01680,2,2,2,2,2,Plasmodium berghei; Plasmodium falciparum,0,1.0,0.259,1.0,SOR_SNZ,SOR/SNZ family,CL0036,TIM_barrel
+PF01896,2,2,1,1,2,Plasmodium falciparum,0,1.0,0.259,1.0,DNA_primase_S,DNA primase small subunit,CL0243,AEP
+PF15801,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,zf-C6H2,"zf-MYND-like zinc finger, mRNA-binding",CL0175,TRASH
+PF14580,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,LRR_9,Leucine-rich repeat,CL0022,LRR
+PF14630,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,ORC5_C,Origin recognition complex (ORC) subunit 5 C-terminus,CL0123,HTH
+PF13414,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,TPR_11,TPR repeat,CL0020,TPR
+PF13238,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,AAA_18,AAA domain,CL0023,P-loop_NTPase
+PF16188,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Peptidase_M24_C,C-terminal region of peptidase_M24,,
+PF00270,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DEAD,DEAD/DEAH box helicase,CL0023,P-loop_NTPase
+PF16189,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Creatinase_N_2,Creatinase/Prolidase N-terminal domain,CL0356,AMP_N-like
+PF00479,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,G6PD_N,"Glucose-6-phosphate dehydrogenase, NAD binding domain",CL0063,NADP_Rossmann
+PF16211,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Histone_H2A_C,C-terminus of histone H2A,,
+PF13041,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PPR_2,PPR repeat family ,CL0020,TPR
+PF00476,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DNA_pol_A,DNA polymerase family A,,
+PF00464,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,SHMT,Serine hydroxymethyltransferase,CL0061,PLP_aminotran
+PF00466,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Ribosomal_L10,Ribosomal protein L10,,
+PF14260,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,zf-C4pol,C4-type zinc-finger of DNA polymerase delta,,
+PF13959,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,CTE_SPB4,"ATP-dependent rRNA helicase SPB4-like, C-terminal extension",,
+PF13405,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,EF-hand_6,EF-hand domain,CL0220,EF_hand
+PF13921,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Myb_DNA-bind_6,Myb-like DNA-binding domain,CL0123,HTH
+PF00342,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PGI,Phosphoglucose isomerase,CL0067,SIS
+PF00436,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,SSB,Single-strand binding protein family,CL0021,OB
+PF13649,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Methyltransf_25,Methyltransferase domain,CL0063,NADP_Rossmann
+PF13646,1,1,1,1,1,Plasmodium vivax,0,1.0,0.129,1.0,HEAT_2,HEAT repeats,CL0020,TPR
+PF13365,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Trypsin_2,Trypsin-like peptidase domain,CL0124,Peptidase_PA
+PF00349,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Hexokinase_1,Hexokinase,CL0108,Actin_ATPase
+PF00254,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,FKBP_C,FKBP-type peptidyl-prolyl cis-trans isomerase,CL0487,FKBP
+PF13481,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,AAA_25,AAA domain,CL0023,P-loop_NTPase
+PF00352,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,TBP,"Transcription factor TFIID (or TATA-binding protein, TBP)",CL0407,TBP-like
+PF13432,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,TPR_16,Tetratricopeptide repeat,CL0020,TPR
+PF00350,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Dynamin_N,Dynamin family,CL0023,P-loop_NTPase
+PF02493,1,1,1,1,1,Plasmodium berghei,0,1.0,0.129,1.0,MORN,MORN repeat,CL0251,MORN
+PF00244,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,14-3-3,14-3-3 protein,CL0020,TPR
+PF24055,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,POL3_N,"DNA polymerase delta catalytic subunit-like, N-terminal domain",,
+PF00117,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,GATase,Glutamine amidotransferase class-I,CL0014,Glutaminase_I
+PF22594,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,GTP-eEF1A_C,GTP-eEF1A C-terminal domain-like,CL0740,GCV_T_C
+PF22597,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DYN_lid,"Dynein heavy chain, ATPase lid domain",CL0671,AAA_lid
+PF22606,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Cdc6-ORC-like_ATPase_lid,"Cdc6/ORC-like, ATPase lid domain",CL0671,AAA_lid
+PF00111,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Fer2,2Fe-2S iron-sulfur cluster binding domain,CL0486,Fer2
+PF00097,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,zf-C3HC4,"Zinc finger, C3HC4 type (RING finger)",CL0229,RING
+PF00023,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Ank,Ankyrin repeat,CL0465,Ank
+PF23511,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,ISD11,ISD11 family,CL0491,LYR-like
+PF23634,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PH_CERLI1,CERLI1-like PH domain,CL0266,PH
+PF24161,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,CCDC39,Coiled-coil domain-containing protein 39,,
+PF16830,1,1,1,1,1,Plasmodium vivax,0,1.0,0.129,1.0,NBD94,Nucleotide-Binding Domain 94 of RH,,
+PF24652,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,CEP76_C,Centrosomal protein of 76 kDa C-terminal domain,CL0659,CAP
+PF24656,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,CEPT76_peptidase,CEP76 peptidase-like domain,CL0125,Peptidase_CA
+PF24681,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Kelch_KLHDC2_KLHL20_DRC7,KLHDC2/KLHL20/DRC7 Kelch-repeats domain,CL0186,Beta_propeller
+PF27570,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,TOF-1-like_helical,"TOF1-like, helical domain",,
+PF27571,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PF3D7_0210200_7th,PF3D7_0210200 7th domain,,
+PF27586,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PF3D7_0210200_N,PF3D7_0210200 N-terminal domain,,
+PF27587,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PF3D7_0210200_HH,PF3D7_0210200 helix hairpin domain,,
+PF27588,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PF3D7_0210200_6th,PF3D7_0210200 sixth domain,,
+PF27589,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PF3D7_0210200_C,PF3D7_0210200 C-terminal domain,,
+PF00125,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Histone,Core histone H2A/H2B/H3/H4 domain,CL0012,Histone
+PF21639,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,ORC5_lid,"ORC5, lid domain",CL0671,AAA_lid
+PF00136,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DNA_pol_B,DNA polymerase family B,CL0194,DNA_pol_B-like
+PF21369,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,STL11_N,"STL11, N-terminal",CL0229,RING
+PF00216,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Bac_DNA_binding,Bacterial DNA-binding protein,CL0548,IHF-likeDNA-bdg
+PF16886,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,ATP-synt_ab_Xtn,ATPsynthase alpha/beta subunit barrel-sandwich domain,CL0105,Hybrid
+PF16898,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,TOPRIM_C,C-terminal associated domain of TOPRIM,,
+PF12781,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,AAA_9,ATP-binding dynein motor region,CL0023,P-loop_NTPase
+PF17759,1,1,1,1,1,Plasmodium vivax,0,1.0,0.129,1.0,tRNA_synthFbeta,Phenylalanyl tRNA synthetase beta chain CLM domain,CL0040,tRNA_synt_II
+PF17777,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,RL10P_insert,Insertion domain in 60S ribosomal protein L10P,,
+PF17815,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PDZ_3,PDZ domain,CL0466,PDZ-like
+PF00204,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DNA_gyraseB,DNA gyrase B,CL0329,S5
+PF00183,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,HSP90,Hsp90 protein,,
+PF17857,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,AAA_lid_1,AAA+ lid domain,CL0671,AAA_lid
+PF17862,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,AAA_lid_3,AAA+ lid domain,CL0671,AAA_lid
+PF17900,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Peptidase_M1_N,Peptidase M1 N-terminal domain,CL0672,p35
+PF00176,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,SNF2-rel_dom,SNF2-related domain,CL0023,P-loop_NTPase
+PF00175,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,NAD_binding_1,Oxidoreductase NAD-binding domain ,CL0091,NAD_Ferredoxin
+PF00162,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PGK,Phosphoglycerate kinase,,
+PF18253,1,1,1,1,1,Plasmodium berghei,0,1.0,0.129,1.0,HipN,Hsp70-interacting protein N N-terminal domain,,
+PF18262,1,1,1,1,1,Plasmodium vivax,0,1.0,0.129,1.0,PhetRS_B1,Phe-tRNA synthetase beta subunit B1 domain,CL0123,HTH
+PF00153,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Mito_carr,Mitochondrial carrier protein,,
+PF18638,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,CyRPA,Cysteine-Rich Protective Antigen 6 bladed domain,CL0186,Beta_propeller
+PF17432,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DUF3458_C,Domain of unknown function (DUF3458_C) ARM repeats,CL0020,TPR
+PF00642,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,zf-CCCH,Zinc finger C-x8-C-x5-C-x3-H type (and similar),CL0537,CCCH_zf
+PF00501,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,AMP-binding,AMP-binding enzyme,CL0378,ANL
+PF00510,1,1,1,1,1,Plasmodium vivax,0,1.0,0.129,1.0,COX3,Cytochrome c oxidase subunit III,,
+PF03357,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Snf7,Snf7,CL0235,PspA
+PF01612,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DNA_pol_A_exo1,3'-5' exonuclease,CL0219,RNase_H
+PF01592,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,NifU_N,NifU-like N terminal domain,CL0233,SufE_NifU
+PF03483,1,1,1,1,1,Plasmodium vivax,0,1.0,0.129,1.0,B3_4,B3/4 domain,CL0383,PheT-TilS
+PF03484,1,1,1,1,1,Plasmodium vivax,0,1.0,0.129,1.0,B5,tRNA synthetase B5 domain,CL0123,HTH
+PF03607,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DCX,Doublecortin,CL0072,Ubiquitin
+PF03643,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Vps26,Vacuolar protein sorting-associated protein 26 ,CL0135,Arrestin_N-like
+PF03727,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Hexokinase_2,Hexokinase,CL0108,Actin_ATPase
+PF01535,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PPR,PPR repeat,CL0020,TPR
+PF01504,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PIP5K,Phosphatidylinositol-4-phosphate 5-Kinase,CL0016,PKinase
+PF01467,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,CTP_transf_like,Cytidylyltransferase-like,CL0039,HUP
+PF03987,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Autophagy_act_C,"Autophagocytosis associated protein, active-site domain ",CL0097,TypeIII_Chap
+PF03998,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Utp11,Utp11 protein,,
+PF01433,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Peptidase_M1,Peptidase family M1 domain,CL0126,Peptidase_MA
+PF01409,1,1,1,1,1,Plasmodium vivax,0,1.0,0.129,1.0,tRNA-synt_2d,tRNA synthetases class II core domain (F),CL0040,tRNA_synt_II
+PF04073,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,tRNA_edit,Aminoacyl-tRNA editing domain,,
+PF04118,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Dopey_N,"Dopey, N-terminal",CL0020,TPR
+PF04442,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,CtaG_Cox11,Cytochrome c oxidase assembly protein CtaG/Cox11,,
+PF04560,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,RNA_pol_Rpb2_7,"RNA polymerase Rpb2, domain 7",,
+PF03332,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PMM,Eukaryotic phosphomannomutase,CL0137,HAD
+PF01658,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Inos-1-P_synth,Myo-inositol-1-phosphate synthase,CL0139,GADPH_aa-bio_dh
+PF03143,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,GTP_EFTU_D3,Elongation factor Tu C-terminal domain,CL0740,GCV_T_C
+PF02127,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Peptidase_M18,Aminopeptidase I zinc metalloprotease (M18),CL0865,ZnExoPePases
+PF02469,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Fasciclin,Fasciclin domain,,
+PF02540,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,NAD_synthase,NAD synthase,CL0039,HUP
+PF02460,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Patched,Patched SSD,CL0322,RND_permease
+PF02580,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Tyr_Deacylase,D-Tyr-tRNA(Tyr) deacylase,,
+PF02450,1,1,1,1,1,Plasmodium berghei,0,1.0,0.129,1.0,LCAT,Lecithin:cholesterol acyltransferase,CL0028,AB_hydrolase
+PF02401,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,LYTB,LytB protein,,
+PF02223,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Thymidylate_kin,Thymidylate kinase,CL0023,P-loop_NTPase
+PF02212,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,GED,Dynamin GTPase effector domain,,
+PF02781,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,G6PD_C,"Glucose-6-phosphate dehydrogenase, C-terminal domain",CL0139,GADPH_aa-bio_dh
+PF03134,1,1,1,1,1,Plasmodium berghei,0,1.0,0.129,1.0,TB2_DP1_HVA22,"TB2/DP1, HVA22 family",,
+PF01920,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Prefoldin_2,Prefoldin subunit,CL0200,Prefoldin
+PF01780,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Ribosomal_L37ae,Ribosomal L37ae protein family,CL0167,Zn_Beta_Ribbon
+PF01751,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Toprim,Toprim domain,CL0413,Toprim-like
+PF01734,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Patatin,Patatin-like phospholipase,CL0323,Patatin
+PF01725,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Ham1p_like,Ham1 family,CL0269,Maf
+PF03054,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,tRNA_Me_trans,tRNA methyl transferase HUP domain,CL0039,HUP
+PF03104,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DNA_pol_B_exo1,"DNA polymerase family B, exonuclease domain",CL0219,RNase_H
+PF03129,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,HGTP_anticodon,Anticodon binding domain,CL0458,IIaaRS-ABD
+PF04565,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,RNA_pol_Rpb2_3,"RNA polymerase Rpb2, domain 3",,
+PF04758,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Ribosomal_S30,Ribosomal protein S30,,
+PF01388,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,ARID,ARID/BRIGHT DNA binding domain,CL0123,HTH
+PF09180,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,ProRS-C_1,"Prolyl-tRNA synthetase, C-terminal",,
+PF07728,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,AAA_5,AAA domain (dynein-related subfamily),CL0023,P-loop_NTPase
+PF00782,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DSPc,"Dual specificity phosphatase, catalytic domain",CL0031,Phosphatase
+PF00719,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Pyrophosphatase,Inorganic pyrophosphatase,,
+PF07994,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,NAD_binding_5,Myo-inositol-1-phosphate synthase,CL0063,NADP_Rossmann
+PF00717,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Peptidase_S24,Peptidase S24-like,CL0299,Peptidase_SF
+PF00704,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Glyco_hydro_18,Glycosyl hydrolases family 18,CL0036,TIM_barrel
+PF08385,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DHC_N1,"Dynein heavy chain, N-terminal region 1",,
+PF08773,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,CathepsinC_exc,Cathepsin C exclusion domain,CL0116,Calycin
+PF02518,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,HATPase_c,"Histidine kinase-, DNA gyrase B-, and HSP90-like ATPase",CL0025,His_Kinase_A
+PF07647,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,SAM_2,SAM domain (Sterile alpha motif),CL0003,SAM
+PF00589,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Phage_integrase,Phage integrase family,CL0382,DNA-mend
+PF10437,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Lip_prot_lig_C,Bacterial lipoate protein ligase C-terminus,CL0233,SufE_NifU
+PF10511,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Cementoin,Trappin protein transglutaminase binding domain,,
+PF11940,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DUF3458,Domain of unknown function (DUF3458) Ig-like fold,CL0159,E-set
+PF00562,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,RNA_pol_Rpb2_6,"RNA polymerase Rpb2, domain 6",CL0410,LEF-8-like
+PF12451,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,VPS11_C,Vacuolar protein sorting protein 11 C terminal,,
+PF00521,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DNA_topoisoIV,"DNA gyrase/topoisomerase IV, subunit A",,
+PF00515,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,TPR_1,Tetratricopeptide repeat,CL0020,TPR
+PF07719,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,TPR_2,Tetratricopeptide repeat,CL0020,TPR
+PF00847,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,AP2,AP2 domain,CL0081,MBD-like
+PF04990,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,RNA_pol_Rpb1_7,"RNA polymerase Rpb1, domain 7",,
+PF06026,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Rib_5-P_isom_A,Ribose 5-phosphate isomerase A (phosphoriboisomerase A),CL0063,NADP_Rossmann
+PF04992,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,RNA_pol_Rpb1_6,"RNA polymerase Rpb1, domain 6",,
+PF01384,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PHO4,Phosphate transporter family,,
+PF01321,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Creatinase_N,Creatinase/Prolidase N-terminal domain,CL0356,AMP_N-like
+PF05191,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,ADK_lid,"Adenylate kinase, active site lid",CL0167,Zn_Beta_Ribbon
+PF01248,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Ribosomal_L7Ae,Ribosomal protein L7Ae/L30e/S12e/Gadd45 family,CL0101,PELOTA
+PF01182,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Glucosamine_iso,Glucosamine-6-phosphate isomerases/6-phosphogluconolactonase,CL0063,NADP_Rossmann
+PF01180,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,DHO_dh,Dihydroorotate dehydrogenase,CL0036,TIM_barrel
+PF01161,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,PBP,Phosphatidylethanolamine-binding protein,,
+PF01031,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Dynamin_M,Dynamin central region,,
+PF07529,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,HSA,HSA domain,,
+PF00958,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,GMP_synt_C,GMP synthase C terminal domain,,
+PF06437,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,ISN1,IMP-specific 5'-nucleotidase,CL0137,HAD
+PF00956,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,NAP,Nucleosome assembly protein (NAP),,
+PF00935,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Ribosomal_L44,Ribosomal protein L44,CL0167,Zn_Beta_Ribbon
+PF06703,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,SPC25,Microsomal signal peptidase 25 kDa subunit (SPC25),,
+PF07016,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,CRAM_rpt,Cysteine-rich acidic integral membrane protein precursor,,
+PF07418,1,1,1,1,1,Plasmodium chabaudi,0,1.0,0.129,1.0,PCEMA1,Acidic phosphoprotein precursor PCEMA1,,
+PF00861,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,Ribosomal_L18p,"Ribosomal L18 of archaea, bacteria, mitoch. and chloroplast",CL0267,S11_L18p
+PF27846,1,1,1,1,1,Plasmodium falciparum,0,1.0,0.129,1.0,tSAM_targ_Cxxx_rpt,Modification target Cys-rich repeat,,
