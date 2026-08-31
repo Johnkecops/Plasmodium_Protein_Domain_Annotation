@@ -195,8 +195,6 @@ through identical code.
 python3 SCRIPT/fetch_reference_proteomes.py --outdir data/frozen   # ~12 min, 5.9 MB
 python3 SCRIPT/run_genus_pipeline.py --outdir results/tables --min-pair 5 --bootstrap 1000
 python3 SCRIPT/make_figures.py
-python3 SCRIPT/build_manuscript.py
-python3 SCRIPT/build_response_letter.py
 python3 -m pytest tests/                                            # 78 tests
 ```
 
@@ -213,8 +211,7 @@ did not compute.
 | `genus_analysis.py` | Occurrence, depth-conditioned avoidance, corrected co-occurrence, network fits, pan-core |
 | `run_genus_pipeline.py` | Single entry point; runs both dataset scopes |
 | `make_figures.py` | All eight figures at 300 dpi PNG and vector PDF |
-| `build_manuscript.py`, `build_response_letter.py` | Documents generated from pipeline output |
-| `finalise_docx.py` | Strips generator metadata and repairs the package relationships |
+
 
 ### Defects fixed from v1.x
 
