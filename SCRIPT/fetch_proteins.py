@@ -3,7 +3,7 @@
 Module: UniProt data fetcher for Plasmodium protein domain annotation.
 Purpose: Retrieve reviewed Plasmodium protein sequences and domain features
          via UniProt REST API v2. No external tools or .env files required.
-Author: Dr. Arli Aditya Parikesit
+Author: Dr. Arli Aditya Parikesit, Dr. Arif Nur Muhammad Ansori, and Moch. Royhan Afnani.,M.Sc 
 Date: 2026
 
 References:
@@ -27,7 +27,14 @@ INTERPRO_ENTRY = "https://www.ebi.ac.uk/interpro/api/entry/interpro/{ipr_id}/?fo
 
 PLASMODIUM_TAXON = "5820"
 
-# Confirmed NCBI taxonomy IDs for reviewed Plasmodium species in UniProt
+# Species-rank NCBI taxonomy identifiers, each verified against the UniProt taxonomy
+# endpoint by tests/test_taxonomy_map.py rather than transcribed by hand.
+#
+# Three entries were wrong in the submitted version and are corrected here:
+#   P. ovale     was 36329, which is the P. falciparum 3D7 isolate; the species is 36330
+#   P. chabaudi  was 5826, the subspecies P. chabaudi adami; the species is 5825
+#   P. yoelii    was 73239, the subspecies P. yoelii yoelii; the species is 5861
+# The first two were reported by a reviewer; the third was found while verifying them.
 SPECIES_TAXONS: Dict[str, str] = {
     "All Plasmodium spp. (genus)": "5820",
     "Plasmodium falciparum": "5833",
@@ -35,9 +42,9 @@ SPECIES_TAXONS: Dict[str, str] = {
     "Plasmodium malariae": "5858",
     "Plasmodium knowlesi": "5850",
     "Plasmodium berghei": "5821",
-    "Plasmodium yoelii": "73239",
-    "Plasmodium chabaudi": "5826",
-    "Plasmodium ovale": "36329",
+    "Plasmodium yoelii": "5861",
+    "Plasmodium chabaudi": "5825",
+    "Plasmodium ovale": "36330",
 }
 
 # UniProt TSV fields to request
