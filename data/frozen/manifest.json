@@ -1,0 +1,36 @@
+{
+  "retrieved_utc": "2026-08-31T04:07:54+00:00",
+  "taxon": "5820",
+  "source": "UniProt REST API (rest.uniprot.org)",
+  "n_reference_proteomes": 22,
+  "n_protein_rows": 128121,
+  "n_unique_accessions": 128121,
+  "n_reviewed": 526,
+  "fields": [
+    "accession",
+    "id",
+    "reviewed",
+    "protein_name",
+    "organism_name",
+    "organism_id",
+    "length",
+    "ft_domain",
+    "xref_pfam",
+    "xref_interpro",
+    "xref_smart",
+    "xref_prosite",
+    "xref_panther",
+    "xref_gene3d",
+    "xref_supfam"
+  ],
+  "files": {
+    "proteome_index.tsv": {
+      "sha256": "f7720838d6ceb7420701f0a40811be33e6a99caedc3db66344f31a988556873b",
+      "bytes": 2709
+    },
+    "plasmodium_reference_proteomes.tsv.gz": {
+      "sha256": "a471975ff8efe312630d88a8c6b4d855c40d803344887034bbf2e8d478468cf4",
+      "bytes": 6143382
+    }
+  }
+}

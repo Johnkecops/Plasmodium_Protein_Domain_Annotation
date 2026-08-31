@@ -1,0 +1,46 @@
+/Users/arli/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expressions.py:22: UserWarning: Pandas requires version '2.10.2' or newer of 'numexpr' (version '2.8.4' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/arli/anaconda3/lib/python3.11/site-packages/pandas/core/arrays/masked.py:56: UserWarning: Pandas requires version '1.4.2' or newer of 'bottleneck' (version '1.3.5' currently installed).
+  from pandas.core import (
+2026-08-31 10:55:36,277 INFO reference proteomes: 22
+2026-08-31 10:56:11,920 INFO UP000074855  Plasmodium berghei (strain Anka)                4927 proteins in  35.6 s
+2026-08-31 10:56:57,615 INFO UP001056978  Plasmodium brasilianum                          5416 proteins in  45.7 s
+2026-08-31 10:57:37,534 INFO UP000071118  Plasmodium chabaudi chabaudi                    5197 proteins in  39.9 s
+2026-08-31 10:58:13,055 INFO UP000092716  Plasmodium coatneyi                             5514 proteins in  35.5 s
+2026-08-31 10:59:10,923 INFO UP000006319  Plasmodium cynomolgi (strain B)                 5713 proteins in  57.9 s
+2026-08-31 10:59:49,964 INFO UP000001450  Plasmodium falciparum (isolate 3D7)             5361 proteins in  39.0 s
+2026-08-31 11:00:31,290 INFO UP000030673  Plasmodium falciparum (isolate NF54)            5920 proteins in  41.3 s
+2026-08-31 11:01:01,652 INFO UP000054561  Plasmodium fragile                              5638 proteins in  30.4 s
+2026-08-31 11:01:30,465 INFO UP000831156  Plasmodium gaboni                               5123 proteins in  28.8 s
+2026-08-31 11:01:53,741 INFO UP000220797  Plasmodium gallinaceum                          5276 proteins in  23.3 s
+2026-08-31 11:02:17,111 INFO UP000195521  Plasmodium gonderi                              5915 proteins in  23.4 s
+2026-08-31 11:02:46,778 INFO UP000030640  Plasmodium inui San Antonio 1                   5828 proteins in  29.7 s
+2026-08-31 11:03:34,488 INFO UP000031513  Plasmodium knowlesi (strain H)                  5339 proteins in  47.7 s
+2026-08-31 11:03:58,548 INFO UP000219813  Plasmodium malariae                             5915 proteins in  24.1 s
+2026-08-31 11:04:38,818 INFO UP000242942  Plasmodium ovale (malaria parasite P. ovale)    6625 proteins in  40.3 s
+2026-08-31 11:05:03,184 INFO UP000078555  Plasmodium ovale wallikeri                      8410 proteins in  24.4 s
+2026-08-31 11:05:32,449 INFO UP000027581  Plasmodium reichenowi                           5630 proteins in  29.3 s
+2026-08-31 11:06:01,008 INFO UP000220158  Plasmodium relictum                             5136 proteins in  28.6 s
+2026-08-31 11:06:24,296 INFO UP000515268  Plasmodium vinckei petteri                      5276 proteins in  23.3 s
+2026-08-31 11:07:15,836 INFO UP000008333  Plasmodium vivax (strain Salvador I)            5389 proteins in  51.5 s
+2026-08-31 11:07:49,673 INFO UP000018538  Plasmodium yoelii 17X                           6833 proteins in  33.8 s
+2026-08-31 11:07:53,409 INFO UP000008553  Plasmodium yoelii yoelii                        7740 proteins in   3.7 s
+{
+  "retrieved_utc": "2026-08-31T04:07:54+00:00",
+  "taxon": "5820",
+  "source": "UniProt REST API (rest.uniprot.org)",
+  "n_reference_proteomes": 22,
+  "n_protein_rows": 128121,
+  "n_unique_accessions": 128121,
+  "n_reviewed": 526,
+  "files": {
+    "proteome_index.tsv": {
+      "sha256": "f7720838d6ceb7420701f0a40811be33e6a99caedc3db66344f31a988556873b",
+      "bytes": 2709
+    },
+    "plasmodium_reference_proteomes.tsv.gz": {
+      "sha256": "a471975ff8efe312630d88a8c6b4d855c40d803344887034bbf2e8d478468cf4",
+      "bytes": 6143382
+    }
+  }
+}
