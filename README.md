@@ -179,3 +179,59 @@ Dr. Arli Aditya Parikesit
 Department of Bioinformatics, i3L University, Jakarta  
 arli.parikesit@i3l.ac.id  
 ORCID: 0000-0001-8716-3926
+
+---
+
+## v2.0 — Revision pipeline (reference proteomes)
+
+The v1.x analysis ran on the Swiss-Prot reviewed subset. Peer review established that this
+subset cannot support genus-scale claims, and v2.0 rebuilds the study on all 22 UniProt
+Plasmodium reference proteomes, keeping the Swiss-Prot analysis as a labelled control run
+through identical code.
+
+### Reproducing the analysis
+
+```bash
+python3 SCRIPT/fetch_reference_proteomes.py --outdir data/frozen   # ~12 min, 5.9 MB
+python3 SCRIPT/run_genus_pipeline.py --outdir results/tables --min-pair 5 --bootstrap 1000
+python3 SCRIPT/make_figures.py
+python3 SCRIPT/build_manuscript.py
+python3 SCRIPT/build_response_letter.py
+python3 -m pytest tests/                                            # 78 tests
+```
+
+Every reported value derives from `data/frozen/`, which carries a SHA-256 manifest. The
+figure script reads only `results/tables/`, so no figure can display a number the pipeline
+did not compute.
+
+### Modules added in v2.0
+
+| Module | Role |
+| --- | --- |
+| `fetch_reference_proteomes.py` | Resumable frozen snapshot of all reference proteomes plus BUSCO/CPD completeness |
+| `domain_dataset.py` | One accession-keyed domain table; strips UniProt instance counters; species and clade normalisation |
+| `genus_analysis.py` | Occurrence, depth-conditioned avoidance, corrected co-occurrence, network fits, pan-core |
+| `run_genus_pipeline.py` | Single entry point; runs both dataset scopes |
+| `make_figures.py` | All eight figures at 300 dpi PNG and vector PDF |
+| `build_manuscript.py`, `build_response_letter.py` | Documents generated from pipeline output |
+| `finalise_docx.py` | Strips generator metadata and repairs the package relationships |
+
+### Defects fixed from v1.x
+
+- The occurrence table read `ft_domain` note strings while the headline family count came
+  from `xref_pfam`. Pfam accession is now the single key across every analysis.
+- UniProt appends an instance counter to repeated DOMAIN notes, so "6-Cys 4" and "6-Cys 7"
+  were counted as separate families. Counters are stripped; repeats become copy number.
+- Note-less DOMAIN features collapsed into one "Unknown domain" node, merging unrelated
+  domains. They are now counted and excluded from family-level analysis.
+- The lift denominator counted only proteins retaining a top-60 family, inflating every
+  value. It is now the full annotated set and is printed in the released table.
+- Three species-to-taxon identifiers were wrong: P. ovale 36330 (not 36329, which is the
+  P. falciparum 3D7 isolate), P. chabaudi 5825 (not 5826), P. yoelii 5861 (not 73239).
+  A test now validates the map against the UniProt taxonomy endpoint.
+- The binomial avoidance null ignored annotation depth and phylogeny. It is replaced by a
+  leave-one-species-out Poisson-binomial conditioned on per-species annotated-protein
+  count, with clade collapsing.
+
+The pipeline retrieves precomputed Pfam and InterPro signature matches. It does not run
+HMMER3 or InterProScan, and the title and methods say so.

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "plasmodium-protein-domain-annotation"
-version = "1.1.0"
-description = "HMM-based protein domain annotation and non-scale-free network analysis for Plasmodium species (UniProt-driven Streamlit app + pipeline)"
+version = "2.0.0"
+description = "Accession-keyed protein domain distribution analysis across Plasmodium reference proteomes (UniProt/InterPro retrieval, avoidance, co-occurrence, pan-core)"
 requires-python = ">=3.11"
 authors = [
     { name = "Arli Aditya Parikesit", email = "arli.parikesit@i3l.ac.id" },
