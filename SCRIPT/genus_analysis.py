@@ -222,6 +222,7 @@ def compute_domain_avoidance(
                 "clade_avoidance_score": round(len(absent_clades) / len(clades_all), 4),
                 "absent_clades": "; ".join(absent_clades),
                 "present_species": "; ".join(present_species),
+                "absent_species": "; ".join(absent_species),
             }
         )
 

@@ -7,7 +7,7 @@ Author: Dr. Arli Aditya Parikesit, Dr. Arif Nur Muhammad Ansori, and Moch. Royha
 Date: 2026
 
 References:
-    Parikesit et al. (2018) JBI 14(2):185-190. doi:10.14203/jbi.v14i2.3737
+    Parikesit et al. (2018) JBI 14(2):185-190. doi:10.47349/jbi/14022018/185
     Widjaja et al. (2022) BIOEDUSCIENCE 6(2):198-210. doi:10.22236/J.BES/628770
 """
 
@@ -19,6 +19,8 @@ import logging
 import requests
 import pandas as pd
 from typing import Optional, List, Dict
+
+from domain_dataset import strip_instance_suffix
 
 logger = logging.getLogger(__name__)
 
@@ -236,10 +238,14 @@ def _normalise(raw: pd.DataFrame) -> pd.DataFrame:
     raw["length"] = pd.to_numeric(raw.get("length", 0), errors="coerce").fillna(0).astype(int)
     raw["taxon_id"] = raw.get("taxon_id", pd.Series("", index=raw.index)).astype(str).str.strip()
     raw["organism"] = raw["organism"].apply(_normalise_organism_name)
+    raw["reviewed"] = raw.get("reviewed", pd.Series("", index=raw.index)).astype(str).eq("reviewed")
 
-    # Parse domain features
+    # Parse domain features. Note-less features are dropped by parse_ft_domain rather than
+    # collapsed into a placeholder name; domain_names is the deduplicated, instance-suffix-
+    # stripped family list per protein (see domain_names_from_positions), so a protein
+    # carrying several copies of one family contributes that family once.
     raw["domains"] = raw.get("ft_domain_raw", pd.Series("", index=raw.index)).apply(parse_ft_domain)
-    raw["domain_names"] = raw["domains"].apply(lambda ds: [d["name"] for d in ds])
+    raw["domain_names"] = raw["domains"].apply(domain_names_from_positions)
     raw["n_domains"] = raw["domains"].apply(len)
 
     # Signal peptide presence
@@ -294,7 +300,7 @@ def _normalise(raw: pd.DataFrame) -> pd.DataFrame:
     )
 
     keep = [
-        "accession", "protein_name", "organism", "taxon_id", "length",
+        "accession", "protein_name", "organism", "taxon_id", "length", "reviewed",
         "domains", "domain_names", "n_domains",
         "interpro_ids", "pfam_ids", "n_interpro",
         "has_signal_peptide", "has_gpi_anchor",
@@ -309,18 +315,38 @@ def parse_ft_domain(ft_str) -> List[Dict]:
 
     Each domain dict has keys: name, start, end.
     Handles both old and new UniProt REST API TSV formatting.
+
+    A DOMAIN feature without a /note carries no family identity. The previous version
+    assigned the literal string "Unknown domain" to every such feature, which merged
+    unrelated domains from different proteins into a single node in any downstream
+    analysis keyed by name. Such features are skipped here instead; they contribute
+    no entry to the returned list and are excluded from every count derived from it.
     """
     if not ft_str or not isinstance(ft_str, str) or ft_str.strip().lower() in ("nan", ""):
         return []
 
     domains = []
     for m in _DOMAIN_RE.finditer(ft_str):
-        start = int(m.group(1))
-        end = int(m.group(2))
-        name = m.group(3).strip() if m.group(3) else "Unknown domain"
-        domains.append({"name": name, "start": start, "end": end})
+        note = m.group(3)
+        if not note or not note.strip():
+            continue
+        domains.append({"name": note.strip(), "start": int(m.group(1)), "end": int(m.group(2))})
 
     return domains
+
+
+def domain_names_from_positions(domains: List[Dict]) -> List[str]:
+    """
+    Reduce a per-protein list of positional domain dicts to a deduplicated family-name list.
+
+    UniProt appends an incrementing integer to the /note of repeated DOMAIN features
+    within one protein ("6-Cys 4", "6-Cys 7"), so without stripping it a protein carrying
+    several copies of one family would be counted as carrying several distinct families.
+    strip_instance_suffix (domain_dataset.py) removes that counter; the result is sorted
+    and deduplicated so a protein contributes each family name once regardless of copy
+    number, matching the copy-number accounting used by the Pfam-accession pipeline.
+    """
+    return sorted({strip_instance_suffix(d["name"]) for d in domains})
 
 
 def parse_semicolon_ids(raw_str) -> List[str]:

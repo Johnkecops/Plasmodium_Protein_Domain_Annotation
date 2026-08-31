@@ -1,24 +1,138 @@
 #!/usr/bin/env python3
 """
 Module: Domain occurrence and avoidance analysis for Plasmodium proteins.
-Purpose: Compute domain frequency distributions, species-specific patterns,
-         and domain avoidance (systematic absence in particular lineages).
+Purpose: Public facade over genus_analysis.py for the Streamlit app (app.py, app_tabs.py).
 Author: Dr. Arli Aditya Parikesit
 Date: 2026
 
+Rationale (response to reviewers):
+    Reviewer 4 identified two independent co-occurrence implementations reading two
+    identifier systems: this module previously built its occurrence table from ft_domain
+    note strings while network_builder.py built its graph from Pfam accessions, so a
+    headline count quoted from one path did not match the table computed by the other.
+    The avoidance test here was a uniform binomial null that ignored per-species
+    annotation depth, and the co-occurrence lift denominator counted only proteins
+    retaining one of the top sixty domains rather than the analysed set.
+
+    genus_analysis.py is now the single implementation of every one of these statistics,
+    built on Pfam accessions throughout and carrying the corrected avoidance null,
+    corrected co-occurrence denominator, and obligate/same-clan pair flags. This module
+    no longer computes anything itself: every function here builds the small long-format
+    domain table genus_analysis expects from the app's protein DataFrame (accession,
+    organism, pfam_ids, reviewed, length), calls genus_analysis, and renames the result
+    back to the column names app_tabs.py and the viz_*.py chart builders already expect,
+    so those modules did not need to change.
+
+    get_species_summary, compute_interpro_occurrence and get_species_exclusive_domains
+    are not part of this consolidation: the first two operate on quantities (protein/
+    length counts, InterPro accessions) that were never duplicated elsewhere, and the
+    third is now a thin view over the corrected compute_domain_occurrence below rather
+    than an independent implementation.
+
 References:
     Parikesit et al. (2011) Genes 2(4):912-924.
-    Parikesit et al. (2018) JBI 14(2):185-190.
+    Parikesit et al. (2018) JBI 14(2):185-190. doi:10.47349/jbi/14022018/185
 """
 
-import warnings
-import pandas as pd
-import numpy as np
-from typing import List, Dict, Optional, Tuple
-from scipy.stats import fisher_exact, binomtest
-from itertools import combinations
-from statsmodels.stats.multitest import multipletests
+from __future__ import annotations
 
+import functools
+import warnings
+from pathlib import Path
+from typing import Dict, List
+
+import pandas as pd
+
+import genus_analysis as _ga
+from domain_dataset import CLADE_BY_SPECIES, species_coverage_table as _species_coverage_table
+
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+_PFAM_CLANS_PATH = _REPO_ROOT / "data" / "frozen" / "Pfam-A.clans.tsv.gz"
+
+_CLAN_COLUMNS = ["domain_accession", "clan_accession", "clan_id", "domain_name", "description"]
+
+
+@functools.lru_cache(maxsize=1)
+def _load_clans() -> pd.DataFrame:
+    """
+    Load the Pfam clan table (short names + clan membership) if the frozen copy is present.
+
+    Falls back to an empty frame with the right columns when it is not, so the app still
+    runs (labelled by bare accession) without the manuscript's data/frozen/ deposit. Cached
+    for the life of the process: this file does not change while the app is running.
+    """
+    if not _PFAM_CLANS_PATH.exists():
+        return pd.DataFrame(columns=_CLAN_COLUMNS)
+    try:
+        return _ga.load_pfam_clans(_PFAM_CLANS_PATH)
+    except Exception:
+        return pd.DataFrame(columns=_CLAN_COLUMNS)
+
+
+def _display_label(accession: str, name) -> str:
+    """'{short name} ({accession})', falling back to the bare accession when the name is unknown."""
+    if isinstance(name, str) and name.strip():
+        return f"{name} ({accession})"
+    return accession
+
+
+def _to_pipeline_frame(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Adapt the app's protein schema (organism, pfam_ids, ...) to the species/clade/reviewed
+    columns genus_analysis and domain_dataset.species_coverage_table expect.
+    """
+    out = df.copy()
+    out["species"] = out["organism"]
+    out["clade"] = out["species"].map(CLADE_BY_SPECIES).fillna("unassigned")
+    if "reviewed" not in out.columns:
+        out["reviewed"] = False
+    return out
+
+
+_DOMAIN_TABLE_COLUMNS = [
+    "accession", "species", "clade", "reviewed", "length",
+    "domain_accession", "domain_name", "copy_number",
+]
+
+
+def _pfam_domain_table(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Explode the app's pfam_ids lists into the long-format, accession-keyed domain table
+    genus_analysis consumes (one row per protein x Pfam family it carries).
+
+    A cross-reference list carries each family once per protein regardless of how UniProt's
+    curated DOMAIN feature enumerates repeated instances, so copy_number is 1 by
+    construction here; the instance-count question only arises for the ft_domain layer,
+    which this app no longer uses for family-level statistics.
+    """
+    pf = _to_pipeline_frame(df)
+    records = []
+    for row in pf.itertuples():
+        ids = getattr(row, "pfam_ids", None) or []
+        for acc in dict.fromkeys(ids):
+            records.append(
+                {
+                    "accession": row.accession,
+                    "species": row.species,
+                    "clade": row.clade,
+                    "reviewed": row.reviewed,
+                    "length": row.length,
+                    "domain_accession": acc,
+                    "domain_name": None,
+                    "copy_number": 1,
+                }
+            )
+    return pd.DataFrame.from_records(records, columns=_DOMAIN_TABLE_COLUMNS)
+
+
+def _coverage_table(df: pd.DataFrame, domains: pd.DataFrame) -> pd.DataFrame:
+    """Per-species annotation depth, the input the depth-conditioned avoidance null needs."""
+    return _species_coverage_table(_to_pipeline_frame(df), domains)
+
+
+# ----------------------------------------------------------------------------------
+# Species summary (unchanged: not one of the statistics the reviewers found duplicated)
+# ----------------------------------------------------------------------------------
 
 def get_species_summary(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -40,7 +154,6 @@ def get_species_summary(df: pd.DataFrame) -> pd.DataFrame:
         avg_length=("length", "mean"),
         max_length=("length", "max"),
     )
-    # unique domain types per species
     unique_counts = (
         df.groupby("organism")["domain_names"]
         .apply(_unique_domains)
@@ -55,341 +168,250 @@ def get_species_summary(df: pd.DataFrame) -> pd.DataFrame:
     return agg.sort_values("n_proteins", ascending=False).reset_index(drop=True)
 
 
+# ----------------------------------------------------------------------------------
+# Occurrence (delegates to genus_analysis.compute_domain_occurrence)
+# ----------------------------------------------------------------------------------
+
+_OCCURRENCE_COLUMNS = [
+    "domain_accession", "domain_name", "count", "species_count", "pct_proteins", "species",
+    "n_reviewed_carriers", "n_unreviewed_carriers", "reviewed_fraction",
+]
+
+
 def compute_domain_occurrence(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Count domain occurrence across all proteins.
+    Protein-level occurrence per Pfam family, keyed by accession.
+
+    domain_name carries a display label ("short name (accession)", or the bare accession
+    when the name is unknown) so every chart and table names each family unambiguously by
+    accession rather than by a short name alone, which is what let the submitted manuscript
+    report two unrelated Pfam families (TSP_N, TSP_C) as an N-/C-terminal pair.
+
+    Also reports the reviewed vs. unreviewed carrier split, so the curation-bias question
+    Reviewer 3 raised for TSP-like families is answerable directly from this table.
 
     Returns
     -------
-    pd.DataFrame
-        Columns: domain_name, count, species_count, pct_proteins, species.
-        Sorted by count descending.
+    pd.DataFrame sorted by count descending, columns as _OCCURRENCE_COLUMNS.
     """
-    records = []
-    for _, row in df.iterrows():
-        for d in row["domain_names"]:
-            records.append({"domain_name": d, "accession": row["accession"], "organism": row["organism"]})
+    domains = _pfam_domain_table(df)
+    if domains.empty:
+        return pd.DataFrame(columns=_OCCURRENCE_COLUMNS)
 
-    if not records:
-        return pd.DataFrame(columns=["domain_name", "count", "species_count", "pct_proteins", "species"])
-
-    exp = pd.DataFrame(records)
-    total = len(df)
-
-    agg = (
-        exp.groupby("domain_name")
-        .agg(
-            count=("accession", "nunique"),
-            species_count=("organism", "nunique"),
-            species=("organism", lambda x: sorted(set(x))),
-        )
-        .reset_index()
+    occ = _ga.compute_domain_occurrence(domains, n_proteins_total=len(df))
+    occ = _ga.annotate_with_pfam(occ, _load_clans())
+    occ["domain_name"] = [
+        _display_label(a, n) for a, n in zip(occ["domain_accession"], occ["domain_name"])
+    ]
+    occ = occ.rename(
+        columns={
+            "n_proteins": "count",
+            "n_species": "species_count",
+            "pct_of_proteome": "pct_proteins",
+            "species_list": "species",
+        }
     )
-    agg["pct_proteins"] = (agg["count"] / total * 100).round(2)
-    return agg.sort_values("count", ascending=False).reset_index(drop=True)
+    return occ[_OCCURRENCE_COLUMNS].sort_values("count", ascending=False).reset_index(drop=True)
 
 
 def compute_species_domain_matrix(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Build a species × domain presence matrix.
+    Build a species x domain presence matrix, keyed by Pfam accession.
 
-    Cell value = number of proteins in that species containing that domain.
+    Cell value = number of proteins in that species carrying that family. Column labels
+    use the same "{name} ({accession})" convention as compute_domain_occurrence.
 
     Returns
     -------
     pd.DataFrame
-        Rows = species, columns = domain names.
+        Rows = species, columns = domain labels.
     """
-    expanded = (
-        df[["organism", "domain_names"]]
-        .explode("domain_names")
-        .dropna(subset=["domain_names"])
-        .rename(columns={"domain_names": "domain_name"})
-    )
-    expanded = expanded[expanded["domain_name"].str.strip().ne("")]
-    if expanded.empty:
+    domains = _pfam_domain_table(df)
+    if domains.empty:
         return pd.DataFrame()
 
     matrix = (
-        expanded.groupby(["organism", "domain_name"])
-        .size()
+        domains.groupby(["species", "domain_accession"])["accession"]
+        .nunique()
         .unstack(fill_value=0)
     )
+    clans = _load_clans()
+    name_map = clans.set_index("domain_accession")["domain_name"].to_dict() if not clans.empty else {}
+    matrix.columns = [_display_label(acc, name_map.get(acc)) for acc in matrix.columns]
     return matrix
-
-
-def compute_domain_avoidance(
-    df: pd.DataFrame,
-    min_species_presence: int = 2,
-) -> pd.DataFrame:
-    """
-    Identify domains present in some Plasmodium species but absent in others,
-    with binomial p-values for statistical significance of each absence.
-
-    'Avoidance score' = fraction of species that lack the domain.
-    'binom_pvalue' = probability of observing 0 proteins with this domain in
-    an absent species under the null model (random domain assignment).
-    'avoidance_pvalue_adj' = Benjamini-Hochberg FDR-corrected minimum p-value
-    across all species that lack the domain.
-
-    Returns
-    -------
-    pd.DataFrame
-        Columns: domain_name, n_species_present, n_species_absent,
-                 avoidance_score, min_binom_pvalue, avoidance_pvalue_adj,
-                 species_with, species_without.
-        Sorted by avoidance_score descending.
-    """
-    if df["organism"].nunique() < 2:
-        warnings.warn(
-            "compute_domain_avoidance: df contains only one species; "
-            "p_global is calibrated on a single-species subset and avoidance p-values will be unreliable.",
-            UserWarning,
-            stacklevel=2,
-        )
-
-    matrix = compute_species_domain_matrix(df)
-    if matrix.empty:
-        return pd.DataFrame()
-
-    all_species = list(matrix.index)
-    n_species = len(all_species)
-    n_total_proteins = len(df)
-
-    # Number of proteins per species
-    species_protein_counts = df.groupby("organism")["accession"].count().to_dict()
-
-    rows = []
-    for domain in matrix.columns:
-        species_with = [s for s in all_species if matrix.loc[s, domain] > 0]
-        species_without = [s for s in all_species if matrix.loc[s, domain] == 0]
-
-        n_with = len(species_with)
-        n_without = len(species_without)
-
-        if n_with < min_species_presence or n_without == 0:
-            continue
-
-        # Global prevalence of this domain across all proteins
-        n_proteins_with_domain = int(matrix[domain].sum())
-        p_global = n_proteins_with_domain / n_total_proteins if n_total_proteins > 0 else 0.0
-
-        # Binomial p-value for each absent species:
-        # Under H0 (random assignment), expected count in species S = p_global * n_s
-        # Test: P(X=0 | n=n_s, p=p_global) — one-sided (under-representation)
-        absent_pvalues = []
-        for sp in species_without:
-            n_sp = species_protein_counts.get(sp, 0)
-            if n_sp == 0 or p_global == 0:
-                pval = 1.0
-            else:
-                # P(X <= 0) = (1 - p_global)^n_sp
-                result = binomtest(0, n=n_sp, p=p_global, alternative="less")
-                pval = result.pvalue
-            absent_pvalues.append(pval)
-
-        min_pval = min(absent_pvalues) if absent_pvalues else 1.0
-
-        rows.append(
-            {
-                "domain_name": domain,
-                "n_species_present": n_with,
-                "n_species_absent": n_without,
-                "avoidance_score": round(n_without / n_species, 4),
-                "min_binom_pvalue": round(min_pval, 6),
-                "species_with": species_with,
-                "species_without": species_without,
-                "_absent_pvalues": absent_pvalues,
-            }
-        )
-
-    if not rows:
-        return pd.DataFrame()
-
-    result = (
-        pd.DataFrame(rows)
-        .sort_values("avoidance_score", ascending=False)
-        .reset_index(drop=True)
-    )
-
-    # BH-FDR correction via statsmodels.multipletests
-    _, pvals_adj, _, _ = multipletests(result["min_binom_pvalue"].values, method="fdr_bh")
-    result["avoidance_pvalue_adj"] = np.minimum(pvals_adj, 1.0).round(6)
-    result = result.drop(columns=["_absent_pvalues"])
-
-    return result
-
-
-def compute_domain_cooccurrence(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Build a symmetric domain co-occurrence matrix.
-
-    Cell (i, j) = number of proteins that contain both domain_i and domain_j.
-    Diagonal = single-domain occurrence count.
-
-    Returns
-    -------
-    pd.DataFrame
-        Square matrix with domain names as both index and columns.
-    """
-    protein_domains = {
-        row["accession"]: set(row["domain_names"])
-        for _, row in df.iterrows()
-        if row["n_domains"] > 0
-    }
-
-    if not protein_domains:
-        return pd.DataFrame()
-
-    all_domains = sorted({d for ds in protein_domains.values() for d in ds})
-    matrix = pd.DataFrame(0, index=all_domains, columns=all_domains)
-
-    for domains in protein_domains.values():
-        domain_list = sorted(domains)
-        for i, d1 in enumerate(domain_list):
-            matrix.loc[d1, d1] += 1
-            for d2 in domain_list[i + 1 :]:
-                matrix.loc[d1, d2] += 1
-                matrix.loc[d2, d1] += 1
-
-    return matrix
-
-
-def compute_domain_cooccurrence_stats(
-    df: pd.DataFrame,
-    min_pair_count: int = 2,
-    max_domains: int = 60,
-) -> pd.DataFrame:
-    """
-    Pairwise domain co-occurrence statistics across all proteins.
-
-    For each domain pair (A, B) that appear together in at least
-    min_pair_count proteins:
-    - n_AB       : proteins containing both A and B
-    - n_A        : proteins containing A (regardless of B)
-    - n_B        : proteins containing B (regardless of A)
-    - n_neither  : proteins containing neither
-    - N          : total proteins with at least one domain
-    - jaccard    : n_AB / (n_A + n_B - n_AB)  [0, 1]
-    - lift       : (n_AB / N) / ((n_A / N) * (n_B / N))  [> 1 = positive association]
-    - pmi        : log2((n_AB / N) / ((n_A / N) * (n_B / N)))  [positive = co-enriched]
-    - fisher_pvalue  : Fisher's exact test (one-sided: greater), H0 = independence
-    - fisher_pvalue_adj : BH-FDR corrected Fisher p-value
-
-    Parameters
-    ----------
-    df : pd.DataFrame
-        Output of fetch_plasmodium_proteins().
-    min_pair_count : int
-        Minimum co-occurrence count to include a pair.
-    max_domains : int
-        Analyse only the top-N most frequent domains to keep computation tractable.
-
-    Returns
-    -------
-    pd.DataFrame sorted by lift descending.
-    """
-    # Restrict to proteins with at least one domain
-    protein_domains = {
-        row["accession"]: set(row["domain_names"])
-        for _, row in df.iterrows()
-        if row["n_domains"] > 0
-    }
-
-    if not protein_domains:
-        return pd.DataFrame()
-
-    # Limit to top max_domains by frequency to keep O(n^2) tractable
-    from collections import Counter
-    freq = Counter(d for ds in protein_domains.values() for d in ds)
-    top_domains = {d for d, _ in freq.most_common(max_domains)}
-
-    # Filter protein_domains to top_domains only
-    filtered = {acc: ds & top_domains for acc, ds in protein_domains.items()}
-    filtered = {acc: ds for acc, ds in filtered.items() if ds}
-
-    if not filtered:
-        return pd.DataFrame()
-
-    N = len(filtered)
-    all_domains = sorted(top_domains & {d for ds in filtered.values() for d in ds})
-
-    # Domain marginal counts (proteins containing each domain)
-    marginals = {d: sum(1 for ds in filtered.values() if d in ds) for d in all_domains}
-
-    rows = []
-    for dA, dB in combinations(all_domains, 2):
-        nA = marginals[dA]
-        nB = marginals[dB]
-        nAB = sum(1 for ds in filtered.values() if dA in ds and dB in ds)
-
-        if nAB < min_pair_count:
-            continue
-
-        n_neither = N - nA - nB + nAB
-
-        # Jaccard
-        jaccard = nAB / (nA + nB - nAB) if (nA + nB - nAB) > 0 else 0.0
-
-        # Lift
-        p_A = nA / N
-        p_B = nB / N
-        p_AB = nAB / N
-        lift = p_AB / (p_A * p_B) if (p_A * p_B) > 0 else 1.0
-
-        # PMI (log2)
-        pmi = np.log2(p_AB / (p_A * p_B)) if (p_A * p_B) > 0 and p_AB > 0 else 0.0
-
-        # Fisher's exact — one-sided (alternative='greater' tests positive association)
-        contingency = [[nAB, nA - nAB], [nB - nAB, n_neither]]
-        _, fisher_p = fisher_exact(contingency, alternative="greater")
-
-        rows.append({
-            "domain_A": dA,
-            "domain_B": dB,
-            "n_AB": nAB,
-            "n_A": nA,
-            "n_B": nB,
-            "n_neither": n_neither,
-            "N": N,
-            "jaccard": round(jaccard, 4),
-            "lift": round(lift, 4),
-            "pmi": round(pmi, 4),
-            "fisher_pvalue": round(fisher_p, 6),
-        })
-
-    if not rows:
-        return pd.DataFrame()
-
-    result = pd.DataFrame(rows).sort_values("lift", ascending=False).reset_index(drop=True)
-
-    # BH-FDR on Fisher p-values via statsmodels.multipletests
-    _, pvals_adj, _, _ = multipletests(result["fisher_pvalue"].values, method="fdr_bh")
-    result["fisher_pvalue_adj"] = np.minimum(pvals_adj, 1.0).round(6)
-
-    return result
 
 
 def get_species_exclusive_domains(df: pd.DataFrame) -> Dict[str, List[str]]:
     """
-    Find domains found in exactly one Plasmodium species (species-exclusive).
+    Find Pfam families carried by proteins of exactly one Plasmodium species.
 
     Returns
     -------
     dict
-        {species_name: [exclusive_domain_1, ...]}
+        {species_name: [exclusive_domain_label, ...]}, labelled "{name} ({accession})".
     """
     occurrence = compute_domain_occurrence(df)
     if occurrence.empty:
         return {}
 
     exclusive = occurrence[occurrence["species_count"] == 1].copy()
+    if exclusive.empty:
+        return {}
+
+    domains = _pfam_domain_table(df)
+    single_species = domains.groupby("domain_accession")["species"].first()
+
     result: Dict[str, List[str]] = {}
     for _, row in exclusive.iterrows():
-        sp = row["species"][0]
+        sp = single_species.get(row["domain_accession"])
+        if sp is None:
+            continue
         result.setdefault(sp, []).append(row["domain_name"])
     return result
 
+
+# ----------------------------------------------------------------------------------
+# Avoidance (delegates to genus_analysis.compute_domain_avoidance)
+# ----------------------------------------------------------------------------------
+
+_AVOIDANCE_COLUMNS = [
+    "domain_accession", "domain_name", "n_species_present", "n_species_absent",
+    "avoidance_score", "min_binom_pvalue", "avoidance_pvalue_adj",
+    "expected_species_absent", "excess_absence",
+    "n_clades_present", "n_clades_absent", "clade_avoidance_score",
+    "species_with", "species_without",
+]
+
+
+def compute_domain_avoidance(df: pd.DataFrame, min_carriers: int = 2) -> pd.DataFrame:
+    """
+    Domain avoidance under a null conditioned on per-species annotation depth.
+
+    Replaces the uniform-probability binomial null that Reviewer 2 and the editor
+    rejected: for family d and species s, the null probability that s carries no copy of
+    d is (1 - p)^n_s, where n_s is the number of *annotated* proteins in species s and p is
+    d's per-protein frequency across every other species (leave-one-species-out, to avoid
+    testing a species against a frequency it helped define). A species with few annotated
+    proteins therefore contributes little evidence of absence, rather than counting as a
+    full unit against a genus-wide average the way the previous binomial null did.
+
+    min_carriers filters by total carrier *proteins* across the genus (genus_analysis's
+    convention), not by minimum species count as the previous min_species_presence did;
+    the parameter is renamed to make that shift in meaning explicit. Domains carried by
+    every species are still reported at avoidance_score 0 rather than dropped, since the
+    corrected finding for several manuscript-cited families (LCCL, CLAG, EBA-175, RAP) is
+    exactly that they are not avoided, and that needs to remain visible in this table.
+
+    clade_avoidance_score collapses closely related species into one host-defined clade
+    (Laverania, primate, rodent, avian) before scoring, since counting several rodent
+    species as independent absences overstates the evidence for what is really one
+    lineage-level loss.
+
+    Returns
+    -------
+    pd.DataFrame sorted by excess_absence descending, columns as _AVOIDANCE_COLUMNS.
+    """
+    if df["organism"].nunique() < 2:
+        warnings.warn(
+            "compute_domain_avoidance: df contains only one species; the depth-conditioned "
+            "null cannot be calibrated against other species and avoidance scores will be "
+            "unreliable.",
+            UserWarning,
+            stacklevel=2,
+        )
+
+    domains = _pfam_domain_table(df)
+    if domains.empty:
+        return pd.DataFrame(columns=_AVOIDANCE_COLUMNS)
+
+    coverage = _coverage_table(df, domains)
+    if coverage["species"].nunique() < 2:
+        return pd.DataFrame(columns=_AVOIDANCE_COLUMNS)
+
+    result = _ga.compute_domain_avoidance(domains, coverage, min_carriers=min_carriers)
+    if result.empty:
+        return pd.DataFrame(columns=_AVOIDANCE_COLUMNS)
+
+    result = _ga.annotate_with_pfam(result, _load_clans())
+    result["domain_name"] = [
+        _display_label(a, n) for a, n in zip(result["domain_accession"], result["domain_name"])
+    ]
+    result = result.rename(
+        columns={
+            "poisson_binomial_p": "min_binom_pvalue",
+            "q_value": "avoidance_pvalue_adj",
+            "present_species": "species_with",
+            "absent_species": "species_without",
+        }
+    )
+    return result[_AVOIDANCE_COLUMNS].reset_index(drop=True)
+
+
+# ----------------------------------------------------------------------------------
+# Co-occurrence (delegates to genus_analysis.compute_cooccurrence)
+# ----------------------------------------------------------------------------------
+
+_COOCCURRENCE_COLUMNS = [
+    "domain_A", "domain_B", "name_A", "name_B",
+    "n_AB", "n_A", "n_B", "n_neither", "N",
+    "jaccard", "lift", "pmi", "fisher_pvalue", "fisher_pvalue_adj",
+    "obligate_pair", "same_clan", "headline_eligible",
+]
+
+
+def compute_domain_cooccurrence_stats(
+    df: pd.DataFrame,
+    min_pair_count: int = 5,
+    max_domains: int | None = 60,
+) -> pd.DataFrame:
+    """
+    Pairwise Pfam co-occurrence statistics across all proteins.
+
+    Three corrections relative to the previous implementation, per Reviewer 4:
+
+    1. N is the number of proteins carrying at least one Pfam family in the analysed set,
+       not the number retaining one of the top max_domains families; the previous
+       denominator inflated every lift value and was undocumented.
+    2. min_pair_count defaults to 5 rather than 2: at min_pair_count=2 the previous top
+       ranking was seven pairs tied at the threshold itself, each supported by two
+       proteins.
+    3. obligate_pair (n_AB == n_A == n_B) and same_clan pairs are flagged via
+       headline_eligible, since these are the defining architecture of a single protein
+       family rather than evidence of domain combination.
+
+    Returns
+    -------
+    pd.DataFrame sorted by lift descending, columns as _COOCCURRENCE_COLUMNS.
+    """
+    domains = _pfam_domain_table(df)
+    if domains.empty:
+        return pd.DataFrame(columns=_COOCCURRENCE_COLUMNS)
+
+    result = _ga.compute_cooccurrence(
+        domains, _load_clans(), min_pair_count=min_pair_count, max_families=max_domains
+    )
+    if result.empty:
+        return pd.DataFrame(columns=_COOCCURRENCE_COLUMNS)
+
+    result["n_neither"] = result["N"] - result["n_A"] - result["n_B"] + result["n_AB"]
+    result = result.rename(
+        columns={
+            "domain_a": "domain_A",
+            "domain_b": "domain_B",
+            "name_a": "name_A",
+            "name_b": "name_B",
+            "pmi_log2": "pmi",
+            "fisher_p": "fisher_pvalue",
+            "q_value": "fisher_pvalue_adj",
+        }
+    )
+    return result[_COOCCURRENCE_COLUMNS].sort_values("lift", ascending=False).reset_index(drop=True)
+
+
+# ----------------------------------------------------------------------------------
+# InterPro (unchanged: already accession-keyed, not part of the duplication the
+# reviewers identified)
+# ----------------------------------------------------------------------------------
 
 def compute_interpro_occurrence(df: pd.DataFrame) -> pd.DataFrame:
     """
