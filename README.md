@@ -33,7 +33,7 @@ This application implements, automates, and extends the domain annotation workfl
 cd "Plasmodium Protein Domain Annotation"
 
 # Create a clean environment (recommended)
-conda create -n plasmodium-domains python=3.11
+conda create -n plasmodium-domains python=3.11.5
 conda activate plasmodium-domains
 
 # Install dependencies
