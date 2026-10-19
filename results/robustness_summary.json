@@ -1,0 +1,52 @@
+{
+  "single_representative": {
+    "n_proteins": 114461,
+    "n_species": 20,
+    "n_pfam_families": 2472,
+    "avoidance_significant": 22,
+    "avoidance_overlap_with_merged": 21,
+    "avoidance_only_merged": [],
+    "avoidance_only_single": [
+      "PF09216"
+    ],
+    "pan_core": {
+      "core": 1615,
+      "shell": 463,
+      "soft_core": 247,
+      "cloud": 147
+    },
+    "pan_core_category_agreement": 0.996,
+    "families_lost": 55
+  },
+  "clade_inference": {
+    "n_clades": 7,
+    "families_tested": 2341,
+    "clade_significant": 20,
+    "species_significant": 21,
+    "both": 20,
+    "species_only": [
+      "PF12420"
+    ],
+    "clade_only": [],
+    "jackknife_min_retained": 15,
+    "jackknife_max_new": 2
+  },
+  "core_composition": {
+    "n_core": 1618,
+    "single_copy_core": 748,
+    "core_with_median_le_2_copies": 1282,
+    "promiscuity_cut_top5pct_partners": 6.0,
+    "core_promiscuous_top5pct": 127,
+    "core_excluding_promiscuous_and_multicopy": 1253,
+    "core_promiscuity_median": 1.0,
+    "core_partner_zero": 547,
+    "panther_families": 2483,
+    "panther_core_all_species": 1509,
+    "n_species": 20
+  },
+  "network_null": {
+    "replicates": 200,
+    "trades_per_protein": 5,
+    "seed": 20261019
+  }
+}

@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Regenerable pipeline outputs (run SCRIPT/run_pipeline.py or SCRIPT/plot_*.py to recreate)
+PLOT/
+Archive/error_app.md
+
+# Re-downloadable inputs for SCRIPT/hmm_validation.py (proteome FASTA, Pfam HMMs)
+data/raw/

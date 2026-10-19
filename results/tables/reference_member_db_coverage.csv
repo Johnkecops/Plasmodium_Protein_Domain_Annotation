@@ -1,0 +1,15 @@
+database,n_proteins,coverage_pct
+Pfam,76215,59.49
+InterPro,86860,67.8
+SMART,26273,20.51
+PROSITE,35010,27.33
+PANTHER,64643,50.45
+Gene3D,60677,47.36
+SUPFAM,57491,44.87
+any listed member,89525,69.88
+"InterPro without Pfam, matched by SMART",1519,1.19
+"InterPro without Pfam, matched by PROSITE",2710,2.12
+"InterPro without Pfam, matched by PANTHER",5864,4.58
+"InterPro without Pfam, matched by Gene3D",6414,5.01
+"InterPro without Pfam, matched by SUPFAM",7455,5.82
+InterPro without Pfam (total),10875,8.49

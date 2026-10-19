@@ -1,0 +1,404 @@
+{
+  "clade_assignment": {
+    "Plasmodium falciparum": "Laverania (human)",
+    "Plasmodium reichenowi": "Laverania (ape)",
+    "Plasmodium gaboni": "Laverania (ape)",
+    "Plasmodium vivax": "primate (human)",
+    "Plasmodium malariae": "primate (human)",
+    "Plasmodium ovale": "primate (human)",
+    "Plasmodium ovale wallikeri": "primate (human)",
+    "Plasmodium knowlesi": "primate (simian, zoonotic)",
+    "Plasmodium cynomolgi": "primate (simian)",
+    "Plasmodium inui": "primate (simian)",
+    "Plasmodium coatneyi": "primate (simian)",
+    "Plasmodium fragile": "primate (simian)",
+    "Plasmodium gonderi": "primate (simian)",
+    "Plasmodium brasilianum": "primate (simian)",
+    "Plasmodium simium": "primate (simian)",
+    "Plasmodium berghei": "rodent",
+    "Plasmodium yoelii": "rodent",
+    "Plasmodium chabaudi": "rodent",
+    "Plasmodium vinckei": "rodent",
+    "Plasmodium vinckei petteri": "rodent",
+    "Plasmodium gallinaceum": "avian",
+    "Plasmodium relictum": "avian",
+    "Plasmodium lophurae": "avian"
+  },
+  "scopes": {
+    "reference": {
+      "scope": "reference",
+      "dataset": {
+        "n_protein_rows": 128121,
+        "n_unique_accessions": 128121,
+        "n_species": 20,
+        "n_proteomes": 22,
+        "n_reviewed": 526,
+        "pfam_protein_coverage_pct": 59.49,
+        "interpro_protein_coverage_pct": 67.8,
+        "ft_domain_protein_coverage_pct": 39.64
+      },
+      "n_species": 20,
+      "n_clades": 7,
+      "clades": [
+        "Laverania (ape)",
+        "Laverania (human)",
+        "avian",
+        "primate (human)",
+        "primate (simian)",
+        "primate (simian, zoonotic)",
+        "rodent"
+      ],
+      "n_pfam_families": 2527,
+      "n_annotated_proteins": 76215,
+      "occurrence_top10": [
+        {
+          "domain_accession": "PF05795",
+          "domain_name": "Plasmodium_Vir",
+          "n_proteins": 3838,
+          "n_species": 15,
+          "pct_of_proteome": 2.996,
+          "reviewed_fraction": 0.0
+        },
+        {
+          "domain_accession": "PF06022",
+          "domain_name": "Cir_Bir_Yir",
+          "n_proteins": 2224,
+          "n_species": 7,
+          "pct_of_proteome": 1.736,
+          "reviewed_fraction": 0.0
+        },
+        {
+          "domain_accession": "PF00069",
+          "domain_name": "Pkinase",
+          "n_proteins": 1542,
+          "n_species": 20,
+          "pct_of_proteome": 1.204,
+          "reviewed_fraction": 0.0188
+        },
+        {
+          "domain_accession": "PF00271",
+          "domain_name": "Helicase_C",
+          "n_proteins": 1347,
+          "n_species": 20,
+          "pct_of_proteome": 1.051,
+          "reviewed_fraction": 0.0015
+        },
+        {
+          "domain_accession": "PF00076",
+          "domain_name": "RRM_1",
+          "n_proteins": 1336,
+          "n_species": 20,
+          "pct_of_proteome": 1.043,
+          "reviewed_fraction": 0.0015
+        },
+        {
+          "domain_accession": "PF12420",
+          "domain_name": "DUF3671",
+          "n_proteins": 1307,
+          "n_species": 19,
+          "pct_of_proteome": 1.02,
+          "reviewed_fraction": 0.0
+        },
+        {
+          "domain_accession": "PF00400",
+          "domain_name": "WD40",
+          "n_proteins": 1133,
+          "n_species": 20,
+          "pct_of_proteome": 0.884,
+          "reviewed_fraction": 0.0
+        },
+        {
+          "domain_accession": "PF00270",
+          "domain_name": "DEAD",
+          "n_proteins": 1100,
+          "n_species": 20,
+          "pct_of_proteome": 0.859,
+          "reviewed_fraction": 0.0009
+        },
+        {
+          "domain_accession": "PF09687",
+          "domain_name": "PRESAN",
+          "n_proteins": 840,
+          "n_species": 20,
+          "pct_of_proteome": 0.656,
+          "reviewed_fraction": 0.0
+        },
+        {
+          "domain_accession": "PF00004",
+          "domain_name": "AAA",
+          "n_proteins": 748,
+          "n_species": 20,
+          "pct_of_proteome": 0.584,
+          "reviewed_fraction": 0.0027
+        }
+      ],
+      "avoidance_significant": 21,
+      "cooccurrence_pairs": 1514,
+      "cooccurrence_significant": 1513,
+      "cooccurrence_headline_eligible": 1099,
+      "network": {
+        "n_nodes": 1260,
+        "n_edges": 1513,
+        "density": 0.001908,
+        "n_components": 337,
+        "largest_component_nodes": 91,
+        "largest_component_fraction": 0.0722,
+        "mean_degree": 2.402,
+        "max_degree": 30,
+        "avg_clustering": 0.3936,
+        "transitivity": 0.5668,
+        "lcc_avg_path_length": 4.2396,
+        "lcc_diameter": 9
+      },
+      "degree_fits": {
+        "n_nodes_with_degree": 1260,
+        "alpha": 2.8085,
+        "xmin": 3.0,
+        "sigma": 0.0945,
+        "ks_distance": 0.0514,
+        "n_tail": 366,
+        "vs_truncated_power_law": {
+          "loglikelihood_ratio": -2.0989,
+          "p_value": 0.00202,
+          "favoured": "truncated_power_law"
+        },
+        "vs_lognormal": {
+          "loglikelihood_ratio": -1.8481,
+          "p_value": 0.06459,
+          "favoured": "lognormal"
+        },
+        "vs_exponential": {
+          "loglikelihood_ratio": 1.4045,
+          "p_value": 0.16018,
+          "favoured": "power_law"
+        },
+        "vs_stretched_exponential": {
+          "loglikelihood_ratio": -1.9276,
+          "p_value": 0.0539,
+          "favoured": "stretched_exponential"
+        },
+        "vs_poisson": {
+          "loglikelihood_ratio": 5.7762,
+          "p_value": 0.0,
+          "favoured": "power_law"
+        },
+        "bootstrap": {
+          "replicates": 1000,
+          "alpha_mean": 2.78,
+          "alpha_ci95": [
+            2.3903,
+            2.961
+          ],
+          "xmin_median": 3.0,
+          "xmin_ci95": [
+            2.0,
+            3.0
+          ]
+        }
+      },
+      "pan_core": {
+        "core": 1618,
+        "shell": 458,
+        "soft_core": 250,
+        "cloud": 201
+      },
+      "pan_core_deep_species_only": {
+        "n_species": 15,
+        "depth_threshold": 3226.25,
+        "counts": {
+          "core": 1638,
+          "shell": 654,
+          "cloud": 201
+        }
+      }
+    },
+    "swissprot": {
+      "scope": "swissprot",
+      "dataset": {
+        "n_protein_rows": 773,
+        "n_unique_accessions": 773,
+        "n_species": 16,
+        "n_proteomes": 1,
+        "n_reviewed": 773,
+        "pfam_protein_coverage_pct": 86.16,
+        "interpro_protein_coverage_pct": 90.3,
+        "ft_domain_protein_coverage_pct": 33.64
+      },
+      "n_species": 16,
+      "n_clades": 7,
+      "clades": [
+        "Laverania (ape)",
+        "Laverania (human)",
+        "avian",
+        "primate (human)",
+        "primate (simian)",
+        "primate (simian, zoonotic)",
+        "rodent"
+      ],
+      "n_pfam_families": 373,
+      "n_annotated_proteins": 666,
+      "occurrence_top10": [
+        {
+          "domain_accession": "PF00069",
+          "domain_name": "Pkinase",
+          "n_proteins": 38,
+          "n_species": 6,
+          "pct_of_proteome": 4.916,
+          "reviewed_fraction": 1.0
+        },
+        {
+          "domain_accession": "PF00090",
+          "domain_name": "TSP_1",
+          "n_proteins": 24,
+          "n_species": 10,
+          "pct_of_proteome": 3.105,
+          "reviewed_fraction": 1.0
+        },
+        {
+          "domain_accession": "PF07422",
+          "domain_name": "s48_45",
+          "n_proteins": 21,
+          "n_species": 3,
+          "pct_of_proteome": 2.717,
+          "reviewed_fraction": 1.0
+        },
+        {
+          "domain_accession": "PF00026",
+          "domain_name": "Asp",
+          "n_proteins": 20,
+          "n_species": 3,
+          "pct_of_proteome": 2.587,
+          "reviewed_fraction": 1.0
+        },
+        {
+          "domain_accession": "PF13499",
+          "domain_name": "EF-hand_7",
+          "n_proteins": 19,
+          "n_species": 3,
+          "pct_of_proteome": 2.458,
+          "reviewed_fraction": 1.0
+        },
+        {
+          "domain_accession": "PF00985",
+          "domain_name": "MSA_2",
+          "n_proteins": 14,
+          "n_species": 1,
+          "pct_of_proteome": 1.811,
+          "reviewed_fraction": 1.0
+        },
+        {
+          "domain_accession": "PF00112",
+          "domain_name": "Peptidase_C1",
+          "n_proteins": 14,
+          "n_species": 4,
+          "pct_of_proteome": 1.811,
+          "reviewed_fraction": 1.0
+        },
+        {
+          "domain_accession": "PF00022",
+          "domain_name": "Actin",
+          "n_proteins": 10,
+          "n_species": 3,
+          "pct_of_proteome": 1.294,
+          "reviewed_fraction": 1.0
+        },
+        {
+          "domain_accession": "PF12946",
+          "domain_name": "EGF_MSP1_1",
+          "n_proteins": 9,
+          "n_species": 2,
+          "pct_of_proteome": 1.164,
+          "reviewed_fraction": 1.0
+        },
+        {
+          "domain_accession": "PF07462",
+          "domain_name": "MSP1_C",
+          "n_proteins": 9,
+          "n_species": 2,
+          "pct_of_proteome": 1.164,
+          "reviewed_fraction": 1.0
+        }
+      ],
+      "avoidance_significant": 0,
+      "cooccurrence_pairs": 120,
+      "cooccurrence_significant": 120,
+      "cooccurrence_headline_eligible": 36,
+      "network": {
+        "n_nodes": 111,
+        "n_edges": 120,
+        "density": 0.019656,
+        "n_components": 42,
+        "largest_component_nodes": 9,
+        "largest_component_fraction": 0.0811,
+        "mean_degree": 2.162,
+        "max_degree": 8,
+        "avg_clustering": 0.3949,
+        "transitivity": 0.9801,
+        "lcc_avg_path_length": 1.0,
+        "lcc_diameter": 1
+      },
+      "degree_fits": {
+        "n_nodes_with_degree": 111,
+        "alpha": 2.0843,
+        "xmin": 1.0,
+        "sigma": 0.1029,
+        "ks_distance": 0.0652,
+        "n_tail": 111,
+        "vs_truncated_power_law": {
+          "loglikelihood_ratio": -2.3773,
+          "p_value": 0.00092,
+          "favoured": "truncated_power_law"
+        },
+        "vs_lognormal": {
+          "loglikelihood_ratio": -2.0341,
+          "p_value": 0.04194,
+          "favoured": "lognormal"
+        },
+        "vs_exponential": {
+          "loglikelihood_ratio": -0.1369,
+          "p_value": 0.89112,
+          "favoured": "exponential"
+        },
+        "vs_stretched_exponential": {
+          "loglikelihood_ratio": -2.2027,
+          "p_value": 0.02762,
+          "favoured": "stretched_exponential"
+        },
+        "vs_poisson": {
+          "loglikelihood_ratio": 4.2397,
+          "p_value": 2e-05,
+          "favoured": "power_law"
+        },
+        "bootstrap": {
+          "replicates": 1000,
+          "alpha_mean": 2.1042,
+          "alpha_ci95": [
+            1.9318,
+            2.3991
+          ],
+          "xmin_median": 1.0,
+          "xmin_ci95": [
+            1.0,
+            2.0
+          ]
+        }
+      },
+      "pan_core": {
+        "cloud": 310,
+        "shell": 63
+      },
+      "pan_core_deep_species_only": {
+        "n_species": 12,
+        "depth_threshold": 1.75,
+        "counts": {
+          "cloud": 246,
+          "shell": 127
+        }
+      }
+    }
+  },
+  "comparison": {
+    "swissprot_fraction_of_reference_proteins": 0.00603,
+    "swissprot_fraction_of_reference_families": 0.14761
+  }
+}

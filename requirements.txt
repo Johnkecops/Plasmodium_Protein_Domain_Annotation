@@ -9,3 +9,4 @@ statsmodels==0.14.0
 networkx==3.6.1
 matplotlib==3.8.2
 powerlaw==2.0.0
+pyhmmer==0.12.3

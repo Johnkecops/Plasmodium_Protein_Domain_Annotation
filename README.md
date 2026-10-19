@@ -33,7 +33,7 @@ This application implements, automates, and extends the domain annotation workfl
 cd "Plasmodium Protein Domain Annotation"
 
 # Create a clean environment (recommended)
-conda create -n plasmodium-domains python=3.11.5
+conda create -n plasmodium-domains python=3.11
 conda activate plasmodium-domains
 
 # Install dependencies
@@ -195,6 +195,8 @@ through identical code.
 python3 SCRIPT/fetch_reference_proteomes.py --outdir data/frozen   # ~12 min, 5.9 MB
 python3 SCRIPT/run_genus_pipeline.py --outdir results/tables --min-pair 5 --bootstrap 1000
 python3 SCRIPT/make_figures.py
+python3 SCRIPT/build_manuscript.py
+python3 SCRIPT/build_response_letter.py
 python3 -m pytest tests/                                            # 78 tests
 ```
 
@@ -211,7 +213,8 @@ did not compute.
 | `genus_analysis.py` | Occurrence, depth-conditioned avoidance, corrected co-occurrence, network fits, pan-core |
 | `run_genus_pipeline.py` | Single entry point; runs both dataset scopes |
 | `make_figures.py` | All eight figures at 300 dpi PNG and vector PDF |
-
+| `build_manuscript.py`, `build_response_letter.py` | Documents generated from pipeline output |
+| `finalise_docx.py` | Strips generator metadata and repairs the package relationships |
 
 ### Defects fixed from v1.x
 
@@ -232,3 +235,11 @@ did not compute.
 
 The pipeline retrieves precomputed Pfam and InterPro signature matches. It does not run
 HMMER3 or InterProScan, and the title and methods say so.
+
+## v2.1 — Robustness analyses and direct HMM scans
+
+- `SCRIPT/robustness_analysis.py`: member-database coverage, one-proteome-per-species sensitivity, clade-level avoidance test with clade jackknife, core composition (single-copy core, promiscuity, PANTHER core), and a curveball network null (200 replicates, parallel over all cores).
+- `SCRIPT/hmm_validation.py`: downloads the 22 proteome FASTA files and Pfam HMMs, runs `hmmsearch` (pyhmmer, gathering thresholds) for the avoidance families, and repeats the avoidance test with direct-scan carriers.
+- Exact environment: `environments/environment.yml`. Step-by-step reproduction with expected checksums and values: `docs/REPRODUCE.md`.
+
+AI Assistance Disclaimer: This codebase was developed with the assistance of Claude Code. While the AI provided code generation, debugging, and structural support, the human developer maintains full responsibility for reviewing, testing, and maintaining all content and functionality

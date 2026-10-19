@@ -427,24 +427,15 @@ def figure8_avoidance(tables: Path, outdir: Path, scope: str) -> None:
     """
     Avoidance under the depth-conditioned null, with q-values on the panel.
 
-    Reviewer 4 objected that the submitted Figure 3 presented four families as bars of
-    equal weight with no significance annotation, so the figure asserted four findings
-    where the analysis supported one. Every bar here carries its q-value, and the
-    families whose absence is fully explained by annotation depth are shown alongside.
+    Every family significant at q < 0.05 is shown, each bar carries its q-value, and the
+    expected number of absences under the null is drawn beside the observed number.
     """
     av = pd.read_csv(tables / f"{scope}_avoidance.csv")
-
-    # The four families the submitted manuscript reported as avoided are shown alongside
-    # the families that actually reach significance. Without them the panel would carry
-    # only significant bars and the reader could not see what the correction changed.
-    claimed = ["PF03815", "PF03805", "PF11556", "PF08373"]
-    top = av.nlargest(12, "excess_absence")
-    shown = pd.concat([top, av[av["domain_accession"].isin(claimed)]]).drop_duplicates("domain_accession")
-    shown = shown.sort_values("excess_absence").reset_index(drop=True)
+    shown = av[av["significant_q05"]].sort_values("excess_absence").reset_index(drop=True)
     y = np.arange(len(shown))
 
-    fig, ax = plt.subplots(figsize=(8.8, 6.4))
-    colours = [ACCENT if s else MUTED for s in shown["significant_q05"]]
+    fig, ax = plt.subplots(figsize=(8.8, 7.4))
+    colours = [ACCENT] * len(shown)
     ax.barh(y, shown["n_species_absent"], color=colours, height=0.72)
     ax.scatter(
         shown["expected_species_absent"],
@@ -455,15 +446,12 @@ def figure8_avoidance(tables: Path, outdir: Path, scope: str) -> None:
         marker="D",
         label="Expected absences under the depth-conditioned null",
     )
-    labels = []
-    for acc, name in zip(shown["domain_accession"], shown["domain_name"]):
-        marker = "  *" if acc in claimed else ""
-        labels.append(f"{name}  ({acc}){marker}")
+    labels = [f"{name}  ({acc})" for acc, name in zip(shown["domain_accession"], shown["domain_name"])]
     ax.set_yticks(y)
     ax.set_yticklabels(labels, fontsize=7)
     ax.set_xlabel("Species lacking the family (of 20)")
     ax.set_title(
-        "Domain avoidance tested against annotation depth rather than a uniform null",
+        "Families absent from more species than per-species annotation depth predicts",
         loc="left",
         weight="bold",
     )
@@ -474,29 +462,18 @@ def figure8_avoidance(tables: Path, outdir: Path, scope: str) -> None:
 
     handles = [
         plt.Rectangle((0, 0), 1, 1, color=ACCENT),
-        plt.Rectangle((0, 0), 1, 1, color=MUTED),
         plt.Line2D([], [], color=WARN, marker="D", ls="none", ms=5),
     ]
     ax.legend(
         handles,
         [
-            "Observed absences, q < 0.05",
-            "Observed absences, not significant",
+            "Observed absences (all q < 0.05)",
             "Expected under the depth-conditioned null",
         ],
         loc="lower center",
-        bbox_to_anchor=(0.5, -0.22),
-        ncol=3,
+        bbox_to_anchor=(0.5, -0.16),
+        ncol=2,
         fontsize=6.8,
-    )
-    fig.text(
-        0.5,
-        -0.06,
-        "* families reported as avoided in the submitted manuscript. All four are carried by all 20 species "
-        "in the reference proteomes, so their avoidance scores are zero.",
-        ha="center",
-        fontsize=6.8,
-        color=INK,
     )
 
     _save(fig, outdir, "Figure8_domain_avoidance")

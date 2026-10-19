@@ -1,0 +1,521 @@
+domain_accession,species,n_precomputed,n_direct,n_both,presence_agrees
+PF00090,Plasmodium berghei,5,5,5,True
+PF00090,Plasmodium brasilianum,6,6,6,True
+PF00090,Plasmodium chabaudi,6,6,6,True
+PF00090,Plasmodium coatneyi,5,6,5,True
+PF00090,Plasmodium cynomolgi,4,5,4,True
+PF00090,Plasmodium falciparum,10,11,10,True
+PF00090,Plasmodium fragile,6,7,6,True
+PF00090,Plasmodium gaboni,5,6,5,True
+PF00090,Plasmodium gallinaceum,4,5,4,True
+PF00090,Plasmodium gonderi,4,5,4,True
+PF00090,Plasmodium inui,5,6,5,True
+PF00090,Plasmodium knowlesi,4,5,4,True
+PF00090,Plasmodium malariae,6,6,6,True
+PF00090,Plasmodium ovale,5,6,5,True
+PF00090,Plasmodium ovale wallikeri,5,6,5,True
+PF00090,Plasmodium reichenowi,5,6,5,True
+PF00090,Plasmodium relictum,4,5,4,True
+PF00090,Plasmodium vinckei petteri,4,5,4,True
+PF00090,Plasmodium vivax,6,7,6,True
+PF00090,Plasmodium yoelii,8,10,8,True
+PF01391,Plasmodium berghei,0,0,0,True
+PF01391,Plasmodium brasilianum,7,7,7,True
+PF01391,Plasmodium chabaudi,0,0,0,True
+PF01391,Plasmodium coatneyi,0,0,0,True
+PF01391,Plasmodium cynomolgi,4,6,4,True
+PF01391,Plasmodium falciparum,0,0,0,True
+PF01391,Plasmodium fragile,0,0,0,True
+PF01391,Plasmodium gaboni,0,0,0,True
+PF01391,Plasmodium gallinaceum,0,1,0,False
+PF01391,Plasmodium gonderi,10,12,10,True
+PF01391,Plasmodium inui,0,0,0,True
+PF01391,Plasmodium knowlesi,0,0,0,True
+PF01391,Plasmodium malariae,3,3,3,True
+PF01391,Plasmodium ovale,6,6,6,True
+PF01391,Plasmodium ovale wallikeri,6,8,6,True
+PF01391,Plasmodium reichenowi,1,1,1,True
+PF01391,Plasmodium relictum,0,0,0,True
+PF01391,Plasmodium vinckei petteri,0,0,0,True
+PF01391,Plasmodium vivax,1,2,1,True
+PF01391,Plasmodium yoelii,5,7,5,True
+PF02009,Plasmodium berghei,0,0,0,True
+PF02009,Plasmodium brasilianum,0,0,0,True
+PF02009,Plasmodium chabaudi,0,0,0,True
+PF02009,Plasmodium coatneyi,0,0,0,True
+PF02009,Plasmodium cynomolgi,0,0,0,True
+PF02009,Plasmodium falciparum,320,321,320,True
+PF02009,Plasmodium fragile,0,0,0,True
+PF02009,Plasmodium gaboni,8,8,8,True
+PF02009,Plasmodium gallinaceum,0,0,0,True
+PF02009,Plasmodium gonderi,0,0,0,True
+PF02009,Plasmodium inui,0,0,0,True
+PF02009,Plasmodium knowlesi,0,0,0,True
+PF02009,Plasmodium malariae,0,0,0,True
+PF02009,Plasmodium ovale,0,0,0,True
+PF02009,Plasmodium ovale wallikeri,0,0,0,True
+PF02009,Plasmodium reichenowi,407,408,407,True
+PF02009,Plasmodium relictum,0,0,0,True
+PF02009,Plasmodium vinckei petteri,0,0,0,True
+PF02009,Plasmodium vivax,0,0,0,True
+PF02009,Plasmodium yoelii,0,0,0,True
+PF03011,Plasmodium berghei,0,0,0,True
+PF03011,Plasmodium brasilianum,0,0,0,True
+PF03011,Plasmodium chabaudi,0,0,0,True
+PF03011,Plasmodium coatneyi,0,1,0,False
+PF03011,Plasmodium cynomolgi,0,1,0,False
+PF03011,Plasmodium falciparum,123,123,123,True
+PF03011,Plasmodium fragile,0,0,0,True
+PF03011,Plasmodium gaboni,14,20,14,True
+PF03011,Plasmodium gallinaceum,0,0,0,True
+PF03011,Plasmodium gonderi,1,1,1,True
+PF03011,Plasmodium inui,0,0,0,True
+PF03011,Plasmodium knowlesi,1,2,1,True
+PF03011,Plasmodium malariae,0,0,0,True
+PF03011,Plasmodium ovale,0,0,0,True
+PF03011,Plasmodium ovale wallikeri,0,0,0,True
+PF03011,Plasmodium reichenowi,72,72,72,True
+PF03011,Plasmodium relictum,0,0,0,True
+PF03011,Plasmodium vinckei petteri,0,0,0,True
+PF03011,Plasmodium vivax,0,1,0,False
+PF03011,Plasmodium yoelii,0,1,0,False
+PF03805,Plasmodium berghei,2,2,2,True
+PF03805,Plasmodium brasilianum,3,3,3,True
+PF03805,Plasmodium chabaudi,3,3,3,True
+PF03805,Plasmodium coatneyi,2,2,2,True
+PF03805,Plasmodium cynomolgi,2,2,2,True
+PF03805,Plasmodium falciparum,12,12,12,True
+PF03805,Plasmodium fragile,3,3,3,True
+PF03805,Plasmodium gaboni,12,12,12,True
+PF03805,Plasmodium gallinaceum,4,4,4,True
+PF03805,Plasmodium gonderi,2,2,2,True
+PF03805,Plasmodium inui,9,9,9,True
+PF03805,Plasmodium knowlesi,2,2,2,True
+PF03805,Plasmodium malariae,4,4,4,True
+PF03805,Plasmodium ovale,3,3,3,True
+PF03805,Plasmodium ovale wallikeri,3,3,3,True
+PF03805,Plasmodium reichenowi,5,5,5,True
+PF03805,Plasmodium relictum,8,8,8,True
+PF03805,Plasmodium vinckei petteri,2,2,2,True
+PF03805,Plasmodium vivax,3,3,3,True
+PF03805,Plasmodium yoelii,6,6,6,True
+PF03815,Plasmodium berghei,5,5,5,True
+PF03815,Plasmodium brasilianum,5,5,5,True
+PF03815,Plasmodium chabaudi,5,5,5,True
+PF03815,Plasmodium coatneyi,5,5,5,True
+PF03815,Plasmodium cynomolgi,5,5,5,True
+PF03815,Plasmodium falciparum,10,10,10,True
+PF03815,Plasmodium fragile,5,6,5,True
+PF03815,Plasmodium gaboni,5,5,5,True
+PF03815,Plasmodium gallinaceum,5,5,5,True
+PF03815,Plasmodium gonderi,5,5,5,True
+PF03815,Plasmodium inui,5,5,5,True
+PF03815,Plasmodium knowlesi,5,5,5,True
+PF03815,Plasmodium malariae,5,5,5,True
+PF03815,Plasmodium ovale,5,5,5,True
+PF03815,Plasmodium ovale wallikeri,5,5,5,True
+PF03815,Plasmodium reichenowi,5,5,5,True
+PF03815,Plasmodium relictum,5,5,5,True
+PF03815,Plasmodium vinckei petteri,5,5,5,True
+PF03815,Plasmodium vivax,5,5,5,True
+PF03815,Plasmodium yoelii,9,9,9,True
+PF05424,Plasmodium berghei,1,1,1,True
+PF05424,Plasmodium brasilianum,1,1,1,True
+PF05424,Plasmodium chabaudi,1,1,1,True
+PF05424,Plasmodium coatneyi,3,3,3,True
+PF05424,Plasmodium cynomolgi,2,2,2,True
+PF05424,Plasmodium falciparum,155,155,155,True
+PF05424,Plasmodium fragile,0,0,0,True
+PF05424,Plasmodium gaboni,59,59,59,True
+PF05424,Plasmodium gallinaceum,0,0,0,True
+PF05424,Plasmodium gonderi,2,2,2,True
+PF05424,Plasmodium inui,1,1,1,True
+PF05424,Plasmodium knowlesi,3,3,3,True
+PF05424,Plasmodium malariae,1,1,1,True
+PF05424,Plasmodium ovale,2,2,2,True
+PF05424,Plasmodium ovale wallikeri,1,1,1,True
+PF05424,Plasmodium reichenowi,79,79,79,True
+PF05424,Plasmodium relictum,0,0,0,True
+PF05424,Plasmodium vinckei petteri,1,1,1,True
+PF05424,Plasmodium vivax,1,1,1,True
+PF05424,Plasmodium yoelii,4,4,4,True
+PF05795,Plasmodium berghei,1,1,1,True
+PF05795,Plasmodium brasilianum,70,74,70,True
+PF05795,Plasmodium chabaudi,1,1,1,True
+PF05795,Plasmodium coatneyi,303,303,303,True
+PF05795,Plasmodium cynomolgi,329,335,329,True
+PF05795,Plasmodium falciparum,0,0,0,True
+PF05795,Plasmodium fragile,3,3,3,True
+PF05795,Plasmodium gaboni,0,0,0,True
+PF05795,Plasmodium gallinaceum,0,0,0,True
+PF05795,Plasmodium gonderi,323,395,323,True
+PF05795,Plasmodium inui,3,3,3,True
+PF05795,Plasmodium knowlesi,59,60,59,True
+PF05795,Plasmodium malariae,118,125,118,True
+PF05795,Plasmodium ovale,1060,1178,1060,True
+PF05795,Plasmodium ovale wallikeri,1325,1477,1325,True
+PF05795,Plasmodium reichenowi,0,0,0,True
+PF05795,Plasmodium relictum,0,0,0,True
+PF05795,Plasmodium vinckei petteri,1,1,1,True
+PF05795,Plasmodium vivax,240,251,240,True
+PF05795,Plasmodium yoelii,2,2,2,True
+PF06022,Plasmodium berghei,122,122,122,True
+PF06022,Plasmodium brasilianum,0,0,0,True
+PF06022,Plasmodium chabaudi,195,195,195,True
+PF06022,Plasmodium coatneyi,0,0,0,True
+PF06022,Plasmodium cynomolgi,0,0,0,True
+PF06022,Plasmodium falciparum,0,0,0,True
+PF06022,Plasmodium fragile,0,0,0,True
+PF06022,Plasmodium gaboni,0,0,0,True
+PF06022,Plasmodium gallinaceum,0,0,0,True
+PF06022,Plasmodium gonderi,1,1,1,True
+PF06022,Plasmodium inui,0,0,0,True
+PF06022,Plasmodium knowlesi,0,0,0,True
+PF06022,Plasmodium malariae,0,0,0,True
+PF06022,Plasmodium ovale,3,10,3,True
+PF06022,Plasmodium ovale wallikeri,5,18,5,True
+PF06022,Plasmodium reichenowi,0,0,0,True
+PF06022,Plasmodium relictum,0,0,0,True
+PF06022,Plasmodium vinckei petteri,236,237,236,True
+PF06022,Plasmodium vivax,0,1,0,False
+PF06022,Plasmodium yoelii,1662,1662,1662,True
+PF07418,Plasmodium berghei,2,2,2,True
+PF07418,Plasmodium brasilianum,0,0,0,True
+PF07418,Plasmodium chabaudi,18,18,18,True
+PF07418,Plasmodium coatneyi,0,0,0,True
+PF07418,Plasmodium cynomolgi,0,0,0,True
+PF07418,Plasmodium falciparum,0,0,0,True
+PF07418,Plasmodium fragile,0,0,0,True
+PF07418,Plasmodium gaboni,0,0,0,True
+PF07418,Plasmodium gallinaceum,0,0,0,True
+PF07418,Plasmodium gonderi,0,0,0,True
+PF07418,Plasmodium inui,0,0,0,True
+PF07418,Plasmodium knowlesi,0,0,0,True
+PF07418,Plasmodium malariae,0,0,0,True
+PF07418,Plasmodium ovale,0,0,0,True
+PF07418,Plasmodium ovale wallikeri,0,0,0,True
+PF07418,Plasmodium reichenowi,0,0,0,True
+PF07418,Plasmodium relictum,0,0,0,True
+PF07418,Plasmodium vinckei petteri,20,24,20,True
+PF07418,Plasmodium vivax,0,0,0,True
+PF07418,Plasmodium yoelii,5,5,5,True
+PF08373,Plasmodium berghei,14,14,14,True
+PF08373,Plasmodium brasilianum,14,14,14,True
+PF08373,Plasmodium chabaudi,14,15,14,True
+PF08373,Plasmodium coatneyi,16,17,16,True
+PF08373,Plasmodium cynomolgi,12,13,12,True
+PF08373,Plasmodium falciparum,28,28,28,True
+PF08373,Plasmodium fragile,16,17,16,True
+PF08373,Plasmodium gaboni,16,16,16,True
+PF08373,Plasmodium gallinaceum,16,16,16,True
+PF08373,Plasmodium gonderi,16,18,16,True
+PF08373,Plasmodium inui,16,17,16,True
+PF08373,Plasmodium knowlesi,16,17,16,True
+PF08373,Plasmodium malariae,16,16,16,True
+PF08373,Plasmodium ovale,15,15,15,True
+PF08373,Plasmodium ovale wallikeri,14,14,14,True
+PF08373,Plasmodium reichenowi,16,16,16,True
+PF08373,Plasmodium relictum,14,14,14,True
+PF08373,Plasmodium vinckei petteri,14,15,14,True
+PF08373,Plasmodium vivax,15,16,15,True
+PF08373,Plasmodium yoelii,29,29,29,True
+PF09592,Plasmodium berghei,40,40,40,True
+PF09592,Plasmodium brasilianum,0,0,0,True
+PF09592,Plasmodium chabaudi,26,26,26,True
+PF09592,Plasmodium coatneyi,0,0,0,True
+PF09592,Plasmodium cynomolgi,0,0,0,True
+PF09592,Plasmodium falciparum,0,0,0,True
+PF09592,Plasmodium fragile,0,0,0,True
+PF09592,Plasmodium gaboni,0,0,0,True
+PF09592,Plasmodium gallinaceum,0,0,0,True
+PF09592,Plasmodium gonderi,0,0,0,True
+PF09592,Plasmodium inui,0,0,0,True
+PF09592,Plasmodium knowlesi,0,0,0,True
+PF09592,Plasmodium malariae,0,0,0,True
+PF09592,Plasmodium ovale,0,0,0,True
+PF09592,Plasmodium ovale wallikeri,0,0,0,True
+PF09592,Plasmodium reichenowi,0,0,0,True
+PF09592,Plasmodium relictum,0,0,0,True
+PF09592,Plasmodium vinckei petteri,42,42,42,True
+PF09592,Plasmodium vivax,0,0,0,True
+PF09592,Plasmodium yoelii,115,116,115,True
+PF09690,Plasmodium berghei,4,4,4,True
+PF09690,Plasmodium brasilianum,0,0,0,True
+PF09690,Plasmodium chabaudi,16,16,16,True
+PF09690,Plasmodium coatneyi,0,0,0,True
+PF09690,Plasmodium cynomolgi,0,0,0,True
+PF09690,Plasmodium falciparum,0,0,0,True
+PF09690,Plasmodium fragile,0,0,0,True
+PF09690,Plasmodium gaboni,0,0,0,True
+PF09690,Plasmodium gallinaceum,0,0,0,True
+PF09690,Plasmodium gonderi,0,0,0,True
+PF09690,Plasmodium inui,0,0,0,True
+PF09690,Plasmodium knowlesi,0,0,0,True
+PF09690,Plasmodium malariae,0,0,0,True
+PF09690,Plasmodium ovale,0,0,0,True
+PF09690,Plasmodium ovale wallikeri,0,0,0,True
+PF09690,Plasmodium reichenowi,0,0,0,True
+PF09690,Plasmodium relictum,0,0,0,True
+PF09690,Plasmodium vinckei petteri,46,48,46,True
+PF09690,Plasmodium vivax,0,0,0,True
+PF09690,Plasmodium yoelii,34,34,34,True
+PF09715,Plasmodium berghei,0,0,0,True
+PF09715,Plasmodium brasilianum,0,0,0,True
+PF09715,Plasmodium chabaudi,0,0,0,True
+PF09715,Plasmodium coatneyi,0,0,0,True
+PF09715,Plasmodium cynomolgi,0,0,0,True
+PF09715,Plasmodium falciparum,17,17,17,True
+PF09715,Plasmodium fragile,0,0,0,True
+PF09715,Plasmodium gaboni,5,5,5,True
+PF09715,Plasmodium gallinaceum,0,0,0,True
+PF09715,Plasmodium gonderi,0,0,0,True
+PF09715,Plasmodium inui,0,0,0,True
+PF09715,Plasmodium knowlesi,0,0,0,True
+PF09715,Plasmodium malariae,0,0,0,True
+PF09715,Plasmodium ovale,0,0,0,True
+PF09715,Plasmodium ovale wallikeri,0,0,0,True
+PF09715,Plasmodium reichenowi,7,7,7,True
+PF09715,Plasmodium relictum,0,0,0,True
+PF09715,Plasmodium vinckei petteri,0,0,0,True
+PF09715,Plasmodium vivax,0,0,0,True
+PF09715,Plasmodium yoelii,0,0,0,True
+PF11556,Plasmodium berghei,3,3,3,True
+PF11556,Plasmodium brasilianum,2,2,2,True
+PF11556,Plasmodium chabaudi,2,2,2,True
+PF11556,Plasmodium coatneyi,5,5,5,True
+PF11556,Plasmodium cynomolgi,3,3,3,True
+PF11556,Plasmodium falciparum,11,11,11,True
+PF11556,Plasmodium fragile,4,4,4,True
+PF11556,Plasmodium gaboni,6,6,6,True
+PF11556,Plasmodium gallinaceum,1,1,1,True
+PF11556,Plasmodium gonderi,3,3,3,True
+PF11556,Plasmodium inui,2,2,2,True
+PF11556,Plasmodium knowlesi,4,4,4,True
+PF11556,Plasmodium malariae,1,1,1,True
+PF11556,Plasmodium ovale,2,2,2,True
+PF11556,Plasmodium ovale wallikeri,1,1,1,True
+PF11556,Plasmodium reichenowi,5,5,5,True
+PF11556,Plasmodium relictum,1,1,1,True
+PF11556,Plasmodium vinckei petteri,2,2,2,True
+PF11556,Plasmodium vivax,2,2,2,True
+PF11556,Plasmodium yoelii,8,8,8,True
+PF12420,Plasmodium berghei,1,1,1,True
+PF12420,Plasmodium brasilianum,421,423,421,True
+PF12420,Plasmodium chabaudi,2,2,2,True
+PF12420,Plasmodium coatneyi,11,13,11,True
+PF12420,Plasmodium cynomolgi,18,20,18,True
+PF12420,Plasmodium falciparum,2,2,2,True
+PF12420,Plasmodium fragile,7,7,7,True
+PF12420,Plasmodium gaboni,1,1,1,True
+PF12420,Plasmodium gallinaceum,14,14,14,True
+PF12420,Plasmodium gonderi,61,73,61,True
+PF12420,Plasmodium inui,3,3,3,True
+PF12420,Plasmodium knowlesi,5,6,5,True
+PF12420,Plasmodium malariae,668,672,668,True
+PF12420,Plasmodium ovale,24,25,24,True
+PF12420,Plasmodium ovale wallikeri,24,26,24,True
+PF12420,Plasmodium reichenowi,1,1,1,True
+PF12420,Plasmodium relictum,8,11,8,True
+PF12420,Plasmodium vinckei petteri,0,0,0,True
+PF12420,Plasmodium vivax,33,36,33,True
+PF12420,Plasmodium yoelii,3,3,3,True
+PF12878,Plasmodium berghei,0,0,0,True
+PF12878,Plasmodium brasilianum,0,0,0,True
+PF12878,Plasmodium chabaudi,0,0,0,True
+PF12878,Plasmodium coatneyi,124,132,124,True
+PF12878,Plasmodium cynomolgi,0,0,0,True
+PF12878,Plasmodium falciparum,0,0,0,True
+PF12878,Plasmodium fragile,4,14,4,True
+PF12878,Plasmodium gaboni,0,0,0,True
+PF12878,Plasmodium gallinaceum,0,0,0,True
+PF12878,Plasmodium gonderi,0,0,0,True
+PF12878,Plasmodium inui,0,0,0,True
+PF12878,Plasmodium knowlesi,171,172,171,True
+PF12878,Plasmodium malariae,0,0,0,True
+PF12878,Plasmodium ovale,0,0,0,True
+PF12878,Plasmodium ovale wallikeri,0,0,0,True
+PF12878,Plasmodium reichenowi,0,0,0,True
+PF12878,Plasmodium relictum,0,0,0,True
+PF12878,Plasmodium vinckei petteri,0,0,0,True
+PF12878,Plasmodium vivax,0,0,0,True
+PF12878,Plasmodium yoelii,0,0,0,True
+PF12879,Plasmodium berghei,0,0,0,True
+PF12879,Plasmodium brasilianum,5,7,5,True
+PF12879,Plasmodium chabaudi,0,0,0,True
+PF12879,Plasmodium coatneyi,227,228,227,True
+PF12879,Plasmodium cynomolgi,5,5,5,True
+PF12879,Plasmodium falciparum,10,15,10,True
+PF12879,Plasmodium fragile,171,173,171,True
+PF12879,Plasmodium gaboni,3,5,3,True
+PF12879,Plasmodium gallinaceum,1,25,1,True
+PF12879,Plasmodium gonderi,0,0,0,True
+PF12879,Plasmodium inui,0,0,0,True
+PF12879,Plasmodium knowlesi,143,143,143,True
+PF12879,Plasmodium malariae,4,9,4,True
+PF12879,Plasmodium ovale,12,31,12,True
+PF12879,Plasmodium ovale wallikeri,60,92,60,True
+PF12879,Plasmodium reichenowi,4,7,4,True
+PF12879,Plasmodium relictum,12,21,12,True
+PF12879,Plasmodium vinckei petteri,0,1,0,False
+PF12879,Plasmodium vivax,5,5,5,True
+PF12879,Plasmodium yoelii,0,0,0,True
+PF12887,Plasmodium berghei,0,0,0,True
+PF12887,Plasmodium brasilianum,0,0,0,True
+PF12887,Plasmodium chabaudi,0,0,0,True
+PF12887,Plasmodium coatneyi,110,112,110,True
+PF12887,Plasmodium cynomolgi,1,1,1,True
+PF12887,Plasmodium falciparum,0,0,0,True
+PF12887,Plasmodium fragile,202,208,202,True
+PF12887,Plasmodium gaboni,0,0,0,True
+PF12887,Plasmodium gallinaceum,0,0,0,True
+PF12887,Plasmodium gonderi,0,0,0,True
+PF12887,Plasmodium inui,0,0,0,True
+PF12887,Plasmodium knowlesi,129,129,129,True
+PF12887,Plasmodium malariae,0,0,0,True
+PF12887,Plasmodium ovale,0,0,0,True
+PF12887,Plasmodium ovale wallikeri,0,0,0,True
+PF12887,Plasmodium reichenowi,0,0,0,True
+PF12887,Plasmodium relictum,0,0,0,True
+PF12887,Plasmodium vinckei petteri,0,0,0,True
+PF12887,Plasmodium vivax,0,0,0,True
+PF12887,Plasmodium yoelii,0,0,0,True
+PF15445,Plasmodium berghei,0,0,0,True
+PF15445,Plasmodium brasilianum,0,0,0,True
+PF15445,Plasmodium chabaudi,0,0,0,True
+PF15445,Plasmodium coatneyi,0,0,0,True
+PF15445,Plasmodium cynomolgi,0,0,0,True
+PF15445,Plasmodium falciparum,123,124,123,True
+PF15445,Plasmodium fragile,0,0,0,True
+PF15445,Plasmodium gaboni,47,47,47,True
+PF15445,Plasmodium gallinaceum,0,0,0,True
+PF15445,Plasmodium gonderi,0,0,0,True
+PF15445,Plasmodium inui,0,0,0,True
+PF15445,Plasmodium knowlesi,0,0,0,True
+PF15445,Plasmodium malariae,0,0,0,True
+PF15445,Plasmodium ovale,0,0,0,True
+PF15445,Plasmodium ovale wallikeri,0,0,0,True
+PF15445,Plasmodium reichenowi,79,79,79,True
+PF15445,Plasmodium relictum,0,0,0,True
+PF15445,Plasmodium vinckei petteri,0,0,0,True
+PF15445,Plasmodium vivax,0,0,0,True
+PF15445,Plasmodium yoelii,0,0,0,True
+PF15447,Plasmodium berghei,0,0,0,True
+PF15447,Plasmodium brasilianum,0,0,0,True
+PF15447,Plasmodium chabaudi,0,0,0,True
+PF15447,Plasmodium coatneyi,0,0,0,True
+PF15447,Plasmodium cynomolgi,0,0,0,True
+PF15447,Plasmodium falciparum,119,119,119,True
+PF15447,Plasmodium fragile,0,0,0,True
+PF15447,Plasmodium gaboni,1,1,1,True
+PF15447,Plasmodium gallinaceum,0,0,0,True
+PF15447,Plasmodium gonderi,0,0,0,True
+PF15447,Plasmodium inui,0,0,0,True
+PF15447,Plasmodium knowlesi,0,0,0,True
+PF15447,Plasmodium malariae,0,0,0,True
+PF15447,Plasmodium ovale,0,0,0,True
+PF15447,Plasmodium ovale wallikeri,0,0,0,True
+PF15447,Plasmodium reichenowi,65,65,65,True
+PF15447,Plasmodium relictum,0,0,0,True
+PF15447,Plasmodium vinckei petteri,0,0,0,True
+PF15447,Plasmodium vivax,0,0,0,True
+PF15447,Plasmodium yoelii,0,0,0,True
+PF17410,Plasmodium berghei,0,0,0,True
+PF17410,Plasmodium brasilianum,0,0,0,True
+PF17410,Plasmodium chabaudi,0,0,0,True
+PF17410,Plasmodium coatneyi,0,0,0,True
+PF17410,Plasmodium cynomolgi,0,0,0,True
+PF17410,Plasmodium falciparum,71,186,71,True
+PF17410,Plasmodium fragile,0,0,0,True
+PF17410,Plasmodium gaboni,0,2,0,False
+PF17410,Plasmodium gallinaceum,0,0,0,True
+PF17410,Plasmodium gonderi,0,0,0,True
+PF17410,Plasmodium inui,0,0,0,True
+PF17410,Plasmodium knowlesi,0,0,0,True
+PF17410,Plasmodium malariae,0,0,0,True
+PF17410,Plasmodium ovale,0,0,0,True
+PF17410,Plasmodium ovale wallikeri,0,0,0,True
+PF17410,Plasmodium reichenowi,55,215,55,True
+PF17410,Plasmodium relictum,0,0,0,True
+PF17410,Plasmodium vinckei petteri,0,0,0,True
+PF17410,Plasmodium vivax,0,0,0,True
+PF17410,Plasmodium yoelii,0,0,0,True
+PF18515,Plasmodium berghei,12,12,12,True
+PF18515,Plasmodium brasilianum,0,0,0,True
+PF18515,Plasmodium chabaudi,8,8,8,True
+PF18515,Plasmodium coatneyi,1,1,1,True
+PF18515,Plasmodium cynomolgi,2,2,2,True
+PF18515,Plasmodium falciparum,5,5,5,True
+PF18515,Plasmodium fragile,0,0,0,True
+PF18515,Plasmodium gaboni,1,1,1,True
+PF18515,Plasmodium gallinaceum,0,0,0,True
+PF18515,Plasmodium gonderi,1,1,1,True
+PF18515,Plasmodium inui,1,1,1,True
+PF18515,Plasmodium knowlesi,0,0,0,True
+PF18515,Plasmodium malariae,0,0,0,True
+PF18515,Plasmodium ovale,3,3,3,True
+PF18515,Plasmodium ovale wallikeri,2,2,2,True
+PF18515,Plasmodium reichenowi,3,3,3,True
+PF18515,Plasmodium relictum,0,0,0,True
+PF18515,Plasmodium vinckei petteri,5,5,5,True
+PF18515,Plasmodium vivax,3,3,3,True
+PF18515,Plasmodium yoelii,29,29,29,True
+PF18562,Plasmodium berghei,0,0,0,True
+PF18562,Plasmodium brasilianum,0,0,0,True
+PF18562,Plasmodium chabaudi,0,0,0,True
+PF18562,Plasmodium coatneyi,0,0,0,True
+PF18562,Plasmodium cynomolgi,0,0,0,True
+PF18562,Plasmodium falciparum,103,103,103,True
+PF18562,Plasmodium fragile,0,0,0,True
+PF18562,Plasmodium gaboni,0,0,0,True
+PF18562,Plasmodium gallinaceum,0,0,0,True
+PF18562,Plasmodium gonderi,0,0,0,True
+PF18562,Plasmodium inui,0,0,0,True
+PF18562,Plasmodium knowlesi,0,0,0,True
+PF18562,Plasmodium malariae,0,0,0,True
+PF18562,Plasmodium ovale,0,0,0,True
+PF18562,Plasmodium ovale wallikeri,0,0,0,True
+PF18562,Plasmodium reichenowi,62,62,62,True
+PF18562,Plasmodium relictum,0,0,0,True
+PF18562,Plasmodium vinckei petteri,0,0,0,True
+PF18562,Plasmodium vivax,0,0,0,True
+PF18562,Plasmodium yoelii,0,0,0,True
+PF21807,Plasmodium berghei,0,0,0,True
+PF21807,Plasmodium brasilianum,0,0,0,True
+PF21807,Plasmodium chabaudi,0,0,0,True
+PF21807,Plasmodium coatneyi,0,0,0,True
+PF21807,Plasmodium cynomolgi,0,0,0,True
+PF21807,Plasmodium falciparum,31,31,31,True
+PF21807,Plasmodium fragile,0,0,0,True
+PF21807,Plasmodium gaboni,0,0,0,True
+PF21807,Plasmodium gallinaceum,0,0,0,True
+PF21807,Plasmodium gonderi,0,0,0,True
+PF21807,Plasmodium inui,0,0,0,True
+PF21807,Plasmodium knowlesi,0,0,0,True
+PF21807,Plasmodium malariae,0,0,0,True
+PF21807,Plasmodium ovale,0,0,0,True
+PF21807,Plasmodium ovale wallikeri,0,0,0,True
+PF21807,Plasmodium reichenowi,22,22,22,True
+PF21807,Plasmodium relictum,0,0,0,True
+PF21807,Plasmodium vinckei petteri,0,0,0,True
+PF21807,Plasmodium vivax,0,0,0,True
+PF21807,Plasmodium yoelii,0,0,0,True
+PF22672,Plasmodium berghei,0,0,0,True
+PF22672,Plasmodium brasilianum,0,0,0,True
+PF22672,Plasmodium chabaudi,0,0,0,True
+PF22672,Plasmodium coatneyi,0,0,0,True
+PF22672,Plasmodium cynomolgi,0,0,0,True
+PF22672,Plasmodium falciparum,125,126,125,True
+PF22672,Plasmodium fragile,0,0,0,True
+PF22672,Plasmodium gaboni,28,38,28,True
+PF22672,Plasmodium gallinaceum,0,0,0,True
+PF22672,Plasmodium gonderi,0,0,0,True
+PF22672,Plasmodium inui,0,0,0,True
+PF22672,Plasmodium knowlesi,0,0,0,True
+PF22672,Plasmodium malariae,0,0,0,True
+PF22672,Plasmodium ovale,0,0,0,True
+PF22672,Plasmodium ovale wallikeri,0,0,0,True
+PF22672,Plasmodium reichenowi,72,72,72,True
+PF22672,Plasmodium relictum,0,0,0,True
+PF22672,Plasmodium vinckei petteri,0,0,0,True
+PF22672,Plasmodium vivax,0,0,0,True
+PF22672,Plasmodium yoelii,0,0,0,True

@@ -1,0 +1,8 @@
+dropped_clade,n_species,n_significant,retained_from_full,new
+Laverania (ape),18,23,21,2
+Laverania (human),19,22,20,2
+avian,18,20,20,0
+primate (human),16,22,21,1
+primate (simian),14,20,20,0
+"primate (simian, zoonotic)",19,22,21,1
+rodent,16,15,15,0
