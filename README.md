@@ -1,4 +1,4 @@
-# Plasmodium Protein Domain Annotator (v1.1)
+# Plasmodium Protein Domain Annotator (v2.1 beta)
 
 A Streamlit application for HMM-based protein domain annotation across all reviewed *Plasmodium* species available in UniProt. The tool retrieves Swiss-Prot-curated protein entries, parses domain feature annotations, and provides interactive visualisations of domain occurrence and avoidance patterns at both the whole-genus and per-species level.
 
