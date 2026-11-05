@@ -243,3 +243,12 @@ HMMER3 or InterProScan, and the title and methods say so.
 - Exact environment: `environments/environment.yml`. Step-by-step reproduction with expected checksums and values: `docs/REPRODUCE.md`.
 
 AI Assistance Disclaimer: This codebase was developed with the assistance of Claude Code. While the AI provided code generation, debugging, and structural support, the human developer maintains full responsibility for reviewing, testing, and maintaining all content and functionality
+
+## Confirmation of data availability
+
+- The frozen inputs in data/frozen/ (reference-proteome snapshot, Swiss-Prot snapshot, proteome index, Pfam clan table, the 22 per-proteome files and manifest.json with SHA-256 digests; the snapshot digest a471975f...68cf4 matches docs/REPRODUCE.md);
+- SCRIPT/run_genus_pipeline.py, SCRIPT/robustness_analysis.py (clade-level test, clade jackknife, sensitivity analyses and curveball network randomisation) and SCRIPT/hmm_validation.py (direct HMMER3 scans); 
+- All accession-keyed tables in results/tables/, the figures in results/figures/ and the figure script SCRIPT/make_figures.py; and
+- environments/environment.yml, requirements.txt and docs/REPRODUCE.md with step-by-step commands. The manuscript corresponds to tagged release v2.1-beta (tag Protein_Domain_Annotation_Plasmodium, commit ca04b6bb4a4c4dddc0ea91769d5cc273bf9d4af7, 19 October 2026). The one later commit on main (03047f7764103b44975eaf2993ea23d6535a95f1) edits README.md only. The data, scripts, tests and result tables are archived on Zenodo (DOI 10.5281/zenodo.23935196). We cite this archive in Materials and Methods (Proteome selection and data retrieval) and in the Data Availability Statement as reference 26, and references 26 to 61 were renumbered 27 to 62. The Data Availability Statement was rewritten to list the files, the release tag, the commit hash and the DOI.
+<img width="468" height="270" alt="image" src="https://github.com/user-attachments/assets/7b282eb7-dbb5-4249-98b6-66a2fd68dcf3" />
+
